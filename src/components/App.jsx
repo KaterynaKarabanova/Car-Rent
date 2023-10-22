@@ -4,7 +4,7 @@ import Home from 'pages/Home';
 import Catalog from 'pages/Catalog';
 import Favorites from 'pages/Favorites';
 import { Layout } from './Layout/Layout';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { fetchTasks } from 'redux/operations';
 
 // const value = useSelector(state => state.some.value);
