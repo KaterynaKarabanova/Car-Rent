@@ -1,1 +1,2 @@
 export const getCars = state => state.cars.items;
+export const getFav = state => state.cars.favourite;

@@ -6,6 +6,20 @@ const carsSlice = createSlice({
     items: [],
     isLoading: false,
     error: null,
+    favourite: [],
+  },
+  reducers: {
+    addCarFav: {
+      reducer(state, action) {
+        state.favourite.push(action.payload);
+      },
+    },
+    deleteCarFav: {
+      reducer(state, action) {
+        const index = state.favourite.indexOf(action.payload);
+        state.favourite.splice(index, 1);
+      },
+    },
   },
   extraReducers: {
     [fetchTasks.pending](state) {
@@ -23,3 +37,4 @@ const carsSlice = createSlice({
   },
 });
 export const carsReducer = carsSlice.reducer;
+export const { addCarFav, deleteCarFav } = carsSlice.actions;
