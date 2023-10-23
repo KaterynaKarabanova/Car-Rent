@@ -1,5 +1,5 @@
 import { StyledBack } from 'pages/Catalog/Catalog.styled';
-import { NavLink } from 'react-router-dom';
+
 import { StyledNsvLink } from './Layout.styled';
 
 export const NavBar = () => {
