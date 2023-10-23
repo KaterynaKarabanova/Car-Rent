@@ -71,13 +71,22 @@ const Catalog = () => {
               if (id > currentPage) {
                 return '';
               }
+
               return (
                 <StyledItem key={id} id={id}>
                   <StyledImg
-                    src={img || photoLink}
+                    src={
+                      img ||
+                      photoLink ||
+                      'https://img.freepik.com/free-vector/abstract-grunge-style-coming-soon-with-black-splatter_1017-26690.jpg?q=10&h=200'
+                    }
                     alt={make + model}
                     width={200}
                     height={200}
+                    onError={e => {
+                      e.target.src =
+                        'https://img.freepik.com/free-vector/abstract-grunge-style-coming-soon-with-black-splatter_1017-26690.jpg?q=10&h=200';
+                    }}
                   />
 
                   <StyledText>

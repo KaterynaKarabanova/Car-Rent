@@ -13,7 +13,9 @@ import {
   StyledSvg,
   StyledText,
   StyledSpan,
+  StyledBack,
 } from './Catalog/Catalog.styled';
+
 const Favorites = () => {
   const cars = useSelector(getCars);
   const favourite = useSelector(getFav);
@@ -38,7 +40,7 @@ const Favorites = () => {
     dispatch(deleteCarFav(elId));
   };
   return (
-    <div>
+    <StyledBack>
       <div>
         <StyledList>
           {getFavCars().map(
@@ -65,13 +67,17 @@ const Favorites = () => {
                 <StyledItem key={id} id={id}>
                   <StyledImg
                     src={
-                      img || photoLink
-                        ? img || photoLink
-                        : 'https://img.freepik.com/free-vector/abstract-grunge-style-coming-soon-with-black-splatter_1017-26690.jpg?q=10&h=200'
+                      img ||
+                      photoLink ||
+                      'https://img.freepik.com/free-vector/abstract-grunge-style-coming-soon-with-black-splatter_1017-26690.jpg?q=10&h=200'
                     }
                     alt={make + model}
                     width={200}
                     height={200}
+                    onError={e => {
+                      e.target.src =
+                        'https://img.freepik.com/free-vector/abstract-grunge-style-coming-soon-with-black-splatter_1017-26690.jpg?q=10&h=200';
+                    }}
                   />
 
                   <StyledText>
@@ -130,7 +136,7 @@ const Favorites = () => {
           element={getCurrentEl()}
         />
       )}
-    </div>
+    </StyledBack>
   );
 };
 export default Favorites;

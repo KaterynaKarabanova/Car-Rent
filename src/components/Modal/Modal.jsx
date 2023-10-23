@@ -1,7 +1,15 @@
 import { useEffect } from 'react';
-import { StyledBack, StyledDiv, StyleSvg } from './Modal.styled';
 import {
-  StyledBtn,
+  StyledBack,
+  StyledDiv,
+  StyledRentalDiv,
+  StyledTitle,
+  StyleRentalP,
+  StyleRentalSpan,
+  StyleSvg,
+  StyledLink,
+} from './Modal.styled';
+import {
   StyledInfoDiv,
   StyledInfoText,
   StyledSpan,
@@ -71,6 +79,10 @@ const Modal = ({ element, showModal, setShowModal }) => {
               ? element.img || element.photoLink
               : 'https://img.freepik.com/free-vector/abstract-grunge-style-coming-soon-with-black-splatter_1017-26690.jpg?q=10&h=200'
           }
+          onError={e => {
+            e.target.src =
+              'https://img.freepik.com/free-vector/abstract-grunge-style-coming-soon-with-black-splatter_1017-26690.jpg?q=10&h=200';
+          }}
           alt={element.make + element.model}
           width={469}
           height={280}
@@ -102,22 +114,30 @@ const Modal = ({ element, showModal, setShowModal }) => {
           </StyledInfoText>
           <StyledInfoText> Engine Size: {element.engineSize}</StyledInfoText>
         </div>
-        <StyledInfoDiv>{element.description}</StyledInfoDiv>
+        <StyledInfoDiv
+          style={{
+            margin: '14px 0 8px 0 ',
+            fontSize: '14px',
+          }}
+        >
+          {element.description}
+        </StyledInfoDiv>
         <div
           style={{
             display: 'flex',
-
+            marginBottom: '20px',
             flexWrap: 'wrap',
           }}
         >
-          <p
+          <StyledTitle
             style={{
               width: '100%',
-              margin: '0',
+              margin: '0 0 8px 0 ',
+              padding: '0',
             }}
           >
             Accessories and functionalities:
-          </p>
+          </StyledTitle>
 
           {element.accessories.map(el => (
             <StyledInfoText>{el}</StyledInfoText>
@@ -133,18 +153,29 @@ const Modal = ({ element, showModal, setShowModal }) => {
             flexWrap: 'wrap',
           }}
         >
-          <p
+          <StyledTitle
             style={{
               width: '100%',
               margin: '0',
             }}
           >
             Rental Conditions:
-          </p>
-
-          <p>{element.rentalConditions}</p>
+          </StyledTitle>
+          <StyledRentalDiv>
+            {element.rentalConditions.split('\n').map(el =>
+              el.includes(':') ? (
+                <StyleRentalP>
+                  {el.split(':')[0]}
+                  <StyleRentalSpan>:{el.split(':')[1]}</StyleRentalSpan>
+                </StyleRentalP>
+              ) : (
+                <StyleRentalP>{el}</StyleRentalP>
+              )
+            )}
+          </StyledRentalDiv>
         </div>
-        <StyledBtn>Rental car</StyledBtn>
+
+        <StyledLink href="tel:+380730000000">Rental Car</StyledLink>
       </StyledDiv>
     </StyledBack>
   );

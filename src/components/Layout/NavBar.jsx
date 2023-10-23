@@ -1,19 +1,25 @@
+import { StyledBack } from 'pages/Catalog/Catalog.styled';
 import { NavLink } from 'react-router-dom';
+import { StyledNsvLink } from './Layout.styled';
 
 export const NavBar = () => {
   return (
-    <nav>
-      <NavLink key={'/'} to={'/'}>
+    <StyledBack
+      style={{
+        padding: '20px 10px',
+      }}
+    >
+      <StyledNsvLink key={'/'} to={'/'}>
         Home
-      </NavLink>
+      </StyledNsvLink>
 
-      <NavLink key={'/catalog'} to={'/catalog'}>
+      <StyledNsvLink key={'/catalog'} to={'/catalog'}>
         Catalog
-      </NavLink>
+      </StyledNsvLink>
 
-      <NavLink key={'/favorites'} to={'/favorites'}>
+      <StyledNsvLink key={'/favorites'} to={'/favorites'}>
         Favorites
-      </NavLink>
-    </nav>
+      </StyledNsvLink>
+    </StyledBack>
   );
 };

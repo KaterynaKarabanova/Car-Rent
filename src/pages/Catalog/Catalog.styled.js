@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 export const StyledBack = styled.div`
   margin: 0 auto;
-  width: 90vw;
+  width: 1280px;
 `;
 export const StyledList = styled.ul`
   display: grid;
@@ -9,7 +9,7 @@ export const StyledList = styled.ul`
   list-style: none;
   padding: 20px;
   column-gap: 10px;
-  row-gap: 15px;
+  row-gap: 50px;
 `;
 export const StyledItem = styled.li`
   width: 274px;
@@ -57,7 +57,7 @@ export const StyledInfoDiv = styled.div`
     box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
   }
   &::-webkit-scrollbar {
-    width: 0.3em;
+    width: 0em;
   }
 `;
 export const StyledInfoText = styled.p`
