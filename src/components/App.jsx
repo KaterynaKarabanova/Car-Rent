@@ -1,7 +1,7 @@
 import { Routes, Route } from 'react-router-dom';
 import { useEffect } from 'react';
 import Home from 'pages/Home';
-import Catalog from 'pages/Catalog';
+import Catalog from 'pages/Catalog/Catalog';
 import Favorites from 'pages/Favorites';
 import { Layout } from './Layout/Layout';
 import { useDispatch } from 'react-redux';

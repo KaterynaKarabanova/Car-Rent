@@ -1,0 +1,8 @@
+.active {
+  stroke: rgb(255, 255, 255);
+  fill: transparent;
+}
+.disabled {
+  stroke: rgb(255, 255, 255);
+  fill: rgb(255, 255, 255);
+}
