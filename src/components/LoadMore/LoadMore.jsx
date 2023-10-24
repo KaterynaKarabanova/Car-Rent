@@ -9,7 +9,7 @@ const LoadMore = ({ setCurrentPage }) => {
         margin: '0 auto',
         display: 'block',
       }}
-      onClick={() => setCurrentPage(prev => prev + 8)}
+      onClick={() => setCurrentPage(prev => prev + 12)}
     >
       Load More
     </StyledBtn>

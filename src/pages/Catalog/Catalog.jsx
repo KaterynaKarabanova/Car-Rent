@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getCars, getFav } from 'redux/selectors';
 import styles from './Catalog.module.css';
 import { addCarFav, deleteCarFav } from 'redux/CarSlice';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import {
   StyledList,
   StyledItem,
@@ -17,14 +17,61 @@ import {
 } from './Catalog.styled';
 import Modal from 'components/Modal/Modal';
 import LoadMore from '../../components/LoadMore/LoadMore';
+import Select from 'react-select';
 const Catalog = () => {
   const cars = useSelector(getCars);
+  const [actualCars, setActualCars] = useState(cars);
   const favourite = useSelector(getFav);
   const dispatch = useDispatch();
-  const [currentPage, setCurrentPage] = useState(8);
+  const [currentPage, setCurrentPage] = useState(12);
   const [showModal, setShowModal] = useState(false);
   const [currentEl, setCurrentEl] = useState('');
+  const [currentModel, setCurrentModel] = useState({
+    value: 'All marks',
+    label: 'All marks',
+  });
+  useEffect(() => {
+    if (currentModel.value === 'All marks') {
+      // If 'All marks' is selected, no need to filter, so use the original 'cars' array
+      console.log(currentModel);
+      setActualCars(cars);
+    } else {
+      // Filter the cars based on the selected 'currentModel'
 
+      const newCars = cars.filter(el => el.make === currentModel.value);
+      setActualCars(newCars);
+    }
+  }, [currentModel, cars]);
+  const optionsModel = [
+    'Buick',
+    'Volvo',
+    'HUMMER',
+    'Subaru',
+    'Mitsubishi',
+    'Nissan',
+    'Lincoln',
+    'GMC',
+    'Hyundai',
+    'MINI',
+    'Bentley',
+    'Mercedes-Benz',
+    'Aston Martin',
+    'Pontiac',
+    'Lamborghini',
+    'Audi',
+    'BMW',
+    'Chevrolet',
+    'Mercedes-Benz',
+    'Chrysler',
+    'Kia',
+  ].map(el => ({
+    value: el,
+    label: el,
+  }));
+  optionsModel.unshift({ value: 'All marks', label: 'All marks' });
+  const onModelChange = model => {
+    setCurrentModel(model);
+  };
   const onHeartClick = e => {
     const elId = e.target.closest('li').id;
     if (!e.target.closest('li>svg').classList.contains(`${styles.disabled}`)) {
@@ -47,28 +94,51 @@ const Catalog = () => {
   return (
     <StyledBack>
       <div style={showModal ? { pointerEvents: 'none' } : {}}>
+        <div
+          style={{
+            display: 'flex',
+          }}
+        >
+          <Select
+            // styles={styles}
+            value={currentModel}
+            onChange={value => onModelChange(value)}
+            options={optionsModel}
+            placeholder={currentModel}
+          />
+          <Select
+            // styles={styles}
+            value={currentModel}
+            onChange={value => onModelChange(value)}
+            options={optionsModel}
+            placeholder={currentModel}
+          />
+        </div>
         <StyledList>
-          {cars.map(
-            ({
-              id,
-              year,
-              make,
-              model,
-              type,
-              img,
-              description,
-              fuelConsumption,
-              engineSize,
-              accessories,
-              functionalities,
-              rentalPrice,
-              rentalCompany,
-              address,
-              rentalConditions,
-              mileage,
-              photoLink,
-            }) => {
-              if (id > currentPage) {
+          {actualCars.map(
+            (
+              {
+                id,
+                year,
+                make,
+                model,
+                type,
+                img,
+                description,
+                fuelConsumption,
+                engineSize,
+                accessories,
+                functionalities,
+                rentalPrice,
+                rentalCompany,
+                address,
+                rentalConditions,
+                mileage,
+                photoLink,
+              },
+              index
+            ) => {
+              if (index + 1 > currentPage) {
                 return '';
               }
 
@@ -134,7 +204,7 @@ const Catalog = () => {
             }
           )}
         </StyledList>
-        {cars.length > currentPage && (
+        {actualCars.length > currentPage && (
           <LoadMore setCurrentPage={setCurrentPage} />
         )}
       </div>
