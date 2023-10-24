@@ -39,7 +39,7 @@ const Home = () => {
         <Swiper
           {...swiperParams}
           style={{
-            padding: '13% 0  ',
+            padding: '9% 0  ',
           }}
         >
           <SwiperSlide>
@@ -58,7 +58,7 @@ const Home = () => {
             <img
               src="https://pngimg.com/d/porsche_PNG10611.png"
               alt="hhh"
-              style={{ width: '550px' }}
+              style={{ width: '550px', marginLeft: '50px' }}
             />
             <StyledSwipeModel>Porsche Cayenne</StyledSwipeModel>
           </SwiperSlide>
@@ -68,8 +68,8 @@ const Home = () => {
               src="https://images.iconfigurators.app/images/vehicles/reference/Bentley-Azure-Mark-II-2006_2010.png"
               alt="hhh"
               style={{
-                width: '600px',
-                height: '350px',
+                width: '700px',
+                marginTop: '30px',
               }}
             />
             <StyledSwipeModel>Bentley Azure</StyledSwipeModel>

@@ -4,7 +4,7 @@ export const StyledDiv = styled.div`
   padding-top: 100px;
   border-left: 2px solid black;
 
-  padding-left: 20px;
+  padding-left: 50px;
 `;
 
 export const StyledTitle = styled.h2`
@@ -87,6 +87,6 @@ export const StyledSwipeModel = styled.p`
   font-weight: 400;
   color: white;
   position: absolute;
-  right: 40%;
-  bottom: -20px;
+  right: 400px;
+  top: 400px;
 `;

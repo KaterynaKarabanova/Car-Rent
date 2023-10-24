@@ -14,13 +14,20 @@ import {
   StyledSvg,
   StyledText,
   StyledSpan,
+  StyledInput,
+  StyledPlaceH,
 } from './Catalog.styled';
 import Modal from 'components/Modal/Modal';
 import LoadMore from '../../components/LoadMore/LoadMore';
 import Select from 'react-select';
+import { optionsModel, optionsPrice } from './helpers';
 const Catalog = () => {
   const cars = useSelector(getCars);
   const [actualCars, setActualCars] = useState(cars);
+  const [currentPrice, setCurrentPrice] = useState({
+    value: 10000,
+    label: 'All price',
+  });
   const favourite = useSelector(getFav);
   const dispatch = useDispatch();
   const [currentPage, setCurrentPage] = useState(12);
@@ -31,46 +38,25 @@ const Catalog = () => {
     label: 'All marks',
   });
   useEffect(() => {
-    if (currentModel.value === 'All marks') {
-      // If 'All marks' is selected, no need to filter, so use the original 'cars' array
-      console.log(currentModel);
-      setActualCars(cars);
-    } else {
-      // Filter the cars based on the selected 'currentModel'
-
-      const newCars = cars.filter(el => el.make === currentModel.value);
-      setActualCars(newCars);
+    let filteredCars = cars;
+    if (currentModel.value !== 'All marks') {
+      filteredCars = filteredCars.filter(el => el.make === currentModel.value);
     }
-  }, [currentModel, cars]);
-  const optionsModel = [
-    'Buick',
-    'Volvo',
-    'HUMMER',
-    'Subaru',
-    'Mitsubishi',
-    'Nissan',
-    'Lincoln',
-    'GMC',
-    'Hyundai',
-    'MINI',
-    'Bentley',
-    'Mercedes-Benz',
-    'Aston Martin',
-    'Pontiac',
-    'Lamborghini',
-    'Audi',
-    'BMW',
-    'Chevrolet',
-    'Mercedes-Benz',
-    'Chrysler',
-    'Kia',
-  ].map(el => ({
-    value: el,
-    label: el,
-  }));
-  optionsModel.unshift({ value: 'All marks', label: 'All marks' });
+    if (currentPrice.label !== 'All price') {
+      filteredCars = filteredCars.filter(
+        el =>
+          Number(el.rentalPrice.split('').slice(1).join('')) <=
+          currentPrice.value
+      );
+    }
+    setActualCars(filteredCars);
+  }, [currentModel, currentPrice, cars]);
+
   const onModelChange = model => {
     setCurrentModel(model);
+  };
+  const onPriceChange = price => {
+    setCurrentPrice(price);
   };
   const onHeartClick = e => {
     const elId = e.target.closest('li').id;
@@ -100,19 +86,62 @@ const Catalog = () => {
           }}
         >
           <Select
-            // styles={styles}
             value={currentModel}
             onChange={value => onModelChange(value)}
             options={optionsModel}
             placeholder={currentModel}
           />
           <Select
-            // styles={styles}
-            value={currentModel}
-            onChange={value => onModelChange(value)}
-            options={optionsModel}
-            placeholder={currentModel}
+            styles={{
+              control: (baseStyles, state) => ({
+                ...baseStyles,
+                minWidth: 130,
+                maxWidth: 130,
+              }),
+            }}
+            value={currentPrice}
+            onChange={value => onPriceChange(value)}
+            options={optionsPrice}
+            placeholder={currentPrice}
           />
+          <div
+            style={{
+              position: 'relative',
+              width: '600px',
+              display: 'flex',
+            }}
+          >
+            <StyledInput
+              style={{
+                borderRight: '1px solid rgba(138, 138, 137, 0.2)',
+                borderRadius: '14px 0px 0px 14px',
+              }}
+              type="number"
+            />
+            <StyledPlaceH>From</StyledPlaceH>
+            <StyledInput
+              style={{
+                borderLeft: '1px solid rgba(138, 138, 137, 0.2)',
+                borderRadius: ' 0px 14px 14px 0px ',
+              }}
+              type="number"
+            />
+            <StyledPlaceH
+              style={{
+                left: '190px',
+              }}
+            >
+              To
+            </StyledPlaceH>
+            <StyledBtn
+              style={{
+                maxWidth: '90px',
+                height: '48px',
+              }}
+            >
+              Submit
+            </StyledBtn>
+          </div>
         </div>
         <StyledList>
           {actualCars.map(

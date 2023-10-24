@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 export const StyledBack = styled.div`
   margin: 0 auto;
-  width: 1280px;
+  width: 1480px;
 `;
 export const StyledList = styled.ul`
   display: grid;
@@ -95,4 +95,24 @@ export const StyledText = styled.p`
 export const StyledSpan = styled.span`
   color: #3470ff;
   margin: 0 3px;
+`;
+export const StyledInput = styled.input`
+  max-width: 80px;
+  height: 20px;
+  padding: 14px 10px 14px 74px;
+  outline: none;
+  border-color: transparent;
+  position: relative;
+  background: #f7f7fb;
+  font-size: 16px;
+`;
+export const StyledPlaceH = styled.p`
+  position: absolute;
+  top: -3px;
+  left: 24px;
+  color: #121417;
+
+  font-size: 18px;
+
+  font-weight: 500;
 `;
