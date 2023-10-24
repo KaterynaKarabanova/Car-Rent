@@ -4,8 +4,8 @@ export const StyledBack = styled.div`
   position: fixed;
   top: 0;
   left: 0;
-  height: 100vh;
-  width: 100vw;
+  height: 100%;
+  width: 100%;
   background-color: rgba(18, 20, 23, 0.5);
 `;
 export const StyledDiv = styled.div`
@@ -13,8 +13,10 @@ export const StyledDiv = styled.div`
   background: #fff;
   width: 469px;
   padding: 37px;
+  height: 670px;
   position: relative;
   margin: auto;
+  margin-top: calc((100vh - 670px - 70px) / 2);
 `;
 export const StyleSvg = styled.svg`
   position: absolute;

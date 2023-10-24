@@ -1,6 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
 import { useEffect } from 'react';
-import Home from 'pages/Home';
+import Home from 'pages/Home/Home';
 import Catalog from 'pages/Catalog/Catalog';
 import Favorites from 'pages/Favorites';
 import { Layout } from './Layout/Layout';
