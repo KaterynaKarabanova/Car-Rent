@@ -5,13 +5,21 @@ import Catalog from 'pages/Catalog/Catalog';
 import Favorites from 'pages/Favorites';
 import { Layout } from './Layout/Layout';
 import { useDispatch } from 'react-redux';
-import { fetchTasks } from 'redux/operations';
+import { fetchTasks, fetchTasksPerPage } from 'redux/operations';
+import { useState } from 'react';
 
 // const value = useSelector(state => state.some.value);
 
 export const App = () => {
   const dispatch = useDispatch();
-
+  const [isInitialRender, setIsInitialRender] = useState(true);
+  useEffect(() => {
+    if (isInitialRender) {
+      setIsInitialRender(false);
+      return;
+    }
+    dispatch(fetchTasksPerPage(1));
+  }, [dispatch, isInitialRender]);
   useEffect(() => {
     dispatch(fetchTasks());
   }, [dispatch]);

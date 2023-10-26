@@ -18,3 +18,18 @@ export const fetchTasks = createAsyncThunk(
     }
   }
 );
+
+export const fetchTasksPerPage = createAsyncThunk(
+  'cars/fetchPag',
+
+  async (currentPage, thunkAPI) => {
+    // Accept currentPage as an argument
+    try {
+      const response = await axios.get(`/cars?page=${currentPage}&limit=12`); // Use currentPage in the URL
+
+      return response.data;
+    } catch (e) {
+      return thunkAPI.rejectWithValue(e.message);
+    }
+  }
+);

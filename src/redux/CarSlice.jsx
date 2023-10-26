@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { fetchTasks } from './operations';
+import { fetchTasks, fetchTasksPerPage } from './operations';
 const carsSlice = createSlice({
   name: 'cars',
   initialState: {
@@ -7,6 +7,7 @@ const carsSlice = createSlice({
     isLoading: false,
     error: null,
     favourite: [],
+    currentCars: [],
   },
   reducers: {
     addCarFav: {
@@ -31,6 +32,19 @@ const carsSlice = createSlice({
       state.items = action.payload;
     },
     [fetchTasks.rejected](state, action) {
+      state.isLoading = false;
+      state.error = action.payload;
+    },
+    [fetchTasksPerPage.pending](state) {
+      state.isLoading = true;
+    },
+    [fetchTasksPerPage.fulfilled](state, action) {
+      state.isLoading = false;
+      state.error = null;
+
+      state.currentCars.push(...action.payload);
+    },
+    [fetchTasksPerPage.rejected](state, action) {
       state.isLoading = false;
       state.error = action.payload;
     },

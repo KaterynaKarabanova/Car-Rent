@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { getCars, getFav } from 'redux/selectors';
+import { getCars, getCurrent, getFav } from 'redux/selectors';
 import styles from './Catalog.module.css';
 import { addCarFav, deleteCarFav } from 'redux/CarSlice';
 import { useEffect, useState } from 'react';
@@ -27,12 +27,13 @@ import { optionsModel, optionsPrice } from './helpers';
 
 const Catalog = () => {
   const cars = useSelector(getCars);
-  const [actualCars, setActualCars] = useState(cars);
+  const currentCars = useSelector(getCurrent);
+  const [actualCars, setActualCars] = useState(currentCars);
   const [currentPrice, setCurrentPrice] = useState({
     value: 10000,
     label: 'All price',
   });
-  const [currentPage, setCurrentPage] = useState(12);
+  const [currentPage, setCurrentPage] = useState(2);
   const [showModal, setShowModal] = useState(false);
   const [currentEl, setCurrentEl] = useState('');
   const [currentModel, setCurrentModel] = useState({
@@ -44,6 +45,7 @@ const Catalog = () => {
   const dispatch = useDispatch();
   const favourite = useSelector(getFav);
 
+  console.log(actualCars);
   useEffect(() => {
     let filteredCars = cars;
     if (currentModel.value !== 'All marks') {
@@ -62,9 +64,15 @@ const Catalog = () => {
           Number(fromMiles) < mileage && mileage < Number(toMiles)
       );
     }
-    setActualCars(filteredCars);
+    if (filteredCars.length === cars.length) {
+      setActualCars(currentCars);
+      setCurrentPage(Math.max(currentCars.length / 12) + 1);
+    } else {
+      setActualCars(filteredCars);
+    }
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [currentModel, currentPrice, cars]);
+  }, [currentModel, currentPrice, cars, currentCars]);
 
   const onModelChange = model => {
     setCurrentModel(model);
@@ -208,9 +216,9 @@ const Catalog = () => {
               },
               index
             ) => {
-              if (index + 1 > currentPage) {
-                return '';
-              }
+              // if (index + 1 > currentPage) {
+              //   return '';
+              // }
 
               return (
                 <StyledItem key={id} id={id}>
@@ -274,9 +282,9 @@ const Catalog = () => {
             }
           )}
         </StyledList>
-        {actualCars.length > currentPage && (
-          <LoadMore setCurrentPage={setCurrentPage} />
-        )}
+        {Math.floor(actualCars.length / 12) >= currentPage - 1 ? (
+          <LoadMore setCurrentPage={setCurrentPage} currentPage={currentPage} />
+        ) : null}
       </div>
       {showModal && (
         <Modal
