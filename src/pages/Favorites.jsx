@@ -19,26 +19,32 @@ import {
 const Favorites = () => {
   const cars = useSelector(getCars);
   const favourite = useSelector(getFav);
+  const dispatch = useDispatch();
+
   const [showModal, setShowModal] = useState(false);
   const [currentEl, setCurrentEl] = useState('');
+
   const getCurrentEl = () => {
     return cars.find(({ id }) => id === currentEl);
   };
+
   const onLearnMoreClick = e => {
     setShowModal(true);
     document.body.style.overflow = 'hidden';
     setCurrentEl(e.target.closest('li').id);
   };
+
   const getFavCars = () => {
     return cars.filter(({ id }) => {
       return favourite.includes(id);
     });
   };
-  const dispatch = useDispatch();
+
   const onDeleteClick = e => {
     const elId = e.target.closest('li').id;
     dispatch(deleteCarFav(elId));
   };
+
   return (
     <StyledBack>
       <div>

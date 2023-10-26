@@ -31,6 +31,6 @@ export const optionsPrice = [
   190, 200, 210, 220, 230, 240, 250, 260, 270, 280, 290, 300, 310, 320,
 ].map(el => ({
   value: el,
-  label: el,
+  label: `$${el}`,
 }));
 optionsPrice.unshift({ value: 10000, label: 'All price' });

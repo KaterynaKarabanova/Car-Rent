@@ -97,22 +97,122 @@ export const StyledSpan = styled.span`
   margin: 0 3px;
 `;
 export const StyledInput = styled.input`
-  max-width: 80px;
-  height: 20px;
-  padding: 14px 10px 14px 74px;
+  max-width: 74px;
+  height: 15px;
+  padding: 16px 10px 14px 74px;
   outline: none;
   border-color: transparent;
   position: relative;
   background: #f7f7fb;
-  font-size: 16px;
+  color: #121417;
+
+  font-size: 18px;
+
+  font-weight: 500;
+  line-height: 20px;
 `;
 export const StyledPlaceH = styled.p`
   position: absolute;
   top: -3px;
   left: 24px;
   color: #121417;
-
   font-size: 18px;
-
   font-weight: 500;
+  line-height: 20px;
 `;
+
+export const StyledSearchText = styled.p`
+  color: rgba(18, 20, 23, 0.5);
+
+  padding: 0;
+  margin: 0 0 8px 0;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 18px;
+`;
+
+export const Styles = {
+  control: (baseStyles, state) => ({
+    ...baseStyles,
+    minWidth: 224,
+    maxWidth: 224,
+    minHeight: 48,
+    borderRadius: '14px',
+    background: ' #F7F7FB ',
+    // '@media only screen and (min-width:768px)': {
+    //   ...styles['@media only screen and (min-width: 768px)'],
+    //   minWidth: 160,
+    //   maxWidth: 160,
+    // },
+    // '@media only screen and (min-width:1280px)': {
+    //   ...styles['@media only screen and (min-width: 1280px)'],
+    //   minWidth: 181,
+    //   maxWidth: 181,
+    // },
+  }),
+  option: (styles, state) => ({
+    ...styles,
+    backgroundColor: 'white',
+    color: state.isSelected ? '#121417' : 'rgba(18, 20, 23, 0.20)',
+    ':hover': {
+      background: 'DDE7FF',
+      color: '#121417',
+    },
+  }),
+
+  menuList: base => ({
+    ...base,
+
+    '::-webkit-scrollbar': {
+      width: '4px',
+      height: '0px',
+    },
+    '::-webkit-scrollbar-track': {
+      background: '#88b5f9',
+    },
+    '::-webkit-scrollbar-thumb': {
+      background: '#4751e7',
+    },
+    '::-webkit-scrollbar-thumb:hover': {
+      background: '#0a0a65',
+    },
+  }),
+};
+
+export const StylesPrice = {
+  control: (baseStyles, state) => ({
+    ...baseStyles,
+    minWidth: 130,
+    maxWidth: 130,
+    minHeight: 48,
+    borderRadius: '14px',
+    background: ' #F7F7FB ',
+  }),
+  option: (styles, state) => ({
+    ...styles,
+    backgroundColor: 'white',
+    color: state.isSelected ? '#121417' : 'rgba(18, 20, 23, 0.20)',
+    ':hover': {
+      background: 'DDE7FF',
+      color: '#121417',
+    },
+  }),
+  menuList: base => ({
+    ...base,
+
+    '::-webkit-scrollbar': {
+      width: '4px',
+      height: '0px',
+    },
+    '::-webkit-scrollbar-track': {
+      background: '#88b5f9',
+    },
+    '::-webkit-scrollbar-thumb': {
+      background: '#4751e7',
+    },
+    '::-webkit-scrollbar-thumb:hover': {
+      background: '#0a0a65',
+    },
+  }),
+};

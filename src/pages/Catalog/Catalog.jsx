@@ -16,11 +16,15 @@ import {
   StyledSpan,
   StyledInput,
   StyledPlaceH,
+  Styles,
+  StylesPrice,
+  StyledSearchText,
 } from './Catalog.styled';
 import Modal from 'components/Modal/Modal';
 import LoadMore from '../../components/LoadMore/LoadMore';
 import Select from 'react-select';
 import { optionsModel, optionsPrice } from './helpers';
+
 const Catalog = () => {
   const cars = useSelector(getCars);
   const [actualCars, setActualCars] = useState(cars);
@@ -28,8 +32,6 @@ const Catalog = () => {
     value: 10000,
     label: 'All price',
   });
-  const favourite = useSelector(getFav);
-  const dispatch = useDispatch();
   const [currentPage, setCurrentPage] = useState(12);
   const [showModal, setShowModal] = useState(false);
   const [currentEl, setCurrentEl] = useState('');
@@ -37,6 +39,11 @@ const Catalog = () => {
     value: 'All marks',
     label: 'All marks',
   });
+  const [fromMiles, setFromMiles] = useState(0);
+  const [toMiles, setToMiles] = useState(0);
+  const dispatch = useDispatch();
+  const favourite = useSelector(getFav);
+
   useEffect(() => {
     let filteredCars = cars;
     if (currentModel.value !== 'All marks') {
@@ -49,15 +56,24 @@ const Catalog = () => {
           currentPrice.value
       );
     }
+    if (fromMiles !== 0 || toMiles !== 0) {
+      filteredCars = filteredCars.filter(
+        ({ mileage }) =>
+          Number(fromMiles) < mileage && mileage < Number(toMiles)
+      );
+    }
     setActualCars(filteredCars);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentModel, currentPrice, cars]);
 
   const onModelChange = model => {
     setCurrentModel(model);
   };
+
   const onPriceChange = price => {
     setCurrentPrice(price);
   };
+
   const onHeartClick = e => {
     const elId = e.target.closest('li').id;
     if (!e.target.closest('li>svg').classList.contains(`${styles.disabled}`)) {
@@ -66,82 +82,107 @@ const Catalog = () => {
       dispatch(deleteCarFav(elId));
     }
   };
+
   const isFav = id => {
     return favourite.includes(id);
   };
+
   const onLearnMoreClick = e => {
     setShowModal(true);
     document.body.style.overflow = 'hidden';
     setCurrentEl(e.target.closest('li').id);
   };
+
   const getCurrentEl = () => {
     return cars.find(({ id }) => id === currentEl);
   };
+
+  const onSubmit = () => {
+    const filteredCars = actualCars.filter(
+      ({ mileage }) =>
+        // console.log(Number(fromMiles) < mileage && mileage < Number(toMiles));
+        Number(fromMiles) < mileage && mileage < Number(toMiles)
+    );
+
+    setActualCars(filteredCars);
+  };
+
   return (
     <StyledBack>
       <div style={showModal ? { pointerEvents: 'none' } : {}}>
         <div
           style={{
             display: 'flex',
+            gap: '18px',
+            justifyContent: 'center',
+            alignItems: 'end',
+            margin: '50px 0',
           }}
         >
-          <Select
-            value={currentModel}
-            onChange={value => onModelChange(value)}
-            options={optionsModel}
-            placeholder={currentModel}
-          />
-          <Select
-            styles={{
-              control: (baseStyles, state) => ({
-                ...baseStyles,
-                minWidth: 130,
-                maxWidth: 130,
-              }),
-            }}
-            value={currentPrice}
-            onChange={value => onPriceChange(value)}
-            options={optionsPrice}
-            placeholder={currentPrice}
-          />
-          <div
-            style={{
-              position: 'relative',
-              width: '600px',
-              display: 'flex',
-            }}
-          >
-            <StyledInput
-              style={{
-                borderRight: '1px solid rgba(138, 138, 137, 0.2)',
-                borderRadius: '14px 0px 0px 14px',
-              }}
-              type="number"
+          <div>
+            <StyledSearchText>Car brand</StyledSearchText>
+            <Select
+              styles={Styles}
+              value={currentModel}
+              onChange={value => onModelChange(value)}
+              options={optionsModel}
+              placeholder={currentModel}
             />
-            <StyledPlaceH>From</StyledPlaceH>
-            <StyledInput
-              style={{
-                borderLeft: '1px solid rgba(138, 138, 137, 0.2)',
-                borderRadius: ' 0px 14px 14px 0px ',
-              }}
-              type="number"
-            />
-            <StyledPlaceH
-              style={{
-                left: '190px',
-              }}
-            >
-              To
-            </StyledPlaceH>
-            <StyledBtn
-              style={{
-                maxWidth: '90px',
-                height: '48px',
-              }}
-            >
-              Submit
-            </StyledBtn>
           </div>
+          <div>
+            <StyledSearchText>Price/ 1 hour</StyledSearchText>
+            <Select
+              styles={StylesPrice}
+              value={currentPrice}
+              onChange={value => onPriceChange(value)}
+              options={optionsPrice}
+              placeholder={currentPrice}
+            />
+          </div>
+          <div>
+            <StyledSearchText>Сar mileage / km</StyledSearchText>
+            <div
+              style={{
+                position: 'relative',
+                maxWidth: '320px',
+                display: 'flex',
+              }}
+            >
+              <StyledInput
+                style={{
+                  borderRight: '1px solid rgba(138, 138, 137, 0.2)',
+                  borderRadius: '14px 0px 0px 14px',
+                }}
+                type="number"
+                onChange={e => setFromMiles(e.target.value)}
+              />
+              <StyledPlaceH>From</StyledPlaceH>
+              <StyledInput
+                style={{
+                  borderLeft: '1px solid rgba(138, 138, 137, 0.2)',
+                  borderRadius: ' 0px 14px 14px 0px ',
+                }}
+                type="number"
+                onChange={e => setToMiles(e.target.value)}
+              />
+              <StyledPlaceH
+                style={{
+                  left: '190px',
+                }}
+              >
+                To
+              </StyledPlaceH>
+            </div>
+          </div>
+          <StyledBtn
+            style={{
+              maxWidth: '90px',
+              height: '48px',
+            }}
+            onClick={() => onSubmit()}
+          >
+            Submit
+          </StyledBtn>
         </div>
         <StyledList>
           {actualCars.map(

@@ -17,7 +17,6 @@ import {
 } from 'pages/Catalog/Catalog.styled';
 
 const Modal = ({ element, showModal, setShowModal }) => {
-  console.log(element);
   useEffect(() => {
     const keyDown = e => {
       if (e.code === 'Escape') {
@@ -29,9 +28,7 @@ const Modal = ({ element, showModal, setShowModal }) => {
         document.body.style.overflow = 'auto';
       }
     };
-
     window.addEventListener('keydown', keyDown);
-
     return () => {
       window.removeEventListener('keydown', keyDown);
     };
@@ -47,6 +44,7 @@ const Modal = ({ element, showModal, setShowModal }) => {
     document.body.style.overflow = 'auto';
     setShowModal(false);
   };
+
   return (
     <StyledBack onClick={e => onBackClick(e)}>
       <StyledDiv>

@@ -11,6 +11,7 @@ import { fetchTasks } from 'redux/operations';
 
 export const App = () => {
   const dispatch = useDispatch();
+
   useEffect(() => {
     dispatch(fetchTasks());
   }, [dispatch]);
