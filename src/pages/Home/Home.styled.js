@@ -1,3 +1,4 @@
+import { StyledBack } from 'pages/Catalog/Catalog.styled';
 import styled from 'styled-components';
 export const StyledDiv = styled.div`
   margin-right: 170px;
@@ -89,4 +90,13 @@ export const StyledSwipeModel = styled.p`
   position: absolute;
   right: 400px;
   top: 400px;
+`;
+export const StyledHomeBack = styled(StyledBack)`
+  height: calc(100vh - 70px);
+  display: flex;
+  position: relative;
+`;
+export const StyledSvg = styled.svg`
+  height: 30px;
+  width: 30px;
 `;

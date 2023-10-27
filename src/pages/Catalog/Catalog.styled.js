@@ -3,6 +3,18 @@ export const StyledBack = styled.div`
   margin: 0 auto;
   width: 1480px;
 `;
+export const StyledSerachBar = styled.div`
+  display: flex;
+  gap: 18px;
+  justify-content: center;
+  align-items: end;
+  margin: 50px 0;
+`;
+export const StyledForm = styled.form`
+  position: relative;
+  /* max-width: 320px; */
+  display: flex;
+`;
 export const StyledList = styled.ul`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -14,9 +26,10 @@ export const StyledList = styled.ul`
 export const StyledItem = styled.li`
   width: 274px;
   padding: 0;
-  height: 450px;
+  max-height: 450px;
   position: relative;
   border-radius: 14px;
+  box-shadow: rgba(0, 0, 0, 0.15) 3px 10px 10px;
 `;
 export const StyledImg = styled.img`
   width: 100%;
@@ -85,11 +98,12 @@ export const StyledText = styled.p`
   margin: 0;
   padding: 0;
   color: #121417;
+  height: 40px;
   font-size: 16px;
   font-style: normal;
   font-weight: 500;
   line-height: 24px;
-  margin-bottom: 8px;
+  margin: 8px 0;
   position: relative;
 `;
 export const StyledSpan = styled.span`
@@ -105,11 +119,16 @@ export const StyledInput = styled.input`
   position: relative;
   background: #f7f7fb;
   color: #121417;
-
   font-size: 18px;
-
   font-weight: 500;
   line-height: 20px;
+  border-radius: 14px 0px 0px 14px;
+`;
+export const StyledInputTo = styled(StyledInput)`
+  border-radius: 0 14px 14px 0;
+
+  border-left: 1px solid rgba(138, 138, 137, 0.2);
+  margin-right: 18px;
 `;
 export const StyledPlaceH = styled.p`
   position: absolute;
@@ -140,16 +159,6 @@ export const Styles = {
     minHeight: 48,
     borderRadius: '14px',
     background: ' #F7F7FB ',
-    // '@media only screen and (min-width:768px)': {
-    //   ...styles['@media only screen and (min-width: 768px)'],
-    //   minWidth: 160,
-    //   maxWidth: 160,
-    // },
-    // '@media only screen and (min-width:1280px)': {
-    //   ...styles['@media only screen and (min-width: 1280px)'],
-    //   minWidth: 181,
-    //   maxWidth: 181,
-    // },
   }),
   option: (styles, state) => ({
     ...styles,
@@ -216,3 +225,34 @@ export const StylesPrice = {
     },
   }),
 };
+
+export const StyledResetBtn = styled.button`
+  position: absolute;
+  height: 20px;
+  width: 60px;
+  top: -26px;
+  left: 250px;
+  padding: 0;
+  outline: none;
+  border: none;
+  border-radius: 4px;
+  background-color: #e7eeff;
+  font-size: 14px;
+  font-weight: 600;
+  color: rgba(18, 20, 23, 0.8);
+  &:hover {
+    background-color: black;
+    color: #fff;
+    border-color: white;
+  }
+`;
+export const StyledMilesDiv = styled.div`
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  padding: 5px 0;
+  gap: 90px;
+  width: 360px;
+  position: absolute;
+  top: 50px;
+`;

@@ -2,16 +2,32 @@ import React from 'react';
 import { Outlet } from 'react-router-dom';
 import { NavBar } from './NavBar';
 import { StyledMain } from './Layout.styled';
+import { Suspense } from 'react';
 
-export const Layout = () => {
+const Layout = () => {
   return (
     <main>
       <StyledMain>
         <NavBar />
       </StyledMain>
       <div>
-        <Outlet />
+        <Suspense
+          fallback={
+            <div
+              style={{
+                fontSize: '30px',
+                textAlign: 'center',
+              }}
+            >
+              {' '}
+              Information is already on its way to you. Please wait...
+            </div>
+          }
+        >
+          <Outlet />
+        </Suspense>
       </div>
     </main>
   );
 };
+export default Layout;

@@ -30,9 +30,3 @@ export const store = configureStore({
   middleware,
 });
 export const persistor = persistStore(store);
-// export const store = configureStore({
-//   reducer: {
-//     cars: carsReducer,
-//   },
-//   middleware,
-// });

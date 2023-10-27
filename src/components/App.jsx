@@ -1,18 +1,18 @@
 import { Routes, Route } from 'react-router-dom';
-import { useEffect } from 'react';
-import Home from 'pages/Home/Home';
-import Catalog from 'pages/Catalog/Catalog';
-import Favorites from 'pages/Favorites';
-import { Layout } from './Layout/Layout';
+import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { fetchTasks, fetchTasksPerPage } from 'redux/operations';
-import { useState } from 'react';
+import { lazy, Suspense } from 'react';
 
-// const value = useSelector(state => state.some.value);
+const Layout = lazy(() => import('./Layout/Layout'));
+const Home = lazy(() => import('pages/Home/Home'));
+const Catalog = lazy(() => import('pages/Catalog/Catalog'));
+const Favorites = lazy(() => import('pages/Favorites'));
 
 export const App = () => {
   const dispatch = useDispatch();
   const [isInitialRender, setIsInitialRender] = useState(true);
+
   useEffect(() => {
     if (isInitialRender) {
       setIsInitialRender(false);
@@ -20,6 +20,7 @@ export const App = () => {
     }
     dispatch(fetchTasksPerPage(1));
   }, [dispatch, isInitialRender]);
+
   useEffect(() => {
     dispatch(fetchTasks());
   }, [dispatch]);
@@ -27,7 +28,25 @@ export const App = () => {
   return (
     <div>
       <Routes>
-        <Route path="/" element={<Layout />}>
+        <Route
+          path="/"
+          element={
+            <Suspense
+              fallback={
+                <div
+                  style={{
+                    fontSize: '30px',
+                    textAlign: 'center',
+                  }}
+                >
+                  Information is already on its way to you. Please wait...
+                </div>
+              }
+            >
+              <Layout />
+            </Suspense>
+          }
+        >
           <Route index element={<Home />} />
           <Route path="catalog" element={<Catalog />} />
           <Route path="favorites" element={<Favorites />} />

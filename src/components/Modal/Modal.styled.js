@@ -8,6 +8,7 @@ export const StyledBack = styled.div`
   width: 100%;
   background-color: rgba(18, 20, 23, 0.5);
 `;
+
 export const StyledDiv = styled.div`
   border-radius: 24px;
   background: #fff;
@@ -18,11 +19,28 @@ export const StyledDiv = styled.div`
   margin: auto;
   margin-top: calc((100vh - 670px - 70px) / 2);
 `;
+
+export const StyledInfoDivModal = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+`;
+
 export const StyleSvg = styled.svg`
   position: absolute;
   right: 15px;
   top: 15px;
+  height: 24px;
+  width: 24px;
 `;
+
+export const StyleImg = styled.img`
+  border-radius: 16px;
+  margin-bottom: 16px;
+  width: 469px;
+  height: 280px;
+`;
+
 export const StyleRentalP = styled.p`
   color: #363535;
   margin: 0;
@@ -38,50 +56,36 @@ export const StyleRentalP = styled.p`
   border-radius: 35px;
   background: #f9f9f9;
 `;
+
 export const StyleRentalSpan = styled.span`
   color: #3470ff;
   font-weight: 600;
 `;
+
 export const StyledRentalDiv = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
   margin: 8px 0 24px 0;
 `;
+
 export const StyledTitle = styled.h2`
   color: #121417;
-
   font-size: 14px;
-
   font-weight: 500;
   line-height: 20px;
+  width: 100%;
+  margin: 0;
+  padding: 0;
 `;
-export const StyledBtn = styled.button`
-  width: 168px;
-  height: 44px;
 
-  border-radius: 12px;
-  background: #3470ff;
-  color: white;
-  outline: none;
-  border-color: transparent;
-  font-size: 14px;
-  font-weight: 600;
-  line-height: 20px;
-  display: inline-flex;
-  padding: 12px 40px;
-  justify-content: center;
-  align-items: center;
-`;
 export const StyledLink = styled.a`
-  color: white;
   text-decoration: none;
   font-size: 14px;
   font-weight: 600;
   line-height: 20px;
   width: 168px;
   height: 44px;
-
   border-radius: 12px;
   background: #3470ff;
   color: white;

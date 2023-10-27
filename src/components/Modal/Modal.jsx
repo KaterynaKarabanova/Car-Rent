@@ -8,6 +8,8 @@ import {
   StyleRentalSpan,
   StyleSvg,
   StyledLink,
+  StyleImg,
+  StyledInfoDivModal,
 } from './Modal.styled';
 import {
   StyledInfoDiv,
@@ -71,7 +73,7 @@ const Modal = ({ element, showModal, setShowModal }) => {
             strokeLinejoin="round"
           />
         </StyleSvg>
-        <img
+        <StyleImg
           src={
             element.img || element.photoLink
               ? element.img || element.photoLink
@@ -82,25 +84,13 @@ const Modal = ({ element, showModal, setShowModal }) => {
               'https://img.freepik.com/free-vector/abstract-grunge-style-coming-soon-with-black-splatter_1017-26690.jpg?q=10&h=200';
           }}
           alt={element.make + element.model}
-          width={469}
-          height={280}
-          style={{
-            borderRadius: '16px',
-            marginBottom: '16px',
-          }}
         />
         <StyledText>
           {element.make}
           <StyledSpan>{element.model + ','}</StyledSpan>
           {element.year}
         </StyledText>
-        <div
-          style={{
-            display: 'flex',
-
-            flexWrap: 'wrap',
-          }}
-        >
+        <StyledInfoDiv>
           <StyledInfoText>{element.address.split(',')[1]}</StyledInfoText>
           <StyledInfoText>{element.address.split(',')[2]}</StyledInfoText>
           <StyledInfoText>Id: {element.id}</StyledInfoText>
@@ -111,7 +101,7 @@ const Modal = ({ element, showModal, setShowModal }) => {
             {element.fuelConsumption}
           </StyledInfoText>
           <StyledInfoText> Engine Size: {element.engineSize}</StyledInfoText>
-        </div>
+        </StyledInfoDiv>
         <StyledInfoDiv
           style={{
             margin: '14px 0 8px 0 ',
@@ -120,18 +110,10 @@ const Modal = ({ element, showModal, setShowModal }) => {
         >
           {element.description}
         </StyledInfoDiv>
-        <div
-          style={{
-            display: 'flex',
-            marginBottom: '20px',
-            flexWrap: 'wrap',
-          }}
-        >
+        <StyledInfoDivModal>
           <StyledTitle
             style={{
-              width: '100%',
               margin: '0 0 8px 0 ',
-              padding: '0',
             }}
           >
             Accessories and functionalities:
@@ -143,22 +125,9 @@ const Modal = ({ element, showModal, setShowModal }) => {
           {element.functionalities.map(el => (
             <StyledInfoText>{el}</StyledInfoText>
           ))}
-        </div>
-        <div
-          style={{
-            display: 'flex',
-
-            flexWrap: 'wrap',
-          }}
-        >
-          <StyledTitle
-            style={{
-              width: '100%',
-              margin: '0',
-            }}
-          >
-            Rental Conditions:
-          </StyledTitle>
+        </StyledInfoDivModal>
+        <StyledInfoDiv>
+          <StyledTitle>Rental Conditions:</StyledTitle>
           <StyledRentalDiv>
             {element.rentalConditions.split('\n').map(el =>
               el.includes(':') ? (
@@ -171,7 +140,7 @@ const Modal = ({ element, showModal, setShowModal }) => {
               )
             )}
           </StyledRentalDiv>
-        </div>
+        </StyledInfoDiv>
 
         <StyledLink href="tel:+380730000000">Rental Car</StyledLink>
       </StyledDiv>

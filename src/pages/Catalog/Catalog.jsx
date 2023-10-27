@@ -19,15 +19,25 @@ import {
   Styles,
   StylesPrice,
   StyledSearchText,
+  StyledResetBtn,
+  StyledSerachBar,
+  StyledForm,
+  StyledInputTo,
+  StyledMilesDiv,
 } from './Catalog.styled';
 import Modal from 'components/Modal/Modal';
 import LoadMore from '../../components/LoadMore/LoadMore';
 import Select from 'react-select';
 import { optionsModel, optionsPrice } from './helpers';
+import BackToTop from 'components/ButtonBackToTop/BackToTop';
 
 const Catalog = () => {
+  const dispatch = useDispatch();
+
   const cars = useSelector(getCars);
   const currentCars = useSelector(getCurrent);
+  const favourite = useSelector(getFav);
+
   const [actualCars, setActualCars] = useState(currentCars);
   const [currentPrice, setCurrentPrice] = useState({
     value: 10000,
@@ -41,11 +51,8 @@ const Catalog = () => {
     label: 'All marks',
   });
   const [fromMiles, setFromMiles] = useState(0);
-  const [toMiles, setToMiles] = useState(0);
-  const dispatch = useDispatch();
-  const favourite = useSelector(getFav);
+  const [toMiles, setToMiles] = useState(100000);
 
-  console.log(actualCars);
   useEffect(() => {
     let filteredCars = cars;
     if (currentModel.value !== 'All marks') {
@@ -66,13 +73,10 @@ const Catalog = () => {
     }
     if (filteredCars.length === cars.length) {
       setActualCars(currentCars);
-      setCurrentPage(Math.max(currentCars.length / 12) + 1);
     } else {
       setActualCars(filteredCars);
     }
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [currentModel, currentPrice, cars, currentCars]);
+  }, [currentModel, currentPrice, cars, currentCars, fromMiles, toMiles]);
 
   const onModelChange = model => {
     setCurrentModel(model);
@@ -105,28 +109,39 @@ const Catalog = () => {
     return cars.find(({ id }) => id === currentEl);
   };
 
-  const onSubmit = () => {
-    const filteredCars = actualCars.filter(
-      ({ mileage }) =>
-        // console.log(Number(fromMiles) < mileage && mileage < Number(toMiles));
-        Number(fromMiles) < mileage && mileage < Number(toMiles)
+  const onSubmit = e => {
+    e.preventDefault();
+    const from = e.target.elements[0].value;
+    const to = e.target.elements[1].value;
+    setFromMiles(from);
+    setToMiles(to);
+    let filteredData;
+    if (
+      currentPrice.label === 'All price' &&
+      currentModel.value === 'All marks'
+    ) {
+      filteredData = cars;
+    } else {
+      filteredData = actualCars;
+    }
+    const filteredCars = filteredData.filter(
+      ({ mileage }) => Number(from) < mileage && mileage < Number(to)
     );
 
     setActualCars(filteredCars);
+    e.target.reset();
+  };
+
+  const onMilesReset = () => {
+    setFromMiles(0);
+    setToMiles(100000);
   };
 
   return (
     <StyledBack>
+      <BackToTop />
       <div style={showModal ? { pointerEvents: 'none' } : {}}>
-        <div
-          style={{
-            display: 'flex',
-            gap: '18px',
-            justifyContent: 'center',
-            alignItems: 'end',
-            margin: '50px 0',
-          }}
-        >
+        <StyledSerachBar>
           <div>
             <StyledSearchText>Car brand</StyledSearchText>
             <Select
@@ -149,30 +164,10 @@ const Catalog = () => {
           </div>
           <div>
             <StyledSearchText>Сar mileage / km</StyledSearchText>
-            <div
-              style={{
-                position: 'relative',
-                maxWidth: '320px',
-                display: 'flex',
-              }}
-            >
-              <StyledInput
-                style={{
-                  borderRight: '1px solid rgba(138, 138, 137, 0.2)',
-                  borderRadius: '14px 0px 0px 14px',
-                }}
-                type="number"
-                onChange={e => setFromMiles(e.target.value)}
-              />
+            <StyledForm onSubmit={e => onSubmit(e)}>
+              <StyledInput type="number" />
               <StyledPlaceH>From</StyledPlaceH>
-              <StyledInput
-                style={{
-                  borderLeft: '1px solid rgba(138, 138, 137, 0.2)',
-                  borderRadius: ' 0px 14px 14px 0px ',
-                }}
-                type="number"
-                onChange={e => setToMiles(e.target.value)}
-              />
+              <StyledInputTo type="number" />
               <StyledPlaceH
                 style={{
                   left: '190px',
@@ -180,18 +175,30 @@ const Catalog = () => {
               >
                 To
               </StyledPlaceH>
-            </div>
+              <StyledResetBtn type="button" onClick={() => onMilesReset()}>
+                Reset
+              </StyledResetBtn>
+
+              <StyledBtn
+                style={{
+                  width: '136px',
+                  padding: '14px 44px',
+                }}
+                type="submit"
+              >
+                Submit
+              </StyledBtn>
+              {fromMiles !== 0 || toMiles !== 100000 ? (
+                <StyledMilesDiv>
+                  <StyledSearchText>From: {fromMiles} / km</StyledSearchText>
+                  <StyledSearchText>To: {toMiles} / km</StyledSearchText>
+                </StyledMilesDiv>
+              ) : (
+                ''
+              )}
+            </StyledForm>
           </div>
-          <StyledBtn
-            style={{
-              maxWidth: '90px',
-              height: '48px',
-            }}
-            onClick={() => onSubmit()}
-          >
-            Submit
-          </StyledBtn>
-        </div>
+        </StyledSerachBar>
         <StyledList>
           {actualCars.map(
             (
@@ -216,10 +223,6 @@ const Catalog = () => {
               },
               index
             ) => {
-              // if (index + 1 > currentPage) {
-              //   return '';
-              // }
-
               return (
                 <StyledItem key={id} id={id}>
                   <StyledImg
@@ -237,7 +240,11 @@ const Catalog = () => {
                     }}
                   />
 
-                  <StyledText>
+                  <StyledText
+                    style={{
+                      maxWidth: '260px',
+                    }}
+                  >
                     {make}
                     <StyledSpan>{model + ','}</StyledSpan>
                     {year}
@@ -245,7 +252,7 @@ const Catalog = () => {
                       style={{
                         position: 'absolute',
                         top: '0',
-                        right: '10px',
+                        right: '-5px',
                       }}
                     >
                       {rentalPrice}
@@ -282,7 +289,9 @@ const Catalog = () => {
             }
           )}
         </StyledList>
-        {Math.floor(actualCars.length / 12) >= currentPage - 1 ? (
+        {Math.floor(actualCars.length / 12) >= currentPage - 1 &&
+        cars.length > currentCars.length &&
+        actualCars.length === currentCars.length ? (
           <LoadMore setCurrentPage={setCurrentPage} currentPage={currentPage} />
         ) : null}
       </div>

@@ -1,5 +1,4 @@
-import { StyledBtn } from 'components/Modal/Modal.styled';
-
+import { StyledBtn } from 'pages/Catalog/Catalog.styled';
 import { useDispatch } from 'react-redux';
 import { fetchTasksPerPage } from 'redux/operations';
 
@@ -10,6 +9,7 @@ const LoadMore = ({ setCurrentPage, currentPage }) => {
     setCurrentPage(prev => prev + 1);
     dispatch(fetchTasksPerPage(currentPage));
   };
+
   return (
     <StyledBtn
       type="button"
@@ -18,7 +18,6 @@ const LoadMore = ({ setCurrentPage, currentPage }) => {
         margin: '0 auto',
         display: 'block',
       }}
-      // onClick={() => setCurrentPage(prev => prev + 12)}
       onClick={() => onClick()}
     >
       Load More
