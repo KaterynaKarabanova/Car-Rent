@@ -1,0 +1,1 @@
+{"version":3,"file":"static/css/922.93c6ae42.chunk.css","mappings":"AAAA,uBACE,WAA0B,CAC1B,gBACF,CACA,yBACE,WAA0B,CAC1B,SACF","sources":["pages/Catalog/Catalog.module.css"],"sourcesContent":[".active {\n  stroke: rgb(255, 255, 255);\n  fill: transparent;\n}\n.disabled {\n  stroke: rgb(255, 255, 255);\n  fill: rgb(255, 255, 255);\n}\n"],"names":[],"sourceRoot":""}
