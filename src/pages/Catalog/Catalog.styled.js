@@ -12,7 +12,6 @@ export const StyledSerachBar = styled.div`
 `;
 export const StyledForm = styled.form`
   position: relative;
-  /* max-width: 320px; */
   display: flex;
 `;
 export const StyledList = styled.ul`
@@ -41,6 +40,7 @@ export const StyledBtn = styled.button`
   width: 274px;
   height: 44px;
   padding: 12px 90px;
+  margin-top: auto;
   justify-content: center;
   align-items: center;
   border-radius: 12px;
@@ -59,7 +59,9 @@ export const StyledInfoDiv = styled.div`
   flex-wrap: wrap;
   overflow-y: scroll;
   display: flex;
+
   height: 55px;
+  padding: 0;
   align-items: flex-start;
   gap: 4px;
   margin-bottom: 28px;

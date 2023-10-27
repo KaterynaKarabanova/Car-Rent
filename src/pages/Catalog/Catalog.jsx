@@ -73,9 +73,11 @@ const Catalog = () => {
     }
     if (filteredCars.length === cars.length) {
       setActualCars(currentCars);
+      setCurrentPage(Math.max(currentCars.length / 12) + 1);
     } else {
       setActualCars(filteredCars);
     }
+    console.log(cars.length / 12);
   }, [currentModel, currentPrice, cars, currentCars, fromMiles, toMiles]);
 
   const onModelChange = model => {

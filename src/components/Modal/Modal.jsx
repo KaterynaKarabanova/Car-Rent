@@ -9,7 +9,7 @@ import {
   StyleSvg,
   StyledLink,
   StyleImg,
-  StyledInfoDivModal,
+  StyledModalDiv,
 } from './Modal.styled';
 import {
   StyledInfoDiv,
@@ -110,37 +110,33 @@ const Modal = ({ element, showModal, setShowModal }) => {
         >
           {element.description}
         </StyledInfoDiv>
-        <StyledInfoDivModal>
-          <StyledTitle
-            style={{
-              margin: '0 0 8px 0 ',
-            }}
-          >
-            Accessories and functionalities:
-          </StyledTitle>
+        <StyledModalDiv>
+          <StyledTitle>Accessories and functionalities:</StyledTitle>
 
-          {element.accessories.map(el => (
-            <StyledInfoText>{el}</StyledInfoText>
+          {element.accessories.map((el, index) => (
+            <StyledInfoText key={index}>{el}</StyledInfoText>
           ))}
-          {element.functionalities.map(el => (
-            <StyledInfoText>{el}</StyledInfoText>
+          {element.functionalities.map((el, index) => (
+            <StyledInfoText key={index}>{el}</StyledInfoText>
           ))}
-        </StyledInfoDivModal>
-        <StyledInfoDiv>
+        </StyledModalDiv>
+        <StyledModalDiv>
           <StyledTitle>Rental Conditions:</StyledTitle>
           <StyledRentalDiv>
-            {element.rentalConditions.split('\n').map(el =>
+            {element.rentalConditions.split('\n').map((el, index) =>
               el.includes(':') ? (
-                <StyleRentalP>
+                <StyleRentalP key={index}>
                   {el.split(':')[0]}
-                  <StyleRentalSpan>:{el.split(':')[1]}</StyleRentalSpan>
+                  <StyleRentalSpan key={index}>
+                    :{el.split(':')[1]}
+                  </StyleRentalSpan>
                 </StyleRentalP>
               ) : (
                 <StyleRentalP>{el}</StyleRentalP>
               )
             )}
           </StyledRentalDiv>
-        </StyledInfoDiv>
+        </StyledModalDiv>
 
         <StyledLink href="tel:+380730000000">Rental Car</StyledLink>
       </StyledDiv>

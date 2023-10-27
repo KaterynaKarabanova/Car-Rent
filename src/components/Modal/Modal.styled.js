@@ -1,3 +1,4 @@
+import { StyledInfoDiv } from 'pages/Catalog/Catalog.styled';
 import styled from 'styled-components';
 
 export const StyledBack = styled.div`
@@ -14,16 +15,10 @@ export const StyledDiv = styled.div`
   background: #fff;
   width: 469px;
   padding: 37px;
-  height: 670px;
+  height: 680px;
   position: relative;
   margin: auto;
   margin-top: calc((100vh - 670px - 70px) / 2);
-`;
-
-export const StyledInfoDivModal = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  margin-bottom: 24px;
 `;
 
 export const StyleSvg = styled.svg`
@@ -66,9 +61,11 @@ export const StyledRentalDiv = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  margin: 8px 0 24px 0;
+  margin: 0;
 `;
-
+export const StyledModalDiv = styled(StyledInfoDiv)`
+  max-height: 55px;
+`;
 export const StyledTitle = styled.h2`
   color: #121417;
   font-size: 14px;
@@ -84,14 +81,14 @@ export const StyledLink = styled.a`
   font-size: 14px;
   font-weight: 600;
   line-height: 20px;
-  width: 168px;
-  height: 44px;
+  width: 68px;
+  height: 20px;
   border-radius: 12px;
   background: #3470ff;
   color: white;
   outline: none;
+  display: block;
+
   border-color: transparent;
   padding: 12px 40px;
-  justify-content: center;
-  align-items: center;
 `;
