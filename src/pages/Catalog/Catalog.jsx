@@ -77,7 +77,6 @@ const Catalog = () => {
     } else {
       setActualCars(filteredCars);
     }
-    console.log(cars.length / 12);
   }, [currentModel, currentPrice, cars, currentCars, fromMiles, toMiles]);
 
   const onModelChange = model => {
