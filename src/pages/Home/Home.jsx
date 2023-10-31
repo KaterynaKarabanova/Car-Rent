@@ -11,6 +11,8 @@ import {
   StyledSwipeModel,
   StyledSwipePrice,
   StyledSwipeText,
+  StyledSwiperDiv,
+  StyledSwiperImg,
   StyledText,
   StyledTitle,
 } from './Home.styled';
@@ -20,7 +22,21 @@ const Home = () => {
   const swiperParams = {
     direction: 'horizontal',
     slidesPerView: 1,
-    spaceBetween: 20,
+    spaceBetween: 10,
+    breakpoints: {
+      // when window width is >= 640px
+      0: {
+        width: 140,
+      },
+      640: {
+        width: 440,
+        height: 440,
+      },
+      // when window width is >= 768px
+      1280: {
+        width: 580,
+      },
+    },
   };
 
   return (
@@ -31,54 +47,40 @@ const Home = () => {
       }}
     >
       <StyledHomeBack>
-        <Swiper
-          {...swiperParams}
-          style={{
-            padding: '9% 0  ',
-          }}
-        >
-          <SwiperSlide>
-            <StyledSwipePrice>$75/Day</StyledSwipePrice>
-            <img
-              src="https://vehicle-images.dealerinspire.com/stock-images/thumbnails/large/chrome/a3beff21bedf52cfc388c50960d1b188.png"
-              alt="Mercedes-Benz"
-              style={{
-                width: '550px',
-              }}
-            />
-            <StyledSwipeModel>Mercedes-Benz </StyledSwipeModel>
-          </SwiperSlide>
-          <SwiperSlide>
-            <StyledSwipePrice>$90/Day</StyledSwipePrice>
-            <img
-              src="https://pngimg.com/d/porsche_PNG10611.png"
-              alt="Porsche Cayenne"
-              style={{ width: '550px', marginLeft: '50px' }}
-            />
-            <StyledSwipeModel>Porsche Cayenne</StyledSwipeModel>
-          </SwiperSlide>
-          <SwiperSlide>
-            <StyledSwipePrice>$150/Day</StyledSwipePrice>
-            <img
-              src="https://images.iconfigurators.app/images/vehicles/reference/Bentley-Azure-Mark-II-2006_2010.png"
-              alt="Bentley Azure"
-              style={{
-                width: '700px',
-                marginTop: '30px',
-              }}
-            />
-            <StyledSwipeModel>Bentley Azure</StyledSwipeModel>
-          </SwiperSlide>
-          <SwiperSlide>
-            <StyledSwipePrice>$75/Day</StyledSwipePrice>
-            <img
-              src="https://www.pngall.com/wp-content/uploads/11/White-Tesla-Model-S-PNG-Pic.png"
-              alt="Tesla Model 3"
-              style={{ width: '600px' }}
-            />
-            <StyledSwipeModel>Tesla Model 3</StyledSwipeModel>
-          </SwiperSlide>
-        </Swiper>
+        <StyledSwiperDiv>
+          <Swiper
+            {...swiperParams}
+            style={{
+              padding: '9% 0  ',
+            }}
+          >
+            <SwiperSlide>
+              <StyledSwipePrice>$75/Day</StyledSwipePrice>
+              <StyledSwiperImg
+                src="https://vehicle-images.dealerinspire.com/stock-images/thumbnails/large/chrome/a3beff21bedf52cfc388c50960d1b188.png"
+                alt="Mercedes-Benz"
+              />
+              <StyledSwipeModel>Mercedes-Benz </StyledSwipeModel>
+            </SwiperSlide>
+            <SwiperSlide>
+              <StyledSwipePrice>$90/Day</StyledSwipePrice>
+              <StyledSwiperImg
+                src="https://pngimg.com/d/porsche_PNG10611.png"
+                alt="Porsche Cayenne"
+              />
+              <StyledSwipeModel>Porsche Cayenne</StyledSwipeModel>
+            </SwiperSlide>
+
+            <SwiperSlide>
+              <StyledSwipePrice>$75/Day</StyledSwipePrice>
+              <StyledSwiperImg
+                src="https://www.pngall.com/wp-content/uploads/11/White-Tesla-Model-S-PNG-Pic.png"
+                alt="Tesla Model 3"
+              />
+              <StyledSwipeModel>Tesla Model 3</StyledSwipeModel>
+            </SwiperSlide>
+          </Swiper>
+        </StyledSwiperDiv>
         <StyledSvgDiv>
           <StyledSvg>
             <path d="M1 16l15 15v-9h16v-12h-16v-9z"></path>

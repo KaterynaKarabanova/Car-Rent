@@ -1,7 +1,14 @@
 import styled from 'styled-components';
 export const StyledBack = styled.div`
   margin: 0 auto;
-  width: 1480px;
+  width: 280px;
+  overflow: hidden;
+  @media (min-width: 768px) {
+    width: 730px;
+  }
+  @media (min-width: 1280px) {
+    width: 1280px;
+  }
 `;
 export const StyledSerachBar = styled.div`
   display: flex;
