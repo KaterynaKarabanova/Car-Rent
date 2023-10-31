@@ -4,7 +4,6 @@ import { StyledButton, StyledDiv } from './BackToTop.styled';
 const BackToTop = () => {
   const [isVisible, setIsVisible] = useState(false);
 
-  // Show the button when the user has scrolled down a certain amount
   useEffect(() => {
     const onScroll = () => {
       if (window.scrollY > 500) {

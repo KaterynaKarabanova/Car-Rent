@@ -104,7 +104,7 @@ const Modal = ({ element, showModal, setShowModal }) => {
         </StyledInfoDiv>
         <StyledInfoDiv
           style={{
-            margin: '14px 0 8px 0 ',
+            margin: '8px 0 8px 0 ',
             fontSize: '14px',
           }}
         >

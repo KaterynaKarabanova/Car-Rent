@@ -12,42 +12,81 @@ export const StyledBack = styled.div`
 `;
 export const StyledSerachBar = styled.div`
   display: flex;
-  gap: 18px;
-  justify-content: center;
-  align-items: end;
-  margin: 50px 0;
+  flex-direction: column;
+  gap: 15px;
+  @media (min-width: 768px) {
+    flex-direction: row;
+    gap: 10px;
+    justify-content: center;
+    align-items: end;
+    margin: 30px 0;
+  }
+  @media (min-width: 1280px) {
+    gap: 18px;
+    margin: 50px 0;
+  }
 `;
 export const StyledForm = styled.form`
   position: relative;
   display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  @media (min-width: 768px) {
+    flex-wrap: nowrap;
+  }
 `;
 export const StyledList = styled.ul`
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(1, 1fr);
   list-style: none;
   padding: 20px;
   column-gap: 10px;
   row-gap: 50px;
+  padding: 0;
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+
+    column-gap: 110px;
+  }
+  @media (min-width: 1280px) {
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 10px;
+    padding: 0;
+  }
 `;
 export const StyledItem = styled.li`
   width: 274px;
   padding: 0;
-  max-height: 450px;
+  max-height: 420px;
   position: relative;
   border-radius: 14px;
   box-shadow: rgba(0, 0, 0, 0.15) 3px 10px 10px;
+  @media (min-width: 768px) {
+    max-height: 450px;
+    width: 300px;
+  }
+  @media (min-width: 1280px) {
+    width: 274px;
+  }
 `;
 export const StyledImg = styled.img`
   width: 100%;
-  height: 268px;
+  height: 230px;
   border-radius: 16px;
+  object-fit: cover;
+  @media (min-width: 768px) {
+    height: 268px;
+  }
+  @media (min-width: 1280px) {
+    height: 268px;
+  }
 `;
 export const StyledBtn = styled.button`
   display: flex;
-  width: 274px;
-  height: 44px;
+  min-width: 274px;
+  height: 38px;
   padding: 12px 90px;
-  margin-top: auto;
+  margin-top: 15px;
   justify-content: center;
   align-items: center;
   border-radius: 12px;
@@ -58,6 +97,20 @@ export const StyledBtn = styled.button`
   font-size: 14px;
   font-weight: 600;
   line-height: 20px;
+  transition: 0.3s;
+  &:hover {
+    background-color: #313095;
+  }
+  @media (min-width: 768px) {
+    min-width: 50px;
+    width: 300px;
+    height: 44px;
+    margin-top: 0;
+  }
+  @media (min-width: 1280px) {
+    width: 274px;
+    height: 48px;
+  }
 `;
 export const StyledInfoDiv = styled.div`
   display: flex;
@@ -120,8 +173,8 @@ export const StyledSpan = styled.span`
   margin: 0 3px;
 `;
 export const StyledInput = styled.input`
-  max-width: 74px;
-  height: 15px;
+  max-width: 48px;
+  height: 10px;
   padding: 16px 10px 14px 74px;
   outline: none;
   border-color: transparent;
@@ -132,12 +185,23 @@ export const StyledInput = styled.input`
   font-weight: 500;
   line-height: 20px;
   border-radius: 14px 0px 0px 14px;
+  @media (min-width: 1280px) {
+    height: 15px;
+  }
+  @media (min-width: 1280px) {
+    max-width: 74px;
+    height: 15px;
+    padding: 16px 10px 14px 74px;
+  }
 `;
 export const StyledInputTo = styled(StyledInput)`
   border-radius: 0 14px 14px 0;
 
   border-left: 1px solid rgba(138, 138, 137, 0.2);
-  margin-right: 18px;
+  margin-right: 10px;
+  @media (min-width: 1280px) {
+    margin-right: 18px;
+  }
 `;
 export const StyledPlaceH = styled.p`
   position: absolute;
@@ -163,11 +227,23 @@ export const StyledSearchText = styled.p`
 export const Styles = {
   control: (baseStyles, state) => ({
     ...baseStyles,
-    minWidth: 224,
-    maxWidth: 224,
-    minHeight: 48,
+    minWidth: 270,
+    maxWidth: 270,
+    minHeight: 30,
     borderRadius: '14px',
     background: ' #F7F7FB ',
+    '@media only screen and (min-width:768px)': {
+      ...Styles['@media only screen and (min-width: 768px)'],
+      minWidth: 160,
+      maxWidth: 160,
+      minHeight: 44,
+    },
+    '@media only screen and (min-width:1280px)': {
+      ...Styles['@media only screen and (min-width: 1280px)'],
+      minWidth: 224,
+      maxWidth: 224,
+      minHeight: 48,
+    },
   }),
   option: (styles, state) => ({
     ...styles,
@@ -201,11 +277,23 @@ export const Styles = {
 export const StylesPrice = {
   control: (baseStyles, state) => ({
     ...baseStyles,
-    minWidth: 130,
-    maxWidth: 130,
-    minHeight: 48,
+    minWidth: 270,
+    maxWidth: 270,
+    minHeight: 38,
     borderRadius: '14px',
     background: ' #F7F7FB ',
+    '@media only screen and (min-width:768px)': {
+      ...Styles['@media only screen and (min-width: 768px)'],
+      minWidth: 120,
+      maxWidth: 120,
+      minHeight: 44,
+    },
+    '@media only screen and (min-width:1280px)': {
+      ...Styles['@media only screen and (min-width: 1280px)'],
+      minWidth: 130,
+      maxWidth: 130,
+      minHeight: 48,
+    },
   }),
   option: (styles, state) => ({
     ...styles,
@@ -240,7 +328,7 @@ export const StyledResetBtn = styled.button`
   height: 20px;
   width: 60px;
   top: -26px;
-  left: 250px;
+  left: 210px;
   padding: 0;
   outline: none;
   border: none;
@@ -253,6 +341,10 @@ export const StyledResetBtn = styled.button`
     background-color: black;
     color: #fff;
     border-color: white;
+  }
+  @media (min-width: 1280px) {
+    top: -26px;
+    left: 250px;
   }
 `;
 export const StyledMilesDiv = styled.div`

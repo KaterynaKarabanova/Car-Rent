@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 export const StyledDiv = styled.div`
   position: fixed;
-  right: 120px;
+  right: 0px;
   bottom: 50px;
   z-index: 5;
 `;

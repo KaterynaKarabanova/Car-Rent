@@ -5,6 +5,7 @@ export const StyledBack = styled.div`
   position: fixed;
   top: 0;
   left: 0;
+  z-index: 6;
   height: 100%;
   width: 100%;
   background-color: rgba(18, 20, 23, 0.5);
@@ -13,27 +14,62 @@ export const StyledBack = styled.div`
 export const StyledDiv = styled.div`
   border-radius: 24px;
   background: #fff;
-  width: 469px;
-  padding: 37px;
-  height: 680px;
+  padding: 10px;
+  padding-top: 25px;
   position: relative;
   margin: auto;
-  margin-top: calc((100vh - 670px - 70px) / 2);
+  z-index: 7;
+  max-height: 530px;
+  overflow-y: scroll;
+  width: 300px;
+  margin-top: calc((100vh - 480px - 70px) / 2);
+  @media (min-width: 768px) {
+    max-height: 630px;
+    width: 469px;
+    padding: 37px;
+    margin-top: calc((100vh - 600px - 70px) / 2);
+  }
+  @media (min-width: 1280px) {
+    max-height: 680px;
+    width: 469px;
+    padding: 37px;
+    overflow-y: hidden;
+    margin-top: calc((100vh - 670px - 70px) / 2);
+  }
 `;
 
 export const StyleSvg = styled.svg`
   position: absolute;
-  right: 15px;
-  top: 15px;
-  height: 24px;
-  width: 24px;
+  right: 7px;
+  top: 7px;
+  height: 18px;
+  width: 18px;
+  @media (min-width: 768px) {
+    right: 15px;
+    top: 15px;
+    height: 24px;
+    width: 24px;
+  }
+  @media (min-width: 1280px) {
+    right: 15px;
+    top: 15px;
+  }
 `;
 
 export const StyleImg = styled.img`
   border-radius: 16px;
-  margin-bottom: 16px;
-  width: 469px;
-  height: 280px;
+  margin-bottom: 0px;
+  width: 295px;
+  height: 150px;
+  object-fit: cover;
+  @media (min-width: 768px) {
+    width: 469px;
+    height: 220px;
+  }
+  @media (min-width: 1280px) {
+    margin-bottom: 10px;
+    height: 260px;
+  }
 `;
 
 export const StyleRentalP = styled.p`
@@ -81,8 +117,8 @@ export const StyledLink = styled.a`
   font-size: 14px;
   font-weight: 600;
   line-height: 20px;
-  width: 68px;
-  height: 20px;
+  width: 200px;
+  height: 10px;
   border-radius: 12px;
   background: #3470ff;
   color: white;
@@ -91,4 +127,8 @@ export const StyledLink = styled.a`
 
   border-color: transparent;
   padding: 12px 40px;
+  @media (min-width: 768px) {
+    width: 68px;
+    height: 20px;
+  }
 `;
