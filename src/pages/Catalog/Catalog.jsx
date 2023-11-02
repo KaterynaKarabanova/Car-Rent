@@ -237,7 +237,7 @@ const Catalog = () => {
                     height={200}
                     onError={e => {
                       e.target.src =
-                        'https://img.freepik.com/free-vector/abstract-grunge-style-coming-soon-with-black-splatter_1017-26690.jpg?q=10&h=200';
+                        'https://img.freepik.com/premium-photo/front-view-part-black-modern-car-closeup-black-background-headlights-detail_34008-337.jpg';
                     }}
                   />
 

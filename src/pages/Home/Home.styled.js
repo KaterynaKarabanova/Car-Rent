@@ -4,18 +4,18 @@ export const StyledHomeBack = styled(StyledBack)`
   height: calc(100vh - 80px);
   display: block;
   position: relative;
-  padding: 10px 0 0 40px;
+  padding: 0;
 
   &::before {
     content: '';
     display: block;
 
-    width: 200px;
+    width: 250px;
     height: 120px;
     background-color: white;
     position: absolute;
     top: 340px;
-    left: 70px;
+    left: 0px;
     border-radius: 10rem 10rem 0 0;
   }
   @media (min-width: 768px) {
@@ -27,13 +27,13 @@ export const StyledHomeBack = styled(StyledBack)`
       border-radius: 0;
       border-top-left-radius: 100%;
     }
-    padding: 40px 0 0 40px;
+
     height: calc(100vh - 112px);
   }
   @media (min-width: 1280px) {
     display: flex;
     height: calc(100vh - 70px);
-    padding: 0;
+
     &::before {
       display: none;
     }
@@ -44,7 +44,7 @@ export const StyledSwiperDiv = styled.div`
   width: 100%;
   overflow-x: hidden;
   top: 315px;
-  left: 75px;
+  left: 32px;
   @media (min-width: 768px) {
     top: 240px;
     left: 350px;
@@ -126,8 +126,8 @@ export const StyledText = styled.p`
 `;
 
 export const StyledLink = styled.button`
-  width: 130px;
-  height: 40px;
+  width: 210px;
+  height: 45px;
   color: black;
   font-size: 15px;
   font-weight: 600;
@@ -138,7 +138,7 @@ export const StyledLink = styled.button`
   background-color: white;
   transition: 0.55s;
   letter-spacing: 1.3px;
-
+  display: block;
   &:hover,
   &:focus {
     background-color: black;
@@ -146,10 +146,10 @@ export const StyledLink = styled.button`
     border-color: white;
   }
   @media (min-width: 768px) {
-    width: 160px;
-    height: 55px;
+    width: 200px;
+    height: 50px;
     font-size: 18px;
-    margin-top: 30px;
+    margin-top: 10px;
   }
   @media (min-width: 1280px) {
     width: 200px;
@@ -160,7 +160,7 @@ export const StyledLink = styled.button`
 export const StyledSvgDiv = styled.div`
   position: absolute;
   top: 490px;
-  left: 115px;
+  left: 70px;
   width: 100px;
 
   display: flex;

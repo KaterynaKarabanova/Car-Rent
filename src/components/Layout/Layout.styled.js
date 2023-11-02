@@ -8,8 +8,9 @@ export const StyledMain = styled.main`
 
 export const StyledNsvLink = styled(NavLink)`
   padding: 5px;
-  margin: 20px 30px;
-  font-size: 25px;
+  margin: 0;
+  margin-right: 15px;
+  font-size: 16px;
   font-weight: 600;
 
   text-decoration: none;
@@ -21,5 +22,13 @@ export const StyledNsvLink = styled(NavLink)`
   }
   &:hover:not(.active) {
     border-bottom: 2px solid #7185f65e;
+  }
+  @media (min-width: 768px) {
+    font-size: 21px;
+    margin: 0;
+    margin-right: 30px;
+  }
+  @media (min-width: 1280px) {
+    font-size: 25px;
   }
 `;

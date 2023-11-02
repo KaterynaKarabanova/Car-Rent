@@ -105,7 +105,7 @@ export const StyledBtn = styled.button`
     min-width: 50px;
     width: 300px;
     height: 44px;
-    margin-top: 0;
+    margin: 0 auto;
   }
   @media (min-width: 1280px) {
     width: 274px;
@@ -160,13 +160,17 @@ export const StyledText = styled.p`
   margin: 0;
   padding: 0;
   color: #121417;
-  height: 40px;
+  height: 30px;
   font-size: 16px;
   font-style: normal;
   font-weight: 500;
   line-height: 24px;
   margin: 8px 0;
   position: relative;
+  @media (min-width: 768px) {
+    height: 40px;
+    height: 30px;
+  }
 `;
 export const StyledSpan = styled.span`
   color: #3470ff;
@@ -356,4 +360,34 @@ export const StyledMilesDiv = styled.div`
   width: 360px;
   position: absolute;
   top: 50px;
+`;
+export const StyledFavImg = styled.img`
+  width: 200px;
+  height: 100px;
+  display: block;
+  margin: 0 auto;
+  object-fit: cover;
+`;
+export const StyledFavDiv = styled.div`
+  display: block;
+  width: 230px;
+  padding: 10px;
+  margin: 0 auto;
+  font-size: 20px;
+  letter-spacing: 1.5px;
+  font-weight: 600;
+  color: rgb(3, 14, 76);
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+  @media (min-width: 768px) {
+    width: 450px;
+    font-size: 25px;
+  }
+  @media (min-width: 1280px) {
+    width: 650px;
+    font-size: 30px;
+    margin-top: 50px;
+  }
 `;

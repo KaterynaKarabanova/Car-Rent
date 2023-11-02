@@ -14,8 +14,8 @@ export const StyledBack = styled.div`
 export const StyledDiv = styled.div`
   border-radius: 24px;
   background: #fff;
-  padding: 10px;
-  padding-top: 25px;
+  padding: 25px 15px;
+
   position: relative;
   margin: auto;
   z-index: 7;
@@ -24,10 +24,10 @@ export const StyledDiv = styled.div`
   width: 300px;
   margin-top: calc((100vh - 480px - 70px) / 2);
   @media (min-width: 768px) {
-    max-height: 630px;
+    max-height: 650px;
     width: 469px;
     padding: 37px;
-    margin-top: calc((100vh - 600px - 70px) / 2);
+    margin-top: calc((100vh - 650px - 70px) / 2);
   }
   @media (min-width: 1280px) {
     max-height: 680px;
@@ -40,8 +40,8 @@ export const StyledDiv = styled.div`
 
 export const StyleSvg = styled.svg`
   position: absolute;
-  right: 7px;
-  top: 7px;
+  right: 10px;
+  top: 10px;
   height: 18px;
   width: 18px;
   @media (min-width: 768px) {
@@ -93,14 +93,17 @@ export const StyleRentalSpan = styled.span`
   font-weight: 600;
 `;
 
-export const StyledRentalDiv = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin: 0;
+export const StyledRentalDiv = styled(StyledInfoDiv)`
+  margin-bottom: 18px;
+  height: 30px;
 `;
 export const StyledModalDiv = styled(StyledInfoDiv)`
-  max-height: 55px;
+  height: 50px;
+  margin-bottom: 10px;
+  @media (min-width: 768px) {
+    margin-bottom: 18px;
+    height: 55px;
+  }
 `;
 export const StyledTitle = styled.h2`
   color: #121417;
@@ -114,21 +117,23 @@ export const StyledTitle = styled.h2`
 
 export const StyledLink = styled.a`
   text-decoration: none;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 600;
   line-height: 20px;
-  width: 200px;
-  height: 10px;
+  width: 90px;
+  height: 15px;
   border-radius: 12px;
   background: #3470ff;
   color: white;
   outline: none;
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   border-color: transparent;
   padding: 12px 40px;
   @media (min-width: 768px) {
-    width: 68px;
+    width: 120px;
     height: 20px;
   }
 `;

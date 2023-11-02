@@ -14,13 +14,17 @@ import {
   StyledText,
   StyledSpan,
   StyledBack,
+  StyledFavImg,
+  StyledFavDiv,
 } from './Catalog/Catalog.styled';
+import { StyledLink } from './Home/Home.styled';
+import { useNavigate } from 'react-router-dom';
 
 const Favorites = () => {
   const cars = useSelector(getCars);
   const favourite = useSelector(getFav);
   const dispatch = useDispatch();
-
+  const navigate = useNavigate();
   const [showModal, setShowModal] = useState(false);
   const [currentEl, setCurrentEl] = useState('');
 
@@ -48,6 +52,25 @@ const Favorites = () => {
   return (
     <StyledBack>
       <div>
+        {!getFavCars().length && (
+          <StyledFavDiv>
+            <p>There are no favorite cars here!</p>
+            <StyledFavImg
+              src="https://static.vecteezy.com/system/resources/thumbnails/009/379/748/small/racing-flag-clipart-design-illustration-free-png.png"
+              alt="car"
+            />
+            <p>But you can add them at any time from</p>
+            <StyledLink
+              style={{
+                width: '100%',
+                marginLeft: '0',
+              }}
+              onClick={() => navigate('/catalog')}
+            >
+              Catalog
+            </StyledLink>
+          </StyledFavDiv>
+        )}
         <StyledList>
           {getFavCars().map(
             ({
@@ -82,7 +105,7 @@ const Favorites = () => {
                     height={200}
                     onError={e => {
                       e.target.src =
-                        'https://img.freepik.com/free-vector/abstract-grunge-style-coming-soon-with-black-splatter_1017-26690.jpg?q=10&h=200';
+                        'https://img.freepik.com/premium-photo/front-view-part-black-modern-car-closeup-black-background-headlights-detail_34008-337.jpg';
                     }}
                   />
 

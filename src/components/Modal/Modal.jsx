@@ -81,7 +81,7 @@ const Modal = ({ element, showModal, setShowModal }) => {
           }
           onError={e => {
             e.target.src =
-              'https://img.freepik.com/free-vector/abstract-grunge-style-coming-soon-with-black-splatter_1017-26690.jpg?q=10&h=200';
+              'https://img.freepik.com/premium-photo/front-view-part-black-modern-car-closeup-black-background-headlights-detail_34008-337.jpg';
           }}
           alt={element.make + element.model}
         />
@@ -90,7 +90,7 @@ const Modal = ({ element, showModal, setShowModal }) => {
           <StyledSpan>{element.model + ','}</StyledSpan>
           {element.year}
         </StyledText>
-        <StyledInfoDiv>
+        <StyledModalDiv>
           <StyledInfoText>{element.address.split(',')[1]}</StyledInfoText>
           <StyledInfoText>{element.address.split(',')[2]}</StyledInfoText>
           <StyledInfoText>Id: {element.id}</StyledInfoText>
@@ -101,18 +101,11 @@ const Modal = ({ element, showModal, setShowModal }) => {
             {element.fuelConsumption}
           </StyledInfoText>
           <StyledInfoText> Engine Size: {element.engineSize}</StyledInfoText>
-        </StyledInfoDiv>
-        <StyledInfoDiv
-          style={{
-            margin: '8px 0 8px 0 ',
-            fontSize: '14px',
-          }}
-        >
-          {element.description}
-        </StyledInfoDiv>
-        <StyledModalDiv>
-          <StyledTitle>Accessories and functionalities:</StyledTitle>
+        </StyledModalDiv>
+        <StyledInfoDiv>{element.description}</StyledInfoDiv>
 
+        <StyledTitle>Accessories and functionalities:</StyledTitle>
+        <StyledModalDiv>
           {element.accessories.map((el, index) => (
             <StyledInfoText key={index}>{el}</StyledInfoText>
           ))}
@@ -120,23 +113,22 @@ const Modal = ({ element, showModal, setShowModal }) => {
             <StyledInfoText key={index}>{el}</StyledInfoText>
           ))}
         </StyledModalDiv>
-        <StyledModalDiv>
-          <StyledTitle>Rental Conditions:</StyledTitle>
-          <StyledRentalDiv>
-            {element.rentalConditions.split('\n').map((el, index) =>
-              el.includes(':') ? (
-                <StyleRentalP key={index}>
-                  {el.split(':')[0]}
-                  <StyleRentalSpan key={index}>
-                    :{el.split(':')[1]}
-                  </StyleRentalSpan>
-                </StyleRentalP>
-              ) : (
-                <StyleRentalP>{el}</StyleRentalP>
-              )
-            )}
-          </StyledRentalDiv>
-        </StyledModalDiv>
+
+        <StyledTitle>Rental Conditions:</StyledTitle>
+        <StyledRentalDiv>
+          {element.rentalConditions.split('\n').map((el, index) =>
+            el.includes(':') ? (
+              <StyleRentalP key={index}>
+                {el.split(':')[0]}
+                <StyleRentalSpan key={index}>
+                  :{el.split(':')[1]}
+                </StyleRentalSpan>
+              </StyleRentalP>
+            ) : (
+              <StyleRentalP>{el}</StyleRentalP>
+            )
+          )}
+        </StyledRentalDiv>
 
         <StyledLink href="tel:+380730000000">Rental Car</StyledLink>
       </StyledDiv>
