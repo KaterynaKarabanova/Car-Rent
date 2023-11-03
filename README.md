@@ -1,7 +1,7 @@
 Car Rent (https://katerynakarabanova.github.io/Car-Rent/)
 
 This project was created using [goitacademy/react-homework-template].
-
+![Снимок экрана 2023-11-03 191223](https://github.com/KaterynaKarabanova/Car-Rent/assets/135024704/b508bbe5-29da-4e1c-8ba0-0c45aa84c048)
 During the project's development, the following libraries were utilized:
 
 For styling: styled-components, Swiper, Select. For database operations: Axios,
