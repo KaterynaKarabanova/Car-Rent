@@ -30,7 +30,7 @@ const Home = () => {
       },
       640: {
         width: 440,
-        height: 440,
+        height: 540,
       },
       // when window width is >= 768px
       1280: {
@@ -42,8 +42,9 @@ const Home = () => {
   return (
     <div
       style={{
-        background:
-          'linear-gradient(0deg, rgba(105,141,214,1) 18%, #ffffff 60%)',
+        background: "url('https://wallpaperaccess.com/full/1079100.jpg') ",
+        backgroundSize: 'cover',
+        backgroundPosition: 'bottom',
       }}
     >
       <StyledHomeBack>
@@ -51,7 +52,7 @@ const Home = () => {
           <Swiper
             {...swiperParams}
             style={{
-              padding: '9% 0  ',
+              padding: '7% 0  ',
             }}
           >
             <SwiperSlide>

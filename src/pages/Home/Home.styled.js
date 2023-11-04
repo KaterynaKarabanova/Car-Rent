@@ -10,22 +10,17 @@ export const StyledHomeBack = styled(StyledBack)`
     content: '';
     display: block;
 
-    width: 250px;
-    height: 120px;
+    width: 100%;
+    height: 220px;
     background-color: white;
     position: absolute;
-    top: 340px;
+    top: 320px;
     left: 0px;
     border-radius: 10rem 10rem 0 0;
   }
   @media (min-width: 768px) {
     &::before {
-      width: 540px;
-      height: 390px;
-      top: 155px;
-      left: 240px;
-      border-radius: 0;
-      border-top-left-radius: 100%;
+      display: none;
     }
 
     height: calc(100vh - 112px);
@@ -33,10 +28,6 @@ export const StyledHomeBack = styled(StyledBack)`
   @media (min-width: 1280px) {
     display: flex;
     height: calc(100vh - 70px);
-
-    &::before {
-      display: none;
-    }
   }
 `;
 export const StyledSwiperDiv = styled.div`
@@ -44,14 +35,14 @@ export const StyledSwiperDiv = styled.div`
   width: 100%;
   overflow-x: hidden;
   top: 315px;
-  left: 32px;
+  left: 42px;
   @media (min-width: 768px) {
-    top: 240px;
-    left: 350px;
+    top: 150px;
+    left: 300px;
   }
   @media (min-width: 1280px) {
     position: relative;
-    padding-top: 100px;
+    padding-top: 230px;
     top: 0px;
     left: 0px;
   }
@@ -61,20 +52,24 @@ export const StyledSwiperImg = styled.img`
   margin-top: 10px;
   margin-left: 10px;
   @media (min-width: 768px) {
-    width: 310px;
+    width: 390px;
     margin: 0;
   }
   @media (min-width: 1280px) {
-    width: 500px;
+    width: 570px;
   }
 `;
 export const StyledDiv = styled.div`
+  background-color: white;
+  width: 350px;
+  padding-bottom: 20px;
   @media (min-width: 1280px) {
-    margin-right: 170px;
+    padding-right: 150px;
     padding-top: 100px;
     border-left: 2px solid black;
-
-    padding-left: 50px;
+    width: 510px;
+    background-color: white;
+    padding-left: 20px;
   }
 `;
 
@@ -167,12 +162,12 @@ export const StyledSvgDiv = styled.div`
   align-items: center;
   justify-content: space-between;
   @media (min-width: 768px) {
-    top: 480px;
-    left: 50px;
+    top: 400px;
+    left: 35px;
     width: 140px;
   }
   @media (min-width: 1280px) {
-    top: 550px;
+    top: 680px;
     left: 150px;
     width: 100px;
   }
@@ -198,7 +193,7 @@ export const StyledSwipeText = styled.p`
 `;
 export const StyledSwipePrice = styled.p`
   position: absolute;
-  right: 315px;
+  right: 310px;
   top: 0px;
   font-size: 15px;
   margin: 0;
@@ -206,36 +201,37 @@ export const StyledSwipePrice = styled.p`
   letter-spacing: 1px;
   font-weight: 700;
   @media (min-width: 768px) {
-    right: 130px;
-    top: -15px;
+    right: 10px;
+    top: 20px;
     font-size: 18px;
     font-weight: 500;
+    color: white;
   }
   @media (min-width: 1280px) {
     right: 80px;
-    top: -55px;
+    top: 0px;
     font-size: 24px;
+    color: white;
   }
 `;
 export const StyledSwipeModel = styled.p`
-  font-size: 16px;
+  font-size: 15px;
   margin: 0;
   line-height: 1.3;
-  letter-spacing: 4px;
+  letter-spacing: 3px;
   font-weight: 500;
-  color: white;
+  color: black;
   position: absolute;
-  left: 10px;
-  top: 120px;
+  left: 20px;
+  top: 110px;
   @media (min-width: 768px) {
-    left: 50px;
-
-    top: 190px;
-    color: black;
+    left: 100px;
+    color: white;
+    top: 230px;
     font-size: 20px;
   }
   @media (min-width: 1280px) {
-    top: 340px;
+    top: 360px;
     left: 120px;
     color: white;
     font-weight: 400;
