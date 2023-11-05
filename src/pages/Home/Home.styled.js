@@ -42,7 +42,7 @@ export const StyledSwiperDiv = styled.div`
   }
   @media (min-width: 1280px) {
     position: relative;
-    padding-top: 200px;
+    padding-top: 190px;
     top: 0px;
     left: 0px;
   }
@@ -56,7 +56,7 @@ export const StyledSwiperImg = styled.img`
     margin: 0;
   }
   @media (min-width: 1280px) {
-    width: 550px;
+    width: 500px;
   }
 `;
 export const StyledDiv = styled.div`
