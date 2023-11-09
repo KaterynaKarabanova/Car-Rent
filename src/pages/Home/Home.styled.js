@@ -37,8 +37,8 @@ export const StyledSwiperDiv = styled.div`
   top: 315px;
   left: 42px;
   @media (min-width: 768px) {
-    top: 150px;
-    left: 300px;
+    top: 100px;
+    left: 328px;
   }
   @media (min-width: 1280px) {
     position: relative;
@@ -52,7 +52,7 @@ export const StyledSwiperImg = styled.img`
   margin-top: 10px;
   margin-left: 10px;
   @media (min-width: 768px) {
-    width: 390px;
+    width: 437px;
     margin: 0;
   }
   @media (min-width: 1280px) {
@@ -227,7 +227,7 @@ export const StyledSwipeModel = styled.p`
   @media (min-width: 768px) {
     left: 100px;
     color: white;
-    top: 230px;
+    top: 260px;
     font-size: 20px;
   }
   @media (min-width: 1280px) {

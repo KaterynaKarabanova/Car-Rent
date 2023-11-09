@@ -15,7 +15,7 @@ const LoadMore = ({ setCurrentPage, currentPage, currentCars }) => {
     <StyledBtn
       type="button"
       style={{
-        background: '#030e4c',
+        background: '#e74c3c',
       }}
       onClick={() => onClick()}
     >

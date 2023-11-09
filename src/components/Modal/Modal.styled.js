@@ -123,7 +123,7 @@ export const StyledLink = styled.a`
   width: 90px;
   height: 15px;
   border-radius: 12px;
-  background: #3470ff;
+  background: rgb(136, 13, 0);
   color: white;
   outline: none;
   display: flex;

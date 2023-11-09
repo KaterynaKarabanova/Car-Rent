@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 export const StyledDiv = styled.div`
   position: fixed;
-  right: 0px;
+  right: 20px;
   bottom: 50px;
   z-index: 5;
 `;
@@ -10,6 +10,6 @@ export const StyledButton = styled.button`
   width: 80px;
   border: none;
   border-radius: 10px;
-  background: url('https://cdn-icons-png.flaticon.com/512/7510/7510256.png');
+  background: url('https://upload.wikimedia.org/wikipedia/commons/0/06/Double_arrow_neon_red_up.png');
   background-size: contain;
 `;

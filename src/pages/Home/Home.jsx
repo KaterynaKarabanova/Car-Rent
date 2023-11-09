@@ -26,7 +26,7 @@ const Home = () => {
     breakpoints: {
       // when window width is >= 640px
       0: {
-        width: 140,
+        width: 220,
       },
       640: {
         width: 440,
@@ -42,9 +42,8 @@ const Home = () => {
   return (
     <div
       style={{
-        background: "url('https://wallpaperaccess.com/full/1079100.jpg') ",
         backgroundSize: 'cover',
-        backgroundPosition: 'bottom',
+        background: 'linear-gradient(to right, #000000, #e74c3c)',
       }}
     >
       <StyledHomeBack>

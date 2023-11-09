@@ -4,7 +4,7 @@ export const StyledBack = styled.div`
   width: 280px;
   overflow: hidden;
   @media (min-width: 768px) {
-    width: 730px;
+    width: 760px;
   }
   @media (min-width: 1280px) {
     width: 1280px;
@@ -90,7 +90,7 @@ export const StyledBtn = styled.button`
   justify-content: center;
   align-items: center;
   border-radius: 12px;
-  background: #3470ff;
+  background: #880d00;
   color: white;
   outline: none;
   border-color: transparent;
@@ -99,7 +99,7 @@ export const StyledBtn = styled.button`
   line-height: 20px;
   transition: 0.3s;
   &:hover {
-    background-color: #313095;
+    background-color: #e74c3c;
   }
   @media (min-width: 768px) {
     min-width: 50px;
