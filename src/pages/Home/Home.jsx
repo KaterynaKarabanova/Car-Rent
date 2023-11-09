@@ -16,9 +16,10 @@ import {
   StyledText,
   StyledTitle,
 } from './Home.styled';
-
+import { useTranslation } from 'react-i18next';
 const Home = () => {
   const navigate = useNavigate();
+  const { t } = useTranslation();
   const swiperParams = {
     direction: 'horizontal',
     slidesPerView: 1,
@@ -88,15 +89,12 @@ const Home = () => {
           <StyledSwipeText>Swipe</StyledSwipeText>
         </StyledSvgDiv>
         <StyledDiv>
-          <StyledMainTitle>Choose with Comfort</StyledMainTitle>
-          <StyledTitle>Drive with Comfort</StyledTitle>
-          <StyledText>
-            Our application presents more than 30 cars of different classes,
-            sizes and years of production that can be rented. You can choose a
-            car, contact the owner and plan your comfortable trip. Do not delay
-            and choose a car in the Catalog section.
-          </StyledText>
-          <StyledLink onClick={() => navigate('/catalog')}>Catalog</StyledLink>
+          <StyledMainTitle>{t('homeTitleChoose')}</StyledMainTitle>
+          <StyledTitle>{t('homeTitleDrive')}</StyledTitle>
+          <StyledText>{t('homeText')}</StyledText>
+          <StyledLink onClick={() => navigate('/catalog')}>
+            {t('catalog')}
+          </StyledLink>
         </StyledDiv>
       </StyledHomeBack>
     </div>

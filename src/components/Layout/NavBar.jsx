@@ -1,6 +1,7 @@
 import { StyledBack } from 'pages/Catalog/Catalog.styled';
 
 import { StyledNsvLink } from './Layout.styled';
+import LanguageSwitcher from './LanguageSwitcher';
 
 export const NavBar = () => {
   return (
@@ -20,6 +21,7 @@ export const NavBar = () => {
       <StyledNsvLink key={'/favorites'} to={'/favorites'}>
         Favorites
       </StyledNsvLink>
+      <LanguageSwitcher />
     </StyledBack>
   );
 };
