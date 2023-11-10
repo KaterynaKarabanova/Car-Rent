@@ -3,6 +3,7 @@ import { getCars, getFav } from 'redux/selectors';
 import { deleteCarFav } from 'redux/CarSlice';
 import Modal from 'components/Modal/Modal';
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import {
   StyledList,
   StyledItem,
@@ -27,7 +28,7 @@ const Favorites = () => {
   const navigate = useNavigate();
   const [showModal, setShowModal] = useState(false);
   const [currentEl, setCurrentEl] = useState('');
-
+  const { t } = useTranslation();
   const getCurrentEl = () => {
     return cars.find(({ id }) => id === currentEl);
   };
@@ -54,12 +55,12 @@ const Favorites = () => {
       <div>
         {!getFavCars().length && (
           <StyledFavDiv>
-            <p>There are no favorite cars here!</p>
+            <p>{t('noFavCars')}</p>
             <StyledFavImg
               src="https://static.vecteezy.com/system/resources/thumbnails/009/379/748/small/racing-flag-clipart-design-illustration-free-png.png"
               alt="car"
             />
-            <p>But you can add them at any time from</p>
+            <p>{t('addFavCars')}</p>
             <StyledLink
               style={{
                 width: '100%',
@@ -67,7 +68,7 @@ const Favorites = () => {
               }}
               onClick={() => navigate('/catalog')}
             >
-              Catalog
+              {t('submit')}
             </StyledLink>
           </StyledFavDiv>
         )}

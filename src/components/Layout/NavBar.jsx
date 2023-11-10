@@ -2,8 +2,10 @@ import { StyledBack } from 'pages/Catalog/Catalog.styled';
 
 import { StyledNsvLink } from './Layout.styled';
 import LanguageSwitcher from './LanguageSwitcher';
+import { useTranslation } from 'react-i18next';
 
 export const NavBar = () => {
+  const { t } = useTranslation();
   return (
     <StyledBack
       style={{
@@ -11,15 +13,15 @@ export const NavBar = () => {
       }}
     >
       <StyledNsvLink key={'/'} to={'/'}>
-        Home
+        {t('navHome')}
       </StyledNsvLink>
 
       <StyledNsvLink key={'/catalog'} to={'/catalog'}>
-        Catalog
+        {t('navCatalog')}
       </StyledNsvLink>
 
       <StyledNsvLink key={'/favorites'} to={'/favorites'}>
-        Favorites
+        {t('navFav')}
       </StyledNsvLink>
       <LanguageSwitcher />
     </StyledBack>

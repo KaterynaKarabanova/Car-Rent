@@ -30,10 +30,10 @@ import LoadMore from '../../components/LoadMore/LoadMore';
 import Select from 'react-select';
 import { optionsModel, optionsPrice } from './helpers';
 import BackToTop from 'components/ButtonBackToTop/BackToTop';
-
+import { useTranslation } from 'react-i18next';
 const Catalog = () => {
   const dispatch = useDispatch();
-
+  const { t } = useTranslation();
   const cars = useSelector(getCars);
   const currentCars = useSelector(getCurrent);
   const favourite = useSelector(getFav);
@@ -144,7 +144,7 @@ const Catalog = () => {
       <div style={showModal ? { pointerEvents: 'none' } : {}}>
         <StyledSerachBar>
           <div>
-            <StyledSearchText>Car brand</StyledSearchText>
+            <StyledSearchText> {t('сarBrand')}</StyledSearchText>
             <Select
               styles={Styles}
               value={currentModel}
@@ -154,7 +154,7 @@ const Catalog = () => {
             />
           </div>
           <div>
-            <StyledSearchText>Price/ 1 hour</StyledSearchText>
+            <StyledSearchText>{t('price')}</StyledSearchText>
             <Select
               styles={StylesPrice}
               value={currentPrice}
@@ -164,20 +164,20 @@ const Catalog = () => {
             />
           </div>
           <div>
-            <StyledSearchText>Сar mileage / km</StyledSearchText>
+            <StyledSearchText>{t('mileage')}</StyledSearchText>
             <StyledForm onSubmit={e => onSubmit(e)}>
               <StyledInput type="number" />
-              <StyledPlaceH>From</StyledPlaceH>
+              <StyledPlaceH>{t('from')}</StyledPlaceH>
               <StyledInputTo type="number" />
               <StyledPlaceH
                 style={{
                   left: '190px',
                 }}
               >
-                To
+                {t('to')}
               </StyledPlaceH>
               <StyledResetBtn type="button" onClick={() => onMilesReset()}>
-                Reset
+                {t('reset')}
               </StyledResetBtn>
 
               <StyledBtn
@@ -187,12 +187,16 @@ const Catalog = () => {
                 }}
                 type="submit"
               >
-                Submit
+                {t('submit')}
               </StyledBtn>
               {fromMiles !== 0 || toMiles !== 100000 ? (
                 <StyledMilesDiv>
-                  <StyledSearchText>From: {fromMiles} / km</StyledSearchText>
-                  <StyledSearchText>To: {toMiles} / km</StyledSearchText>
+                  <StyledSearchText>
+                    {t('from')}: {fromMiles} / km
+                  </StyledSearchText>
+                  <StyledSearchText>
+                    {t('to')}: {toMiles} / km
+                  </StyledSearchText>
                 </StyledMilesDiv>
               ) : (
                 ''
@@ -283,7 +287,7 @@ const Catalog = () => {
                     />
                   </StyledSvg>
                   <StyledBtn type="button" onClick={e => onLearnMoreClick(e)}>
-                    Learn More
+                    {t('learnMore')}
                   </StyledBtn>
                 </StyledItem>
               );

@@ -46,6 +46,9 @@ export const StyledSwiperDiv = styled.div`
     top: 0px;
     left: 0px;
   }
+  @media (min-width: 1480px) {
+    padding-top: 120px;
+  }
 `;
 export const StyledSwiperImg = styled.img`
   width: 160px;
@@ -57,6 +60,9 @@ export const StyledSwiperImg = styled.img`
   }
   @media (min-width: 1280px) {
     width: 500px;
+  }
+  @media (min-width: 1480px) {
+    width: 700px;
   }
 `;
 export const StyledDiv = styled.div`
@@ -171,6 +177,10 @@ export const StyledSvgDiv = styled.div`
     left: 150px;
     width: 100px;
   }
+  @media (min-width: 1480px) {
+    left: 220px;
+    top: 700px;
+  }
 `;
 export const StyledSwipeText = styled.p`
   font-size: 18px;
@@ -189,6 +199,9 @@ export const StyledSwipeText = styled.p`
     font-size: 17px;
     font-weight: 500;
     letter-spacing: 1px;
+  }
+  @media (min-width: 1480px) {
+    font-size: 22px;
   }
 `;
 export const StyledSwipePrice = styled.p`
@@ -235,6 +248,12 @@ export const StyledSwipeModel = styled.p`
     left: 120px;
     color: white;
     font-weight: 400;
+  }
+  @media (min-width: 1480px) {
+    top: 450px;
+    left: 180px;
+    font-size: 25px;
+    letter-spacing: 4px;
   }
 `;
 

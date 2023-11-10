@@ -9,6 +9,9 @@ export const StyledBack = styled.div`
   @media (min-width: 1280px) {
     width: 1280px;
   }
+  @media (min-width: 1480px) {
+    width: 1480px;
+  }
 `;
 export const StyledSerachBar = styled.div`
   display: flex;
@@ -85,7 +88,8 @@ export const StyledBtn = styled.button`
   display: flex;
   min-width: 274px;
   height: 38px;
-  padding: 12px 90px;
+  padding: 12px 40px;
+  letter-spacing: 2px;
   margin-top: 15px;
   justify-content: center;
   align-items: center;
@@ -94,8 +98,8 @@ export const StyledBtn = styled.button`
   color: white;
   outline: none;
   border-color: transparent;
-  font-size: 14px;
-  font-weight: 600;
+  font-size: 15px;
+  font-weight: 500;
   line-height: 20px;
   transition: 0.3s;
   &:hover {
