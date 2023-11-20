@@ -5,26 +5,43 @@ import porsche from '../assets/newPorsche.png';
 import mercedez from '../assets/newMercedes.png';
 import tesla from '../assets/tesla.png';
 import { useState } from 'react';
-// import { StyledMain } from './CarInsideView.styled';
+import {
+  StyledMain,
+  StyledList,
+  StyledButton,
+  StyledSpan,
+  StyledDiv,
+} from './CarInsideView.styled';
 const CarInsideView = () => {
   const [actualCar, setActualCar] = useState('PORSCHE');
   const [actualLandscape, setActualLandscape] = useState('NIGHT');
   return (
-    <div>
-      <div
-        style={{
-          listStyle: 'none',
-        }}
-      >
-        <button onClick={() => setActualCar('TESLA')}>Tesla</button>
-        <button onClick={() => setActualCar('MERCEDEZ')}>Mercedez</button>
-        <button onClick={() => setActualCar('PORSCHE')}>Porsche</button>
-      </div>
+    <StyledMain>
+      <StyledList>
+        <li>
+          {' '}
+          <StyledButton onClick={() => setActualCar('TESLA')}>
+            Tesla
+          </StyledButton>
+        </li>
+        <li>
+          <StyledButton onClick={() => setActualCar('MERCEDEZ')}>
+            Mercedez
+          </StyledButton>
+        </li>
+        <li>
+          {' '}
+          <StyledButton onClick={() => setActualCar('PORSCHE')}>
+            Porsche
+          </StyledButton>
+        </li>
+      </StyledList>
 
-      <div
+      <StyledDiv
         style={{
           position: 'relative',
-          height: '400px',
+          height: '300px',
+          width: '600px',
           overflow: 'hidden',
         }}
       >
@@ -33,9 +50,9 @@ const CarInsideView = () => {
             src={night}
             alt=""
             style={{
-              width: '800px',
+              width: '600px',
               position: 'absolute',
-              top: '-430px',
+              top: '-360px',
             }}
           />
         )}
@@ -44,9 +61,9 @@ const CarInsideView = () => {
             src={tonnel}
             alt=""
             style={{
-              width: '800px',
+              width: '600px',
               position: 'absolute',
-              top: '-220px',
+              top: '-190px',
             }}
           />
         )}
@@ -55,9 +72,9 @@ const CarInsideView = () => {
             src={pink}
             alt=""
             style={{
-              width: '800px',
+              width: '600px',
               position: 'absolute',
-              top: '-460px',
+              top: '-370px',
             }}
           />
         )}
@@ -70,7 +87,7 @@ const CarInsideView = () => {
               position: 'absolute',
               left: '0',
               top: '0px',
-              width: '800px',
+              width: '600px',
             }}
           />
         )}
@@ -82,7 +99,7 @@ const CarInsideView = () => {
               position: 'absolute',
               left: '0',
               top: '-10px',
-              width: '800px',
+              width: '600px',
             }}
           />
         )}
@@ -94,17 +111,29 @@ const CarInsideView = () => {
               position: 'absolute',
               left: '0',
               top: '-90px',
-              width: '800px',
+              width: '600px',
             }}
           />
         )}
-      </div>
-      <div>
-        <button onClick={() => setActualLandscape('NIGHT')}>Night Road</button>
-        <button onClick={() => setActualLandscape('TONNEL')}>Tonnel</button>
-        <button onClick={() => setActualLandscape('PINK')}>Pink Sunset</button>
-      </div>
-    </div>
+      </StyledDiv>
+      <StyledList>
+        <li>
+          <StyledButton onClick={() => setActualLandscape('NIGHT')}>
+            Night Road
+          </StyledButton>
+        </li>
+        <li>
+          <StyledButton onClick={() => setActualLandscape('TONNEL')}>
+            Tonnel
+          </StyledButton>
+        </li>
+        <li>
+          <StyledButton onClick={() => setActualLandscape('PINK')}>
+            <StyledSpan>Pink Sunset</StyledSpan>
+          </StyledButton>
+        </li>
+      </StyledList>
+    </StyledMain>
   );
 };
 export default CarInsideView;
