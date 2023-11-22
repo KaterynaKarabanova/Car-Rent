@@ -18,9 +18,7 @@ export const StyledList = styled.ul`
   flex-direction: column;
   justify-content: space-between;
 `;
-export const StyledSpan = styled.span`
-  z-index: 10;
-`;
+
 export const StyledButton = styled.button`
   font-size: 1.2em;
   background-color: #840909;
@@ -99,4 +97,12 @@ export const StyledButton = styled.button`
     font-size: 22px;
     background-color: #fefefe;
   }
+`;
+
+export const StyledActiveCar = styled(StyledButton)`
+  color: rgba(1, 1, 1, 1);
+  text-shadow: none;
+  font-weight: 700;
+  font-size: 22px;
+  background-color: #fefefe;
 `;

@@ -9,8 +9,8 @@ import {
   StyledMain,
   StyledList,
   StyledButton,
-  StyledSpan,
   StyledDiv,
+  StyledActiveCar,
 } from './CarInsideView.styled';
 const CarInsideView = () => {
   const [actualCar, setActualCar] = useState('PORSCHE');
@@ -19,21 +19,31 @@ const CarInsideView = () => {
     <StyledMain>
       <StyledList>
         <li>
-          {' '}
-          <StyledButton onClick={() => setActualCar('TESLA')}>
-            Tesla
-          </StyledButton>
+          {actualCar === 'TESLA' ? (
+            <StyledActiveCar>Tesla</StyledActiveCar>
+          ) : (
+            <StyledButton onClick={() => setActualCar('TESLA')}>
+              Tesla
+            </StyledButton>
+          )}
         </li>
         <li>
-          <StyledButton onClick={() => setActualCar('MERCEDEZ')}>
-            Mercedez
-          </StyledButton>
+          {actualCar === 'MERCEDEZ' ? (
+            <StyledActiveCar>Mercedez</StyledActiveCar>
+          ) : (
+            <StyledButton onClick={() => setActualCar('MERCEDEZ')}>
+              Mercedez
+            </StyledButton>
+          )}
         </li>
         <li>
-          {' '}
-          <StyledButton onClick={() => setActualCar('PORSCHE')}>
-            Porsche
-          </StyledButton>
+          {actualCar === 'PORSCHE' ? (
+            <StyledActiveCar>Porsche</StyledActiveCar>
+          ) : (
+            <StyledButton onClick={() => setActualCar('PORSCHE')}>
+              Porsche
+            </StyledButton>
+          )}
         </li>
       </StyledList>
 
@@ -118,19 +128,31 @@ const CarInsideView = () => {
       </StyledDiv>
       <StyledList>
         <li>
-          <StyledButton onClick={() => setActualLandscape('NIGHT')}>
-            Night Road
-          </StyledButton>
+          {actualLandscape === 'NIGHT' ? (
+            <StyledActiveCar>Night Road</StyledActiveCar>
+          ) : (
+            <StyledButton onClick={() => setActualLandscape('NIGHT')}>
+              Night Road
+            </StyledButton>
+          )}
         </li>
         <li>
-          <StyledButton onClick={() => setActualLandscape('TONNEL')}>
-            Tonnel
-          </StyledButton>
+          {actualLandscape === 'TONNEL' ? (
+            <StyledActiveCar>Tonnel</StyledActiveCar>
+          ) : (
+            <StyledButton onClick={() => setActualLandscape('TONNEL')}>
+              Tonnel
+            </StyledButton>
+          )}
         </li>
         <li>
-          <StyledButton onClick={() => setActualLandscape('PINK')}>
-            <StyledSpan>Pink Sunset</StyledSpan>
-          </StyledButton>
+          {actualLandscape === 'PINK' ? (
+            <StyledActiveCar>Pink Sunset</StyledActiveCar>
+          ) : (
+            <StyledButton onClick={() => setActualLandscape('PINK')}>
+              Pink Sunset
+            </StyledButton>
+          )}
         </li>
       </StyledList>
     </StyledMain>
