@@ -23,7 +23,7 @@ export const StyledHomeBack = styled(StyledBack)`
       display: none;
     }
 
-    height: calc(100vh - 112px);
+    height: calc(100vh - 61px);
   }
   @media (min-width: 1280px) {
     display: flex;

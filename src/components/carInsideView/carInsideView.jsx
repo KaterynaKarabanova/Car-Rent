@@ -11,150 +11,165 @@ import {
   StyledButton,
   StyledDiv,
   StyledActiveCar,
+  StyledWrapper,
+  StyledDesc,
+  StyledMainTitl,
+  StyledTitl,
+  StyledCarText,
 } from './CarInsideView.styled';
 const CarInsideView = () => {
   const [actualCar, setActualCar] = useState('PORSCHE');
   const [actualLandscape, setActualLandscape] = useState('NIGHT');
   return (
     <StyledMain>
-      <StyledList>
-        <li>
-          {actualCar === 'TESLA' ? (
-            <StyledActiveCar>Tesla</StyledActiveCar>
-          ) : (
-            <StyledButton onClick={() => setActualCar('TESLA')}>
-              Tesla
-            </StyledButton>
-          )}
-        </li>
-        <li>
-          {actualCar === 'MERCEDEZ' ? (
-            <StyledActiveCar>Mercedez</StyledActiveCar>
-          ) : (
-            <StyledButton onClick={() => setActualCar('MERCEDEZ')}>
-              Mercedez
-            </StyledButton>
-          )}
-        </li>
-        <li>
-          {actualCar === 'PORSCHE' ? (
-            <StyledActiveCar>Porsche</StyledActiveCar>
-          ) : (
-            <StyledButton onClick={() => setActualCar('PORSCHE')}>
-              Porsche
-            </StyledButton>
-          )}
-        </li>
-      </StyledList>
+      <StyledDesc>
+        <StyledMainTitl>Just</StyledMainTitl>
+        <StyledTitl>Imagine</StyledTitl>
+        <StyledCarText>
+          To choose the most comfortable car to rent it's also important to
+          check a salon. So here you have this oportunity
+        </StyledCarText>
+      </StyledDesc>
+      <StyledWrapper>
+        <StyledList>
+          <li>
+            {actualCar === 'TESLA' ? (
+              <StyledActiveCar>Tesla</StyledActiveCar>
+            ) : (
+              <StyledButton onClick={() => setActualCar('TESLA')}>
+                Tesla
+              </StyledButton>
+            )}
+          </li>
+          <li>
+            {actualCar === 'MERCEDEZ' ? (
+              <StyledActiveCar>Mercedez</StyledActiveCar>
+            ) : (
+              <StyledButton onClick={() => setActualCar('MERCEDEZ')}>
+                Mercedez
+              </StyledButton>
+            )}
+          </li>
+          <li>
+            {actualCar === 'PORSCHE' ? (
+              <StyledActiveCar>Porsche</StyledActiveCar>
+            ) : (
+              <StyledButton onClick={() => setActualCar('PORSCHE')}>
+                Porsche
+              </StyledButton>
+            )}
+          </li>
+        </StyledList>
 
-      <StyledDiv
-        style={{
-          position: 'relative',
-          height: '300px',
-          width: '600px',
-          overflow: 'hidden',
-        }}
-      >
-        {actualLandscape === 'NIGHT' && (
-          <img
-            src={night}
-            alt=""
-            style={{
-              width: '600px',
-              position: 'absolute',
-              top: '-360px',
-            }}
-          />
-        )}
-        {actualLandscape === 'TONNEL' && (
-          <img
-            src={tonnel}
-            alt=""
-            style={{
-              width: '600px',
-              position: 'absolute',
-              top: '-190px',
-            }}
-          />
-        )}
-        {actualLandscape === 'PINK' && (
-          <img
-            src={pink}
-            alt=""
-            style={{
-              width: '600px',
-              position: 'absolute',
-              top: '-370px',
-            }}
-          />
-        )}
+        <StyledDiv
+          style={{
+            position: 'relative',
+            height: '300px',
+            width: '600px',
+            overflow: 'hidden',
+          }}
+        >
+          {actualLandscape === 'NIGHT' && (
+            <img
+              src={night}
+              alt=""
+              style={{
+                width: '600px',
+                position: 'absolute',
+                top: '-360px',
+              }}
+            />
+          )}
+          {actualLandscape === 'TONNEL' && (
+            <img
+              src={tonnel}
+              alt=""
+              style={{
+                width: '600px',
+                position: 'absolute',
+                top: '-190px',
+              }}
+            />
+          )}
+          {actualLandscape === 'PINK' && (
+            <img
+              src={pink}
+              alt=""
+              style={{
+                width: '600px',
+                position: 'absolute',
+                top: '-370px',
+              }}
+            />
+          )}
 
-        {actualCar === 'PORSCHE' && (
-          <img
-            src={porsche}
-            alt=""
-            style={{
-              position: 'absolute',
-              left: '0',
-              top: '0px',
-              width: '600px',
-            }}
-          />
-        )}
-        {actualCar === 'MERCEDEZ' && (
-          <img
-            src={mercedez}
-            alt=""
-            style={{
-              position: 'absolute',
-              left: '0',
-              top: '-10px',
-              width: '600px',
-            }}
-          />
-        )}
-        {actualCar === 'TESLA' && (
-          <img
-            src={tesla}
-            alt=""
-            style={{
-              position: 'absolute',
-              left: '0',
-              top: '-90px',
-              width: '600px',
-            }}
-          />
-        )}
-      </StyledDiv>
-      <StyledList>
-        <li>
-          {actualLandscape === 'NIGHT' ? (
-            <StyledActiveCar>Night Road</StyledActiveCar>
-          ) : (
-            <StyledButton onClick={() => setActualLandscape('NIGHT')}>
-              Night Road
-            </StyledButton>
+          {actualCar === 'PORSCHE' && (
+            <img
+              src={porsche}
+              alt=""
+              style={{
+                position: 'absolute',
+                left: '0',
+                top: '0px',
+                width: '600px',
+              }}
+            />
           )}
-        </li>
-        <li>
-          {actualLandscape === 'TONNEL' ? (
-            <StyledActiveCar>Tonnel</StyledActiveCar>
-          ) : (
-            <StyledButton onClick={() => setActualLandscape('TONNEL')}>
-              Tonnel
-            </StyledButton>
+          {actualCar === 'MERCEDEZ' && (
+            <img
+              src={mercedez}
+              alt=""
+              style={{
+                position: 'absolute',
+                left: '0',
+                top: '-10px',
+                width: '600px',
+              }}
+            />
           )}
-        </li>
-        <li>
-          {actualLandscape === 'PINK' ? (
-            <StyledActiveCar>Pink Sunset</StyledActiveCar>
-          ) : (
-            <StyledButton onClick={() => setActualLandscape('PINK')}>
-              Pink Sunset
-            </StyledButton>
+          {actualCar === 'TESLA' && (
+            <img
+              src={tesla}
+              alt=""
+              style={{
+                position: 'absolute',
+                left: '0',
+                top: '-90px',
+                width: '600px',
+              }}
+            />
           )}
-        </li>
-      </StyledList>
+        </StyledDiv>
+        <StyledList>
+          <li>
+            {actualLandscape === 'NIGHT' ? (
+              <StyledActiveCar>Night Road</StyledActiveCar>
+            ) : (
+              <StyledButton onClick={() => setActualLandscape('NIGHT')}>
+                Night Road
+              </StyledButton>
+            )}
+          </li>
+          <li>
+            {actualLandscape === 'TONNEL' ? (
+              <StyledActiveCar>Tonnel</StyledActiveCar>
+            ) : (
+              <StyledButton onClick={() => setActualLandscape('TONNEL')}>
+                Tonnel
+              </StyledButton>
+            )}
+          </li>
+          <li>
+            {actualLandscape === 'PINK' ? (
+              <StyledActiveCar>Pink Sunset</StyledActiveCar>
+            ) : (
+              <StyledButton onClick={() => setActualLandscape('PINK')}>
+                Pink Sunset
+              </StyledButton>
+            )}
+          </li>
+        </StyledList>
+      </StyledWrapper>
     </StyledMain>
   );
 };

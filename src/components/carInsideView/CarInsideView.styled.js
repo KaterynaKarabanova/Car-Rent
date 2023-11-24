@@ -1,9 +1,51 @@
+import {
+  StyledMainTitle,
+  StyledText,
+  StyledTitle,
+} from 'pages/Home/Home.styled';
 import styled from 'styled-components';
 export const StyledMain = styled.div`
+  height: 100vh;
+  display: none;
+  @media (min-width: 1280px) {
+    display: flex;
+    gap: 55px;
+    width: 1490px;
+    margin: 0 auto;
+  }
+`;
+export const StyledWrapper = styled.div`
   display: flex;
-  width: 900px;
-  margin: 0 auto;
-  margin-top: 40px;
+  margin-top: 230px;
+  height: 400px;
+  padding-top: 40px;
+  padding-right: 55px;
+  position: relative;
+  &::after {
+    content: '';
+    display: block;
+    height: 100vh;
+    width: 2px;
+    background-color: white;
+    position: absolute;
+    top: -230px;
+    right: 0;
+  }
+`;
+export const StyledDesc = styled.div`
+  background-color: white;
+  position: relative;
+  padding: 30px 0 0 30px;
+  &::before {
+    content: '';
+    display: block;
+    height: 2px;
+    width: 1040px;
+    background-color: white;
+    position: absolute;
+    top: 0;
+    left: 450px;
+  }
 `;
 export const StyledDiv = styled.div`
   outline: black 30px solid;
@@ -105,4 +147,10 @@ export const StyledActiveCar = styled(StyledButton)`
   font-weight: 700;
   font-size: 22px;
   background-color: #fefefe;
+`;
+
+export const StyledMainTitl = styled(StyledMainTitle)``;
+export const StyledTitl = styled(StyledTitle)``;
+export const StyledCarText = styled(StyledText)`
+  width: 410px;
 `;
