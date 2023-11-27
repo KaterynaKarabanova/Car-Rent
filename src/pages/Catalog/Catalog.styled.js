@@ -256,10 +256,10 @@ export const Styles = {
   option: (styles, state) => ({
     ...styles,
     backgroundColor: 'white',
-    color: state.isSelected ? '#121417' : 'rgba(18, 20, 23, 0.20)',
+    color: state.isSelected ? 'red' : 'rgba(18, 20, 23, 0.50)',
     ':hover': {
       background: 'DDE7FF',
-      color: '#121417',
+      color: 'red',
     },
   }),
 
@@ -274,7 +274,7 @@ export const Styles = {
       background: '#88b5f9',
     },
     '::-webkit-scrollbar-thumb': {
-      background: '#4751e7',
+      background: '#880d00',
     },
     '::-webkit-scrollbar-thumb:hover': {
       background: '#0a0a65',
@@ -306,10 +306,10 @@ export const StylesPrice = {
   option: (styles, state) => ({
     ...styles,
     backgroundColor: 'white',
-    color: state.isSelected ? '#121417' : 'rgba(18, 20, 23, 0.20)',
+    color: state.isSelected ? '#880d00' : 'rgba(18, 20, 23, 0.50)',
     ':hover': {
       background: 'DDE7FF',
-      color: '#121417',
+      color: 'red',
     },
   }),
   menuList: base => ({
@@ -320,13 +320,13 @@ export const StylesPrice = {
       height: '0px',
     },
     '::-webkit-scrollbar-track': {
-      background: '#88b5f9',
+      background: 'white',
     },
     '::-webkit-scrollbar-thumb': {
-      background: '#4751e7',
+      background: '#880d00',
     },
     '::-webkit-scrollbar-thumb:hover': {
-      background: '#0a0a65',
+      background: 'white',
     },
   }),
 };

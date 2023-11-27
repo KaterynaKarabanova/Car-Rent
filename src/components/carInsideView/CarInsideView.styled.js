@@ -50,6 +50,7 @@ export const StyledDesc = styled.div`
 export const StyledDiv = styled.div`
   outline: black 30px solid;
   border-radius: 14px;
+  background-color: black;
   margin: 40px 40px;
 `;
 export const StyledList = styled.ul`

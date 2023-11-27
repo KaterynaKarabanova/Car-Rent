@@ -1,7 +1,7 @@
 import { StyledBack } from 'pages/Catalog/Catalog.styled';
 import styled from 'styled-components';
 export const StyledHomeBack = styled(StyledBack)`
-  height: calc(100vh - 80px);
+  height: 520px;
   display: block;
   position: relative;
   padding: 0;
@@ -37,8 +37,8 @@ export const StyledSwiperDiv = styled.div`
   top: 315px;
   left: 42px;
   @media (min-width: 768px) {
-    top: 100px;
-    left: 328px;
+    top: 180px;
+    left: 300px;
   }
   @media (min-width: 1280px) {
     position: relative;
@@ -55,7 +55,7 @@ export const StyledSwiperImg = styled.img`
   margin-top: 10px;
   margin-left: 10px;
   @media (min-width: 768px) {
-    width: 437px;
+    width: 460px;
     margin: 0;
   }
   @media (min-width: 1280px) {
@@ -69,7 +69,11 @@ export const StyledDiv = styled.div`
   background-color: white;
   width: 350px;
   padding-bottom: 20px;
+  @media (min-width: 768px) {
+    height: 400px;
+  }
   @media (min-width: 1280px) {
+    height: 900px;
     padding-right: 150px;
     padding-top: 100px;
     border-left: 2px solid black;
@@ -160,7 +164,7 @@ export const StyledLink = styled.button`
 `;
 export const StyledSvgDiv = styled.div`
   position: absolute;
-  top: 490px;
+  top: 480px;
   left: 70px;
   width: 100px;
 
@@ -168,12 +172,12 @@ export const StyledSvgDiv = styled.div`
   align-items: center;
   justify-content: space-between;
   @media (min-width: 768px) {
-    top: 400px;
+    top: 510px;
     left: 35px;
     width: 140px;
   }
   @media (min-width: 1280px) {
-    top: 680px;
+    top: 510px;
     left: 150px;
     width: 100px;
   }
@@ -214,10 +218,10 @@ export const StyledSwipePrice = styled.p`
   letter-spacing: 1px;
   font-weight: 700;
   @media (min-width: 768px) {
-    right: 10px;
-    top: 20px;
-    font-size: 18px;
-    font-weight: 500;
+    right: 170px;
+    top: 0px;
+    font-size: 20px;
+    font-weight: 600;
     color: white;
   }
   @media (min-width: 1280px) {
@@ -240,7 +244,7 @@ export const StyledSwipeModel = styled.p`
   @media (min-width: 768px) {
     left: 100px;
     color: white;
-    top: 260px;
+    top: 290px;
     font-size: 20px;
   }
   @media (min-width: 1280px) {

@@ -17,8 +17,10 @@ import {
   StyledSpan,
   StyledText,
 } from 'pages/Catalog/Catalog.styled';
+import { useTranslation } from 'react-i18next';
 
 const Modal = ({ element, showModal, setShowModal }) => {
+  const { t } = useTranslation();
   useEffect(() => {
     const keyDown = e => {
       if (e.code === 'Escape') {
@@ -94,17 +96,22 @@ const Modal = ({ element, showModal, setShowModal }) => {
           <StyledInfoText>{element.address.split(',')[1]}</StyledInfoText>
           <StyledInfoText>{element.address.split(',')[2]}</StyledInfoText>
           <StyledInfoText>Id: {element.id}</StyledInfoText>
-          <StyledInfoText>Year: {element.year}</StyledInfoText>
-          <StyledInfoText>Type: {element.type}</StyledInfoText>
           <StyledInfoText>
-            Fuel Consumption:
-            {element.fuelConsumption}
+            {t('year')}: {element.year}
           </StyledInfoText>
-          <StyledInfoText> Engine Size: {element.engineSize}</StyledInfoText>
+          <StyledInfoText>
+            {t('type')}: {element.type}
+          </StyledInfoText>
+          <StyledInfoText>
+            {t('fuelCons')}:{element.fuelConsumption}
+          </StyledInfoText>
+          <StyledInfoText>
+            {t('engineSize')}: {element.engineSize}
+          </StyledInfoText>
         </StyledModalDiv>
         <StyledInfoDiv>{element.description}</StyledInfoDiv>
 
-        <StyledTitle>Accessories and functionalities:</StyledTitle>
+        <StyledTitle>{t('acesories')}:</StyledTitle>
         <StyledModalDiv>
           {element.accessories.map((el, index) => (
             <StyledInfoText key={index}>{el}</StyledInfoText>
@@ -114,7 +121,7 @@ const Modal = ({ element, showModal, setShowModal }) => {
           ))}
         </StyledModalDiv>
 
-        <StyledTitle>Rental Conditions:</StyledTitle>
+        <StyledTitle>{t('tentalConditions')}:</StyledTitle>
         <StyledRentalDiv>
           {element.rentalConditions.split('\n').map((el, index) =>
             el.includes(':') ? (
@@ -130,7 +137,7 @@ const Modal = ({ element, showModal, setShowModal }) => {
           )}
         </StyledRentalDiv>
 
-        <StyledLink href="tel:+380730000000">Rental Car</StyledLink>
+        <StyledLink href="tel:+380730000000">{t('rentCar')}</StyledLink>
       </StyledDiv>
     </StyledBack>
   );

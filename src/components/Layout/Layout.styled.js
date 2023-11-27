@@ -10,7 +10,7 @@ export const StyledNsvLink = styled(NavLink)`
   padding: 5px;
   margin: 0;
   margin-right: 15px;
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 600;
 
   text-decoration: none;
