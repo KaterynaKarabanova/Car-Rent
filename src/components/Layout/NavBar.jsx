@@ -23,6 +23,10 @@ export const NavBar = () => {
       <StyledNsvLink key={'/favorites'} to={'/favorites'}>
         {t('navFav')}
       </StyledNsvLink>
+
+      <StyledNsvLink key={'/cooperation'} to={'/cooperation'}>
+        {t('cooperation')}
+      </StyledNsvLink>
       <LanguageSwitcher />
     </StyledBack>
   );

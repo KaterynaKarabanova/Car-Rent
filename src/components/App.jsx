@@ -8,7 +8,7 @@ const Layout = lazy(() => import('./Layout/Layout'));
 const Home = lazy(() => import('pages/Home/Home'));
 const Catalog = lazy(() => import('pages/Catalog/Catalog'));
 const Favorites = lazy(() => import('pages/Favorites'));
-
+const Cooperation = lazy(() => import('pages/Cooperation/Cooperation'));
 export const App = () => {
   const dispatch = useDispatch();
   const [isInitialRender, setIsInitialRender] = useState(true);
@@ -50,6 +50,7 @@ export const App = () => {
           <Route index element={<Home />} />
           <Route path="catalog" element={<Catalog />} />
           <Route path="favorites" element={<Favorites />} />
+          <Route path="cooperation" element={<Cooperation />} />
           <Route path="*" element={<Home />} />
         </Route>
       </Routes>

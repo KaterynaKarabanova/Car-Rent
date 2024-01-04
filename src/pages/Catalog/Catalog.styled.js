@@ -302,6 +302,16 @@ export const StylesPrice = {
       maxWidth: 130,
       minHeight: 48,
     },
+    ':focus': {
+      borderColor: 'none',
+      outline: 'none',
+      boxShadow: 'none',
+    },
+    ':hover': {
+      borderColor: 'none',
+      outline: 'none',
+      boxShadow: 'none',
+    },
   }),
   option: (styles, state) => ({
     ...styles,
@@ -320,13 +330,13 @@ export const StylesPrice = {
       height: '0px',
     },
     '::-webkit-scrollbar-track': {
-      background: 'white',
+      background: '#FFF',
     },
     '::-webkit-scrollbar-thumb': {
       background: '#880d00',
     },
     '::-webkit-scrollbar-thumb:hover': {
-      background: 'white',
+      background: '#FFF',
     },
   }),
 };
