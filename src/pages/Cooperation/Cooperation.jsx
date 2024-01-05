@@ -4,6 +4,7 @@ import AddDescription from 'components/AddDescription/AddDescription';
 import Conditions from 'components/Conditions/Conditions';
 import { StyledBack } from 'pages/Catalog/Catalog.styled';
 import { useForm } from 'react-hook-form';
+import { StyledBtn } from './Cooperation.styled';
 const Cooperation = () => {
   const {
     register,
@@ -70,9 +71,9 @@ const Cooperation = () => {
           onSubmit={onSubmit}
         />
       </>
-      <button type="button" onClick={handleSubmit(onSubmit)}>
+      <StyledBtn type="button" onClick={handleSubmit(onSubmit)}>
         Add
-      </button>
+      </StyledBtn>
     </StyledBack>
   );
 };

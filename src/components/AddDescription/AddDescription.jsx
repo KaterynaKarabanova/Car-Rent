@@ -1,3 +1,5 @@
+import { StyledTextarea } from './AddDescription.styled';
+
 const AddDescription = ({
   register,
   control,
@@ -9,7 +11,10 @@ const AddDescription = ({
   return (
     <form>
       <h2>AddDescription</h2>
-      <textarea type="text" {...register('description', { required: true })} />
+      <StyledTextarea
+        type="text"
+        {...register('description', { required: true })}
+      />
       {errors.description && <p>Description is required</p>}
     </form>
   );

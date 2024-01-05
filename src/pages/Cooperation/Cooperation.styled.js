@@ -1,10 +1,18 @@
 import styled from 'styled-components';
-export const StyledInput = styled.input`
+
+export const StyledBtn = styled.button`
+  box-sizing: border-box;
   display: block;
-  width: 240px;
-  height: 25px;
-  outline: none;
-  border: 1px solid black;
+  height: 40px;
+  width: 50%;
+  background-color: #ba000d;
+  text-align: center;
+  pad: 10px;
+  color: white;
+  font-size: 18px;
+  font-weight: 500;
   border-radius: 10px;
-  background-color: transparent;
+  border: none;
+  padding: 10px;
+  margin-top: 20px;
 `;

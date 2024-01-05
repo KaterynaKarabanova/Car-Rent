@@ -1,4 +1,11 @@
 import { useState } from 'react';
+import {
+  StyledCheckbox,
+  StyledCheckboxAge,
+  StyledDiv,
+  StyledLabel,
+  StyledText,
+} from './Conditions.styled';
 
 const Conditions = ({
   register,
@@ -17,70 +24,72 @@ const Conditions = ({
   return (
     <form>
       <h2>Conditions</h2>
-      <label>
+      <StyledLabel isChecked={driverLicense}>
         Valid driver's license
-        <input
+        <StyledCheckbox
           type="checkbox"
           {...register('driverLicense')}
           checked={driverLicense}
           onChange={() => setDriverLicense(!driverLicense)}
         />
-      </label>
-      <label>
+      </StyledLabel>
+      <StyledLabel isChecked={securityDeposit}>
         Security deposit required
-        <input
+        <StyledCheckbox
           type="checkbox"
           {...register('securityDeposit')}
           checked={securityDeposit}
           onChange={() => setSecurityDeposit(!securityDeposit)}
         />
-      </label>
+      </StyledLabel>
       <div>
-        Minimum age:
-        <label>
-          {' '}
-          18{' '}
-          <input
-            type="radio"
-            {...register('minAge')}
-            value={18}
-            checked={selectedOption === '18'}
-            onChange={handleOptionChange}
-          />
-        </label>
-        <label>
-          {' '}
-          21{' '}
-          <input
-            type="radio"
-            {...register('minAge')}
-            value={21}
-            checked={selectedOption === '21'}
-            onChange={handleOptionChange}
-          />
-        </label>
-        <label>
-          {' '}
-          25{' '}
-          <input
-            type="radio"
-            {...register('minAge')}
-            value={25}
-            checked={selectedOption === '25'}
-            onChange={handleOptionChange}
-          />
-        </label>
-        <label>
-          {' '}
-          30{' '}
-          <input
-            type="radio"
-            {...register('minAge')}
-            value={30}
-            checked={selectedOption === '30'}
-            onChange={handleOptionChange}
-          />
-        </label>
+        <StyledText>Minimum age:</StyledText>
+        <StyledDiv>
+          <StyledCheckboxAge isChecked={selectedOption === '18'}>
+            {' '}
+            18{' '}
+            <StyledCheckbox
+              type="radio"
+              {...register('minAge')}
+              value={18}
+              checked={selectedOption === '18'}
+              onChange={handleOptionChange}
+            />
+          </StyledCheckboxAge>
+          <StyledCheckboxAge isChecked={selectedOption === '21'}>
+            {' '}
+            21{' '}
+            <StyledCheckbox
+              type="radio"
+              {...register('minAge')}
+              value={21}
+              checked={selectedOption === '21'}
+              onChange={handleOptionChange}
+            />
+          </StyledCheckboxAge>
+          <StyledCheckboxAge isChecked={selectedOption === '25'}>
+            {' '}
+            25{' '}
+            <StyledCheckbox
+              type="radio"
+              {...register('minAge')}
+              value={25}
+              checked={selectedOption === '25'}
+              onChange={handleOptionChange}
+            />
+          </StyledCheckboxAge>
+          <StyledCheckboxAge isChecked={selectedOption === '30'}>
+            {' '}
+            30{' '}
+            <StyledCheckbox
+              type="radio"
+              {...register('minAge')}
+              value={30}
+              checked={selectedOption === '30'}
+              onChange={handleOptionChange}
+            />
+          </StyledCheckboxAge>
+        </StyledDiv>
       </div>
     </form>
   );

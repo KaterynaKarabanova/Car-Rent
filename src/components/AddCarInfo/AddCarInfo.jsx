@@ -1,9 +1,14 @@
 import { useTranslation } from 'react-i18next';
-import { StyledInput } from '../../pages/Cooperation/Cooperation.styled';
+import {
+  StyledCarInfoDiv,
+  StyledInput,
+  StyledLabel,
+  StyledMainForm,
+} from './AddCarInfo.styled';
 import { Controller } from 'react-hook-form';
 import Select from 'react-select';
 import { getPlaceOptions, typeOptions, yearOptions } from './options';
-import { Styles } from 'pages/Catalog/Catalog.styled';
+import { Styles } from './AddCarInfo.styled';
 import {
   StyledFileDiv,
   StyledFileInput,
@@ -35,7 +40,7 @@ const AddCarInfo = ({
     }
   };
   return (
-    <form>
+    <StyledMainForm>
       <StyledFileLabel style={{ backgroundImage: `url(${imagePreview})` }}>
         <StyledFileInput
           type="file"
@@ -51,8 +56,8 @@ const AddCarInfo = ({
         )}
       </StyledFileLabel>
       <div>
-        <h3>Personal information</h3>
-        <label>
+        <h2>Personal information</h2>
+        <StyledLabel>
           Name
           <StyledInput
             type="text"
@@ -67,8 +72,8 @@ const AddCarInfo = ({
             })}
           />
           {errors.userName && <p>Name is required</p>}
-        </label>
-        <label>
+        </StyledLabel>
+        <StyledLabel>
           Surname
           <StyledInput
             type="text"
@@ -82,8 +87,8 @@ const AddCarInfo = ({
             })}
           />
           {errors.userSurname && <p>Surame is required</p>}
-        </label>
-        <label>
+        </StyledLabel>
+        <StyledLabel>
           Phone
           <StyledInput
             type="number"
@@ -102,8 +107,8 @@ const AddCarInfo = ({
             })}
           />
           {errors.phone && <p>Phone is required</p>}
-        </label>
-        <label>
+        </StyledLabel>
+        <StyledLabel>
           City
           <Controller
             name="city"
@@ -113,71 +118,66 @@ const AddCarInfo = ({
             )}
             rules={{ required: 'City is required' }}
           />
-        </label>
-        <h3>Car information</h3>
-        <label>
-          Name of Car
-          <StyledInput
-            type="text"
-            name="carName"
-            {...register('carName', { required: true })}
-          />
-          {errors.carName && <p>Car Name is required</p>}
-        </label>
-        <label>
-          Year
-          <Controller
-            name="year"
-            control={control}
-            render={({ field }) => (
-              <Select styles={Styles} {...field} options={yearOptions} />
-            )}
-            rules={{ required: 'Car year is required' }}
-          />
-          {/* <StyledInput
-            type="text"
-            name="year"
-            {...register('year', { required: true })}
-          />
-          {errors.year && <p>Car year is required</p>} */}
-        </label>
-        <label>
-          Type of Car
-          <Controller
-            name="type"
-            control={control}
-            render={({ field }) => (
-              <Select styles={Styles} {...field} options={typeOptions} />
-            )}
-            rules={{ required: 'Car type is required' }}
-          />
-          {/* <StyledInput
-            type="text"
-            name="type"
-            {...register('type', { required: true })}
-          />
-          {errors.type && <p>Car type is required</p>} */}
-        </label>
-        <label>
-          Fuel Consumption
-          <StyledInput
-            type="text"
-            name="fuelConsumption"
-            {...register('fuelConsumption', { required: true })}
-          />
-          {errors.fuelConsumption && <p>Fuel consumption is required</p>}
-        </label>
-        <label>
-          Engine Size
-          <StyledInput
-            type="text"
-            name="engineSize"
-            {...register('engineSize', { required: true })}
-          />
-          {errors.engineSize && <p>Engine size is required</p>}
-        </label>
+        </StyledLabel>
       </div>
-    </form>
+      <StyledCarInfoDiv>
+        <div>
+          <h2>Car information</h2>
+          <StyledLabel>
+            Name of Car
+            <StyledInput
+              type="text"
+              name="carName"
+              {...register('carName', { required: true })}
+            />
+            {errors.carName && <p>Car Name is required</p>}
+          </StyledLabel>
+
+          <StyledLabel>
+            Fuel Consumption
+            <StyledInput
+              type="text"
+              name="fuelConsumption"
+              {...register('fuelConsumption', { required: true })}
+            />
+            {errors.fuelConsumption && <p>Fuel consumption is required</p>}
+          </StyledLabel>
+          <StyledLabel>
+            Engine Size
+            <StyledInput
+              type="text"
+              name="engineSize"
+              {...register('engineSize', { required: true })}
+            />
+            {errors.engineSize && <p>Engine size is required</p>}
+          </StyledLabel>
+        </div>
+        <div>
+          <StyledLabel>
+            Year
+            <Controller
+              name="year"
+              control={control}
+              render={({ field }) => (
+                <Select styles={Styles} {...field} options={yearOptions} />
+              )}
+              rules={{ required: 'Car year is required' }}
+            />
+          </StyledLabel>
+          <StyledLabel>
+            Type of Car
+            <Controller
+              name="type"
+              control={control}
+              render={({ field }) => (
+                <Select styles={Styles} {...field} options={typeOptions} />
+              )}
+              rules={{ required: 'Car type is required' }}
+            />
+          </StyledLabel>
+        </div>
+      </StyledCarInfoDiv>
+    </StyledMainForm>
   );
 };
 export default AddCarInfo;

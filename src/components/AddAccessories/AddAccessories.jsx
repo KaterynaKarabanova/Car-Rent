@@ -2,6 +2,14 @@ import { useState } from 'react';
 import { Controller } from 'react-hook-form';
 import Select from 'react-select';
 import options from './options';
+import { StylesAccess } from 'components/AddCarInfo/AddCarInfo.styled';
+import {
+  StyledAccessoriesDiv,
+  StyledAddBtn,
+  StyledBtnDiv,
+  StyledDiv,
+  StyledForm,
+} from './AddAccessories.styled';
 const AddAccessories = ({
   register,
   control,
@@ -35,29 +43,29 @@ const AddAccessories = ({
     setAccessories(newNumber);
   };
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <StyledForm onSubmit={handleSubmit(onSubmit)}>
       <div>
         <h2>Accessories and functionalities</h2>
-        <div>
-          <button type="button" onClick={e => deleteInput(e)}>
+        <StyledBtnDiv>
+          <StyledAddBtn type="button" onClick={e => deleteInput(e)}>
             -
-          </button>
+          </StyledAddBtn>
           <p>{accessories.length}</p>
-          <button type="button" onClick={e => addInput(e)}>
+          <StyledAddBtn type="button" onClick={e => addInput(e)}>
             +
-          </button>
-        </div>
+          </StyledAddBtn>
+        </StyledBtnDiv>
       </div>
-      <div>
+      <StyledDiv>
         {accessories.map((el, index) => {
           return (
-            <div key={el}>
+            <StyledAccessoriesDiv key={el}>
               <Controller
                 name={`accessories${index}`}
                 control={control}
                 render={({ field }) => (
                   <Select
-                    // styles={ingStyles}
+                    styles={StylesAccess}
                     {...field}
                     options={options}
                     // theme={theme}
@@ -68,14 +76,17 @@ const AddAccessories = ({
               {errors[`accessories${index}`] && (
                 <p>{errors[`accessories${index}`].message}</p>
               )}
-              <button type="button" onClick={e => deleteCurrent(e, index)}>
+              <StyledAddBtn
+                type="button"
+                onClick={e => deleteCurrent(e, index)}
+              >
                 X
-              </button>
-            </div>
+              </StyledAddBtn>
+            </StyledAccessoriesDiv>
           );
         })}
-      </div>
-    </form>
+      </StyledDiv>
+    </StyledForm>
   );
 };
 export default AddAccessories;
