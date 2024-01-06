@@ -17,9 +17,10 @@ const AddAccessories = ({
   setValue,
   errors,
   onSubmit,
+  accessories,
+  setAccessories,
 }) => {
-  const [accessories, setAccessories] = useState([1, 2]);
-  const [count, setCount] = useState(3);
+  const [count, setCount] = useState(2);
 
   const addInput = e => {
     e.preventDefault();
@@ -28,6 +29,9 @@ const AddAccessories = ({
   };
   const deleteInput = e => {
     e.preventDefault();
+    if (accessories.length <= 2) {
+      return;
+    }
     const newNumber = accessories.slice(0, accessories.length - 1);
     setAccessories(newNumber);
   };

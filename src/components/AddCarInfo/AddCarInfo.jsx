@@ -16,7 +16,6 @@ import {
   StyledFileTextAdd,
   StyledFileTextPlus,
 } from './AddCarInfo.styled';
-import { useState } from 'react';
 
 const AddCarInfo = ({
   register,
@@ -25,9 +24,10 @@ const AddCarInfo = ({
   setValue,
   errors,
   onSubmit,
+  imagePreview,
+  setImagePreview,
 }) => {
   const { t } = useTranslation();
-  const [imagePreview, setImagePreview] = useState('');
   const handleFileChange = e => {
     const file = e.target.files[0];
     setValue('photo', file);
@@ -111,7 +111,7 @@ const AddCarInfo = ({
         <StyledLabel>
           City
           <Controller
-            name="city"
+            name="address"
             control={control}
             render={({ field }) => (
               <Select styles={Styles} {...field} options={getPlaceOptions(t)} />
@@ -124,15 +124,23 @@ const AddCarInfo = ({
         <div>
           <h2>Car information</h2>
           <StyledLabel>
-            Name of Car
+            Manufacturer company
             <StyledInput
               type="text"
-              name="carName"
-              {...register('carName', { required: true })}
+              name="make"
+              {...register('make', { required: true })}
             />
-            {errors.carName && <p>Car Name is required</p>}
+            {errors.make && <p>Manufacturer company is required</p>}
           </StyledLabel>
-
+          <StyledLabel>
+            Model
+            <StyledInput
+              type="text"
+              name="model"
+              {...register('model', { required: true })}
+            />
+            {errors.model && <p>Car model is required</p>}
+          </StyledLabel>
           <StyledLabel>
             Fuel Consumption
             <StyledInput

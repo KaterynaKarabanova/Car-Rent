@@ -48,7 +48,7 @@ const Modal = ({ element, showModal, setShowModal }) => {
     document.body.style.overflow = 'auto';
     setShowModal(false);
   };
-
+  console.log(element);
   return (
     <StyledBack onClick={e => onBackClick(e)}>
       <StyledDiv>

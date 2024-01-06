@@ -5,6 +5,9 @@ import Conditions from 'components/Conditions/Conditions';
 import { StyledBack } from 'pages/Catalog/Catalog.styled';
 import { useForm } from 'react-hook-form';
 import { StyledBtn } from './Cooperation.styled';
+import ContactUs from 'components/ContactUs/ContactUs';
+import { useState } from 'react';
+import Modal from 'components/Modal/Modal';
 const Cooperation = () => {
   const {
     register,
@@ -13,8 +16,39 @@ const Cooperation = () => {
     setValue,
     formState: { errors },
   } = useForm();
+  const [showModal, setShowModal] = useState(false);
+  const [data, setData] = useState(null);
+  const [accessories, setAccessories] = useState([0, 1]);
+  const [imagePreview, setImagePreview] = useState('');
   const onSubmit = data => {
     console.log(data);
+    const accessoriesArray = accessories.map(
+      (el, index) => data[`accessories${index}`].value
+    );
+    const conditionsArray = [];
+    if (data.driverLicense) {
+      conditionsArray.push("Valid driver's license");
+    }
+    if (data.securityDeposit) {
+      conditionsArray.push('Security deposit required');
+    }
+    conditionsArray.push(`Minimum age: ${data.minAge}`);
+    const conditionsString = conditionsArray.join('\n');
+    setData({
+      img: imagePreview,
+      make: data.make,
+      model: data.model,
+      year: data.year.value,
+      address: `456 Example Avenue, ${data.address.value}, Ukraine`,
+      type: data.type.value,
+      fuelConsumption: data.fuelConsumption,
+      engineSize: data.engineSize,
+      accessories: accessoriesArray,
+      functionalities: accessoriesArray,
+      rentalConditions: conditionsString,
+      description: data.description,
+    });
+    setShowModal(true);
     // const ingredientsArray = ingNumber.map((el, index) => ({
     //   [`title`]: data[`Ingredients${index}`].value,
     //   [`measure`]: data[`IngNumber${index}`],
@@ -45,6 +79,8 @@ const Cooperation = () => {
           handleSubmit={handleSubmit}
           errors={errors}
           onSubmit={onSubmit}
+          imagePreview={imagePreview}
+          setImagePreview={setImagePreview}
         />
         <AddAccessories
           register={register}
@@ -53,6 +89,8 @@ const Cooperation = () => {
           handleSubmit={handleSubmit}
           errors={errors}
           onSubmit={onSubmit}
+          accessories={accessories}
+          setAccessories={setAccessories}
         />
         <AddDescription
           register={register}
@@ -71,6 +109,14 @@ const Cooperation = () => {
           onSubmit={onSubmit}
         />
       </>
+      <ContactUs />
+      {showModal && (
+        <Modal
+          showModal={showModal}
+          setShowModal={setShowModal}
+          element={data}
+        />
+      )}
       <StyledBtn type="button" onClick={handleSubmit(onSubmit)}>
         Add
       </StyledBtn>

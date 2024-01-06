@@ -25,6 +25,10 @@ export const StyledCheckboxAge = styled(StyledLabel)`
 export const StyledDiv = styled.div`
   display: flex;
   justify-content: space-around;
+  @media (min-width: 1280px) {
+    width: 270px;
+    justify-content: space-between;
+  }
 `;
 export const StyledText = styled.p`
   font-size: 20px;

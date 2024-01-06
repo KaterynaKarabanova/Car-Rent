@@ -107,12 +107,6 @@ export const Styles = {
       maxWidth: 332,
       minHeight: 38,
     },
-    '@media only screen and (min-width:1280px)': {
-      ...Styles['@media only screen and (min-width: 1280px)'],
-      minWidth: 224,
-      maxWidth: 224,
-      minHeight: 48,
-    },
   }),
   option: (styles, state) => ({
     ...styles,
@@ -157,12 +151,6 @@ export const StylesAccess = {
       minWidth: 450,
       maxWidth: 450,
       minHeight: 38,
-    },
-    '@media only screen and (min-width:1280px)': {
-      ...Styles['@media only screen and (min-width: 1280px)'],
-      minWidth: 224,
-      maxWidth: 224,
-      minHeight: 48,
     },
   }),
 };

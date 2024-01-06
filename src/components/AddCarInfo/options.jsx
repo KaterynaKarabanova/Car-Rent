@@ -25,7 +25,7 @@ export const getPlaceOptions = t => {
   ];
 };
 export const yearOptions = [];
-for (let i = 1940; i < 2025; i++) {
+for (let i = 1980; i < 2025; i++) {
   yearOptions.push({ label: `${i}`, value: `${i}` });
 }
 export const typeOptions = [
