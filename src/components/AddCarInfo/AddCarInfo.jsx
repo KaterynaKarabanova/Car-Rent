@@ -4,6 +4,7 @@ import {
   StyledInput,
   StyledLabel,
   StyledMainForm,
+  StyledValidation,
 } from './AddCarInfo.styled';
 import { Controller } from 'react-hook-form';
 import Select from 'react-select';
@@ -51,14 +52,14 @@ const AddCarInfo = ({
         {!imagePreview && (
           <StyledFileDiv>
             <StyledFileTextPlus>+</StyledFileTextPlus>
-            <StyledFileTextAdd>Add image</StyledFileTextAdd>
+            <StyledFileTextAdd> {t('addImage')}</StyledFileTextAdd>
           </StyledFileDiv>
         )}
       </StyledFileLabel>
       <div>
-        <h2>Personal information</h2>
+        <h2>{t('personalInfo')}</h2>
         <StyledLabel>
-          Name
+          {t('name')}
           <StyledInput
             type="text"
             name="userName"
@@ -70,11 +71,12 @@ const AddCarInfo = ({
                 message: 'name must contain at least 2 characters',
               },
             })}
+            placeholder={t('placeholderName')}
           />
-          {errors.userName && <p>Name is required</p>}
+          {errors.userName && <StyledValidation>!</StyledValidation>}
         </StyledLabel>
         <StyledLabel>
-          Surname
+          {t('surname')}
           <StyledInput
             type="text"
             name="userSurname"
@@ -85,11 +87,12 @@ const AddCarInfo = ({
                 message: 'surname must contain at least 2 characters',
               },
             })}
+            placeholder={t('placeholderSurname')}
           />
-          {errors.userSurname && <p>Surame is required</p>}
+          {errors.userSurname && <StyledValidation>!</StyledValidation>}
         </StyledLabel>
         <StyledLabel>
-          Phone
+          {t('phone')}
           <StyledInput
             type="number"
             name="phone"
@@ -105,83 +108,97 @@ const AddCarInfo = ({
                 message: 'Invalid characters or missing  @ or . ',
               },
             })}
+            placeholder={t('placeholderPhone')}
           />
-          {errors.phone && <p>Phone is required</p>}
+          {errors.phone && <StyledValidation>!</StyledValidation>}
         </StyledLabel>
         <StyledLabel>
-          City
+          {t('city')}
           <Controller
             name="address"
             control={control}
             render={({ field }) => (
               <Select styles={Styles} {...field} options={getPlaceOptions(t)} />
             )}
-            rules={{ required: 'City is required' }}
+            rules={{ required: '!' }}
           />
+          {errors.address && (
+            <StyledValidation>{errors.address.message}</StyledValidation>
+          )}
         </StyledLabel>
       </div>
       <StyledCarInfoDiv>
         <div>
-          <h2>Car information</h2>
+          <h2>{t('carInfo')}</h2>
           <StyledLabel>
-            Manufacturer company
+            {t('manufacturerCompany')}
             <StyledInput
               type="text"
               name="make"
               {...register('make', { required: true })}
+              placeholder={t('placeholderCompany')}
             />
-            {errors.make && <p>Manufacturer company is required</p>}
+            {errors.make && <StyledValidation>!</StyledValidation>}
           </StyledLabel>
           <StyledLabel>
-            Model
+            {t('model')}
             <StyledInput
               type="text"
               name="model"
               {...register('model', { required: true })}
+              placeholder={t('placeholderModel')}
             />
-            {errors.model && <p>Car model is required</p>}
+            {errors.model && <StyledValidation>!</StyledValidation>}
           </StyledLabel>
           <StyledLabel>
-            Fuel Consumption
+            {t('fuelCons')}
             <StyledInput
               type="text"
               name="fuelConsumption"
               {...register('fuelConsumption', { required: true })}
+              placeholder={t('placeholderFuel')}
             />
-            {errors.fuelConsumption && <p>Fuel consumption is required</p>}
+            {errors.fuelConsumption && <StyledValidation>!</StyledValidation>}
           </StyledLabel>
           <StyledLabel>
-            Engine Size
+            {t('engineSize')}
             <StyledInput
               type="text"
               name="engineSize"
               {...register('engineSize', { required: true })}
+              placeholder={t('placeholderEngine')}
             />
-            {errors.engineSize && <p>Engine size is required</p>}
+            {errors.engineSize && <StyledValidation>!</StyledValidation>}
           </StyledLabel>
         </div>
         <div>
           <StyledLabel>
-            Year
+            {t('year')}
             <Controller
               name="year"
               control={control}
               render={({ field }) => (
                 <Select styles={Styles} {...field} options={yearOptions} />
               )}
-              rules={{ required: 'Car year is required' }}
+              rules={{ required: '!' }}
             />
+            {errors.year && (
+              <StyledValidation>{errors.address.message}</StyledValidation>
+            )}
           </StyledLabel>
           <StyledLabel>
-            Type of Car
+            {t('type')}
             <Controller
               name="type"
               control={control}
               render={({ field }) => (
                 <Select styles={Styles} {...field} options={typeOptions} />
               )}
-              rules={{ required: 'Car type is required' }}
+              rules={{ required: '!' }}
             />
+            {errors.type && (
+              <StyledValidation>{errors.address.message}</StyledValidation>
+            )}
           </StyledLabel>
         </div>
       </StyledCarInfoDiv>

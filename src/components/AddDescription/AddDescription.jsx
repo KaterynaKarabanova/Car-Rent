@@ -1,4 +1,9 @@
-import { StyledTextarea } from './AddDescription.styled';
+import { useTranslation } from 'react-i18next';
+import {
+  StyledDescValid,
+  StyledForm,
+  StyledTextarea,
+} from './AddDescription.styled';
 
 const AddDescription = ({
   register,
@@ -8,15 +13,19 @@ const AddDescription = ({
   errors,
   onSubmit,
 }) => {
+  const { t } = useTranslation();
   return (
-    <form>
-      <h2>AddDescription</h2>
+    <StyledForm>
+      <h2>{t('addDescription')}</h2>
       <StyledTextarea
         type="text"
         {...register('description', { required: true })}
+        placeholder={t('placeholderDesc')}
       />
-      {errors.description && <p>Description is required</p>}
-    </form>
+      {errors.description && (
+        <StyledDescValid>{t('descriptionValid')}</StyledDescValid>
+      )}
+    </StyledForm>
   );
 };
 export default AddDescription;

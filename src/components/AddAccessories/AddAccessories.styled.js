@@ -29,12 +29,20 @@ export const StyledAccessoriesDiv = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  position: relative;
   @media (min-width: 768px) {
     justify-content: flex-start;
     gap: 50px;
   }
 `;
-
+export const StyledValid = styled.p`
+  position: absolute;
+  top: -20px;
+  left: 5px;
+  font-size: 25px;
+  color: red;
+  z-index: 5;
+`;
 export const StyledTitle = styled.h2`
   font-size: 22px;
   margin: 0;

@@ -6,6 +6,7 @@ import {
   StyledLabel,
   StyledText,
 } from './Conditions.styled';
+import { useTranslation } from 'react-i18next';
 
 const Conditions = ({
   register,
@@ -15,6 +16,7 @@ const Conditions = ({
   errors,
   onSubmit,
 }) => {
+  const { t } = useTranslation();
   const [selectedOption, setSelectedOption] = useState('18');
   const [driverLicense, setDriverLicense] = useState(true);
   const [securityDeposit, setSecurityDeposit] = useState(true);
@@ -23,9 +25,9 @@ const Conditions = ({
   };
   return (
     <form>
-      <h2>Conditions</h2>
+      <h2>{t('tentalConditions')}</h2>
       <StyledLabel isChecked={driverLicense}>
-        Valid driver's license
+        {t('validLicense')}
         <StyledCheckbox
           type="checkbox"
           {...register('driverLicense')}
@@ -34,7 +36,7 @@ const Conditions = ({
         />
       </StyledLabel>
       <StyledLabel isChecked={securityDeposit}>
-        Security deposit required
+        {t('securityDeposit')}
         <StyledCheckbox
           type="checkbox"
           {...register('securityDeposit')}
@@ -43,7 +45,7 @@ const Conditions = ({
         />
       </StyledLabel>
       <div>
-        <StyledText>Minimum age:</StyledText>
+        <StyledText>{t('minimumAge')}</StyledText>
         <StyledDiv>
           <StyledCheckboxAge isChecked={selectedOption === '18'}>
             {' '}

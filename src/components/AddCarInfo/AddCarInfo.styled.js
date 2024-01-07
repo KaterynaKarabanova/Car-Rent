@@ -6,6 +6,9 @@ export const StyledMainForm = styled(StyledForm)`
     flex-wrap: wrap;
     column-gap: 70px;
   }
+  @media (min-width: 1280px) {
+    column-gap: 100px;
+  }
 `;
 export const StyledCarInfoDiv = styled.div`
   margin-top: 30px;
@@ -16,6 +19,9 @@ export const StyledCarInfoDiv = styled.div`
     align-items: center;
     column-gap: 70px;
   }
+  @media (min-width: 1280px) {
+    column-gap: 100px;
+  }
 `;
 export const StyledFileInput = styled.input`
   display: none;
@@ -25,21 +31,40 @@ export const StyledInput = styled.input`
   width: 215px;
   height: 30px;
   outline: none;
-  border: 1px solid black;
+  border: 2px solid black;
   border-radius: 10px;
   background-color: transparent;
   padding: 0 10px;
   @media (min-width: 768px) {
     width: 310px;
   }
+  @media (min-width: 1280px) {
+    width: 380px;
+  }
+  &:-webkit-autofill,
+  &:-webkit-autofill:hover,
+  &:-webkit-autofill:focus,
+  &:-webkit-autofill:active {
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: black;
+    -webkit-background-color: transparent !important;
+  }
+  &:hover {
+    border: 2px solid gray;
+  }
+  &:focus {
+    border: 2px solid #fffa65;
+  }
 `;
 export const StyledLabel = styled.label`
   display: flex;
   flex-direction: column;
-  gap: 1px;
-  padding-top: 7px;
-  font-weight: 400;
-  font-size: 14px;
+  gap: 2px;
+  padding-top: 8px;
+  font-weight: 600;
+  font-size: 15px;
+  color: #ba000d;
+  position: relative;
 `;
 export const StyledFileLabel = styled.label`
   position: relative;
@@ -63,6 +88,7 @@ export const StyledFileLabel = styled.label`
     margin-bottom: 0px;
   }
   @media (min-width: 1280px) {
+    width: 400px;
   }
 `;
 
@@ -92,6 +118,14 @@ export const StyledFileTextAdd = styled.p`
   line-height: 20px;
 `;
 
+export const StyledValidation = styled.p`
+  position: absolute;
+  top: -5px;
+  right: -20px;
+  font-size: 30px;
+  color: red;
+`;
+
 export const Styles = {
   control: (baseStyles, state) => ({
     ...baseStyles,
@@ -106,6 +140,11 @@ export const Styles = {
       minWidth: 332,
       maxWidth: 332,
       minHeight: 38,
+    },
+    '@media only screen and (min-width:1280px)': {
+      ...Styles['@media only screen and (min-width: 768px)'],
+      minWidth: 400,
+      maxWidth: 400,
     },
   }),
   option: (styles, state) => ({

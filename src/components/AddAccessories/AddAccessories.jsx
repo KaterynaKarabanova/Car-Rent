@@ -9,7 +9,10 @@ import {
   StyledBtnDiv,
   StyledDiv,
   StyledForm,
+  StyledValid,
 } from './AddAccessories.styled';
+import { useTranslation } from 'react-i18next';
+
 const AddAccessories = ({
   register,
   control,
@@ -21,7 +24,7 @@ const AddAccessories = ({
   setAccessories,
 }) => {
   const [count, setCount] = useState(2);
-
+  const { t } = useTranslation();
   const addInput = e => {
     e.preventDefault();
     setAccessories([...accessories, count]);
@@ -49,7 +52,7 @@ const AddAccessories = ({
   return (
     <StyledForm onSubmit={handleSubmit(onSubmit)}>
       <div>
-        <h2>Accessories and functionalities</h2>
+        <h2>{t('acesories')}</h2>
         <StyledBtnDiv>
           <StyledAddBtn type="button" onClick={e => deleteInput(e)}>
             -
@@ -78,7 +81,9 @@ const AddAccessories = ({
                 rules={{ required: '!' }}
               />
               {errors[`accessories${index}`] && (
-                <p>{errors[`accessories${index}`].message}</p>
+                <StyledValid>
+                  {errors[`accessories${index}`].message}
+                </StyledValid>
               )}
               <StyledAddBtn
                 type="button"

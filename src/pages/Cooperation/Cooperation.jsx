@@ -8,7 +8,9 @@ import { StyledBtn } from './Cooperation.styled';
 import ContactUs from 'components/ContactUs/ContactUs';
 import { useState } from 'react';
 import Modal from 'components/Modal/Modal';
+import { useTranslation } from 'react-i18next';
 const Cooperation = () => {
+  const { t } = useTranslation();
   const {
     register,
     control,
@@ -49,28 +51,10 @@ const Cooperation = () => {
       description: data.description,
     });
     setShowModal(true);
-    // const ingredientsArray = ingNumber.map((el, index) => ({
-    //   [`title`]: data[`Ingredients${index}`].value,
-    //   [`measure`]: data[`IngNumber${index}`],
-    // }));
-    // const dataToSend = new FormData();
-    // ingredientsArray.forEach((ingredient, index) => {
-    //   dataToSend.append(`ingredients[${index}][title]`, ingredient.title);
-    //   dataToSend.append(`ingredients[${index}][measure]`, ingredient.measure);
-    // });
-    // if (data.photo) {
-    //   dataToSend.append('drinkThumb', data.photo);
-    // }
-    // dataToSend.append('category', data.category.label);
-    // dataToSend.append('glass', data.glass.label);
-    // dataToSend.append('description', data.recipeDesc);
-    // dataToSend.append('instructions', data.aboutRecipe);
-    // dataToSend.append('alcoholic', data.alcohol);
-    // dataToSend.append('drink', data.itemTitle);
   };
   return (
     <StyledBack>
-      <h1>Cooperation</h1>
+      <h1> {t('cooperation')}</h1>
       <>
         <AddCarInfo
           register={register}
@@ -118,7 +102,7 @@ const Cooperation = () => {
         />
       )}
       <StyledBtn type="button" onClick={handleSubmit(onSubmit)}>
-        Add
+        {t('add')}
       </StyledBtn>
     </StyledBack>
   );
