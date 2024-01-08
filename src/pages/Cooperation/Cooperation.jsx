@@ -2,7 +2,7 @@ import AddAccessories from 'components/AddAccessories/AddAccessories';
 import AddCarInfo from 'components/AddCarInfo/AddCarInfo';
 import AddDescription from 'components/AddDescription/AddDescription';
 import Conditions from 'components/Conditions/Conditions';
-import { StyledBack } from 'pages/Catalog/Catalog.styled';
+import { StyledBack, StyledSpan } from 'pages/Catalog/Catalog.styled';
 import { useForm } from 'react-hook-form';
 import { StyledBtn } from './Cooperation.styled';
 import ContactUs from 'components/ContactUs/ContactUs';
@@ -16,12 +16,19 @@ const Cooperation = () => {
     control,
     handleSubmit,
     setValue,
+    reset,
     formState: { errors },
   } = useForm();
   const [showModal, setShowModal] = useState(false);
   const [data, setData] = useState(null);
   const [accessories, setAccessories] = useState([0, 1]);
   const [imagePreview, setImagePreview] = useState('');
+  const onModalClose = () => {
+    setShowModal(!showModal);
+    alert(
+      'Your request has been sent successfully and will be processed by a manager'
+    );
+  };
   const onSubmit = data => {
     console.log(data);
     const accessoriesArray = accessories.map(
@@ -46,11 +53,15 @@ const Cooperation = () => {
       fuelConsumption: data.fuelConsumption,
       engineSize: data.engineSize,
       accessories: accessoriesArray,
-      functionalities: accessoriesArray,
+      functionalities: [],
       rentalConditions: conditionsString,
       description: data.description,
+      userName: data.userName,
+      userSurname: data.userSurname,
+      phone: data.phone,
     });
     setShowModal(true);
+    reset();
   };
   return (
     <StyledBack>
@@ -95,11 +106,27 @@ const Cooperation = () => {
       </>
       <ContactUs />
       {showModal && (
-        <Modal
-          showModal={showModal}
-          setShowModal={setShowModal}
-          element={data}
-        />
+        <Modal showModal={showModal} setShowModal={setShowModal} element={data}>
+          <div>
+            <h3>Check personal information</h3>
+            <h5>
+              Name: <StyledSpan>{data.userName}</StyledSpan>
+            </h5>
+            <h5>
+              Surname: <StyledSpan>{data.userSurname}</StyledSpan>
+            </h5>
+            <h5>
+              Phone: <StyledSpan>{data.phone}</StyledSpan>
+            </h5>
+            <p>
+              Please check again your personal and car information. If
+              everything is correct - send data. Our manager will call you in
+              three days after receiving your appointment to discuss further
+              cooperation
+            </p>
+            <StyledBtn onClick={onModalClose}>Send Data</StyledBtn>
+          </div>
+        </Modal>
       )}
       <StyledBtn type="button" onClick={handleSubmit(onSubmit)}>
         {t('add')}

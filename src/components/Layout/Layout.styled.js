@@ -32,3 +32,27 @@ export const StyledNsvLink = styled(NavLink)`
     font-size: 25px;
   }
 `;
+
+export const StyledMenu = styled.button`
+  height: 30px;
+  width: 30px;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  margin-left: 250px;
+  @media (min-width: 1280px) {
+    display: none;
+  }
+`;
+export const StyledImg = styled.img`
+  object-fit: contain;
+  height: 30px;
+  width: 30px;
+`;
+
+export const StyledNavLinkDiv = styled.div`
+  display: none;
+  @media (min-width: 1280px) {
+    display: block;
+  }
+`;

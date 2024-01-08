@@ -19,7 +19,7 @@ import {
 } from 'pages/Catalog/Catalog.styled';
 import { useTranslation } from 'react-i18next';
 
-const Modal = ({ element, showModal, setShowModal }) => {
+const Modal = ({ element, showModal, setShowModal, children }) => {
   const { t } = useTranslation();
   useEffect(() => {
     const keyDown = e => {
@@ -75,6 +75,7 @@ const Modal = ({ element, showModal, setShowModal }) => {
             strokeLinejoin="round"
           />
         </StyleSvg>
+        {children && <h2>Check car information</h2>}
         <StyleImg
           src={
             element.img || element.photoLink
@@ -136,8 +137,11 @@ const Modal = ({ element, showModal, setShowModal }) => {
             )
           )}
         </StyledRentalDiv>
-
-        <StyledLink href="tel:+380730000000">{t('rentCar')}</StyledLink>
+        {children ? (
+          children
+        ) : (
+          <StyledLink href="tel:+380730000000">{t('rentCar')}</StyledLink>
+        )}
       </StyledDiv>
     </StyledBack>
   );

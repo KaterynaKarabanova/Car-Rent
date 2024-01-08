@@ -31,10 +31,24 @@ export const StyledDiv = styled.div`
   }
   @media (min-width: 1280px) {
     max-height: 680px;
-    width: 469px;
+    width: 550px;
     padding: 37px;
-    overflow-y: hidden;
+    overflow-y: scroll;
     margin-top: calc((100vh - 670px - 70px) / 2);
+  }
+  &::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  /* Track */
+  &::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+
+  /* Handle */
+  &::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 6px;
   }
 `;
 

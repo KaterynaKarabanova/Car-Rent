@@ -62,7 +62,7 @@ export const StyledSwiperImg = styled.img`
     width: 500px;
   }
   @media (min-width: 1480px) {
-    width: 700px;
+    width: 590px;
   }
 `;
 export const StyledDiv = styled.div`
