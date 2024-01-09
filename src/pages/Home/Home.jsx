@@ -52,7 +52,7 @@ const Home = () => {
       <div
         style={{
           backgroundSize: 'cover',
-          background: 'linear-gradient(to right, #000000, #e74c3c)',
+          background: '#880d00',
         }}
       >
         <StyledHomeBack>

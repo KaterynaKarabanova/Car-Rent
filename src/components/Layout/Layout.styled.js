@@ -40,6 +40,9 @@ export const StyledMenu = styled.button`
   border: none;
   background-color: transparent;
   margin-left: 250px;
+  @media (min-width: 768px) {
+    margin-left: 740px;
+  }
   @media (min-width: 1280px) {
     display: none;
   }

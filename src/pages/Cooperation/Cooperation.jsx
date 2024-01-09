@@ -4,11 +4,17 @@ import AddDescription from 'components/AddDescription/AddDescription';
 import Conditions from 'components/Conditions/Conditions';
 import { StyledBack, StyledSpan } from 'pages/Catalog/Catalog.styled';
 import { useForm } from 'react-hook-form';
-import { StyledBtn } from './Cooperation.styled';
-import ContactUs from 'components/ContactUs/ContactUs';
+import {
+  StyledBtn,
+  StyledText,
+  StyledTitle,
+  StyledUnderTitle,
+} from './Cooperation.styled';
+
 import { useState } from 'react';
 import Modal from 'components/Modal/Modal';
 import { useTranslation } from 'react-i18next';
+
 const Cooperation = () => {
   const { t } = useTranslation();
   const {
@@ -21,6 +27,7 @@ const Cooperation = () => {
   } = useForm();
   const [showModal, setShowModal] = useState(false);
   const [data, setData] = useState(null);
+  const [showForm, setShowForm] = useState(false);
   const [accessories, setAccessories] = useState([0, 1]);
   const [imagePreview, setImagePreview] = useState('');
   const onModalClose = () => {
@@ -66,71 +73,97 @@ const Cooperation = () => {
   return (
     <StyledBack>
       <h1> {t('cooperation')}</h1>
-      <>
-        <AddCarInfo
-          register={register}
-          control={control}
-          setValue={setValue}
-          handleSubmit={handleSubmit}
-          errors={errors}
-          onSubmit={onSubmit}
-          imagePreview={imagePreview}
-          setImagePreview={setImagePreview}
-        />
-        <AddAccessories
-          register={register}
-          control={control}
-          setValue={setValue}
-          handleSubmit={handleSubmit}
-          errors={errors}
-          onSubmit={onSubmit}
-          accessories={accessories}
-          setAccessories={setAccessories}
-        />
-        <AddDescription
-          register={register}
-          control={control}
-          setValue={setValue}
-          handleSubmit={handleSubmit}
-          errors={errors}
-          onSubmit={onSubmit}
-        />
-        <Conditions
-          register={register}
-          control={control}
-          setValue={setValue}
-          handleSubmit={handleSubmit}
-          errors={errors}
-          onSubmit={onSubmit}
-        />
-      </>
-      <ContactUs />
-      {showModal && (
-        <Modal showModal={showModal} setShowModal={setShowModal} element={data}>
-          <div>
-            <h3>Check personal information</h3>
-            <h5>
-              Name: <StyledSpan>{data.userName}</StyledSpan>
-            </h5>
-            <h5>
-              Surname: <StyledSpan>{data.userSurname}</StyledSpan>
-            </h5>
-            <h5>
-              Phone: <StyledSpan>{data.phone}</StyledSpan>
-            </h5>
-            <p>
-              Please check again your personal and car information. If
-              everything is correct - send data. Our manager will call you in
-              three days after receiving your appointment to discuss further
-              cooperation
-            </p>
-            <StyledBtn onClick={onModalClose}>Send Data</StyledBtn>
-          </div>
-        </Modal>
-      )}
-      <StyledBtn type="button" onClick={handleSubmit(onSubmit)}>
-        {t('add')}
+      <StyledTitle>Want to rent </StyledTitle>
+      <StyledUnderTitle>your car with us?</StyledUnderTitle>
+      <StyledText>
+        {t('cooperationText')}
+        <a href="https://www.linkedin.com/in/kateryna-karabanova-8082601bb/">
+          {' '}
+          {t('rentConditions')}{' '}
+        </a>
+        {t('and')}
+        <a href="https://www.linkedin.com/in/kateryna-karabanova-8082601bb/">
+          {t('rentContract')}
+        </a>
+        . {t('cooperateText')}
+      </StyledText>
+      <StyledBtn onClick={() => setShowForm(!showForm)}>
+        {t('fillForm')}
       </StyledBtn>
+      {showForm && (
+        <>
+          <AddCarInfo
+            register={register}
+            control={control}
+            setValue={setValue}
+            handleSubmit={handleSubmit}
+            errors={errors}
+            onSubmit={onSubmit}
+            imagePreview={imagePreview}
+            setImagePreview={setImagePreview}
+          />
+          <AddAccessories
+            register={register}
+            control={control}
+            setValue={setValue}
+            handleSubmit={handleSubmit}
+            errors={errors}
+            onSubmit={onSubmit}
+            accessories={accessories}
+            setAccessories={setAccessories}
+          />
+          <AddDescription
+            register={register}
+            control={control}
+            setValue={setValue}
+            handleSubmit={handleSubmit}
+            errors={errors}
+            onSubmit={onSubmit}
+          />
+          <Conditions
+            register={register}
+            control={control}
+            setValue={setValue}
+            handleSubmit={handleSubmit}
+            errors={errors}
+            onSubmit={onSubmit}
+          />
+
+          {/* <StyledDiv>
+            <ContactUs />
+          </StyledDiv> */}
+          {showModal && (
+            <Modal
+              showModal={showModal}
+              setShowModal={setShowModal}
+              element={data}
+            >
+              <div>
+                <h3>Check personal information</h3>
+                <h5>
+                  Name: <StyledSpan>{data.userName}</StyledSpan>
+                </h5>
+                <h5>
+                  Surname: <StyledSpan>{data.userSurname}</StyledSpan>
+                </h5>
+                <h5>
+                  Phone: <StyledSpan>{data.phone}</StyledSpan>
+                </h5>
+                <p>
+                  Please check again your personal and car information. If
+                  everything is correct - send data. Our manager will call you
+                  in three days after receiving your appointment to discuss
+                  further cooperation
+                </p>
+                <StyledBtn onClick={onModalClose}>Send Data</StyledBtn>
+              </div>
+            </Modal>
+          )}
+          <StyledBtn type="button" onClick={handleSubmit(onSubmit)}>
+            {t('add')}
+          </StyledBtn>
+        </>
+      )}
     </StyledBack>
   );
 };

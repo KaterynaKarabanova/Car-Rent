@@ -37,7 +37,7 @@ export const StyledSwiperDiv = styled.div`
   top: 315px;
   left: 42px;
   @media (min-width: 768px) {
-    top: 180px;
+    top: 120px;
     left: 300px;
   }
   @media (min-width: 1280px) {
@@ -172,7 +172,7 @@ export const StyledSvgDiv = styled.div`
   align-items: center;
   justify-content: space-between;
   @media (min-width: 768px) {
-    top: 510px;
+    top: 459px;
     left: 35px;
     width: 140px;
   }

@@ -1,11 +1,8 @@
-import LanguageSwitcher from 'components/LanguageSwitcher/LanguageSwitcher';
-import { StyledNsvLink } from 'components/Layout/Layout.styled';
-import { useTranslation } from 'react-i18next';
 import { StyledMenuDiv, StyledMenuImg } from './BurgerMenu.styled';
 import { StyleSvg } from 'components/Modal/Modal.styled';
+import { NavBar } from 'components/Layout/NavBar';
 
 const BurgerMenu = ({ setOpenMenu }) => {
-  const { t } = useTranslation();
   return (
     <StyledMenuDiv>
       <StyleSvg
@@ -35,34 +32,7 @@ const BurgerMenu = ({ setOpenMenu }) => {
         src="https://static.vecteezy.com/system/resources/previews/013/923/537/original/red-car-vehicle-auto-detailing-logo-png.png"
         alt=""
       />
-      <StyledNsvLink key={'/'} to={'/'} onClick={() => setOpenMenu(false)}>
-        {t('navHome')}
-      </StyledNsvLink>
-
-      <StyledNsvLink
-        key={'/catalog'}
-        to={'/catalog'}
-        onClick={() => setOpenMenu(false)}
-      >
-        {t('navCatalog')}
-      </StyledNsvLink>
-
-      <StyledNsvLink
-        key={'/favorites'}
-        to={'/favorites'}
-        onClick={() => setOpenMenu(false)}
-      >
-        {t('navFav')}
-      </StyledNsvLink>
-
-      <StyledNsvLink
-        key={'/cooperation'}
-        to={'/cooperation'}
-        onClick={() => setOpenMenu(false)}
-      >
-        {t('cooperation')}
-      </StyledNsvLink>
-      <LanguageSwitcher />
+      <NavBar setOpenMenu={setOpenMenu}></NavBar>
     </StyledMenuDiv>
   );
 };

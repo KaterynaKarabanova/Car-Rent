@@ -68,7 +68,7 @@ const Favorites = () => {
               }}
               onClick={() => navigate('/catalog')}
             >
-              {t('submit')}
+              {t('toCatalog')}
             </StyledLink>
           </StyledFavDiv>
         )}

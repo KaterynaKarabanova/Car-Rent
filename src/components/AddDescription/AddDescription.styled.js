@@ -1,7 +1,7 @@
 import { StyledValidation } from 'components/AddCarInfo/AddCarInfo.styled';
 import styled from 'styled-components';
 export const StyledTextarea = styled.textarea`
-  width: 270px;
+  width: 250px;
   height: 100px;
   resize: none;
   border: 2px solid black;
