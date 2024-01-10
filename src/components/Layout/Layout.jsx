@@ -9,7 +9,7 @@ import {
 } from './Layout.styled';
 import { Suspense } from 'react';
 import BurgerMenu from 'components/BurgerMenu/BurgerMenu';
-import { StyledBack } from 'pages/Catalog/Catalog.styled';
+
 import ContactUs from 'components/ContactUs/ContactUs';
 import { StyledFooter } from 'components/ContactUs/ContactUs.styled';
 
@@ -18,22 +18,16 @@ const Layout = () => {
   return (
     <main>
       <StyledMain>
-        <StyledBack
-          style={{
-            padding: '20px 10px',
-          }}
-        >
-          <StyledMenu onClick={() => setOpenMenu(!openMenu)}>
-            <StyledImg
-              src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Hamburger_icon.svg/1024px-Hamburger_icon.svg.png"
-              alt=""
-            />
-          </StyledMenu>
-          {openMenu && <BurgerMenu setOpenMenu={setOpenMenu} />}
-          <StyledNavLinkDiv>
-            <NavBar setOpenMenu={setOpenMenu} />
-          </StyledNavLinkDiv>
-        </StyledBack>
+        <StyledMenu onClick={() => setOpenMenu(!openMenu)}>
+          <StyledImg
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Hamburger_icon.svg/1024px-Hamburger_icon.svg.png"
+            alt=""
+          />
+        </StyledMenu>
+        {openMenu && <BurgerMenu setOpenMenu={setOpenMenu} />}
+        <StyledNavLinkDiv>
+          <NavBar setOpenMenu={setOpenMenu} />
+        </StyledNavLinkDiv>
       </StyledMain>
       <div>
         <Suspense
@@ -54,13 +48,7 @@ const Layout = () => {
       </div>
 
       <StyledFooter>
-        <StyledBack
-          style={{
-            padding: '20px 10px',
-          }}
-        >
-          <ContactUs />
-        </StyledBack>
+        <ContactUs />
       </StyledFooter>
     </main>
   );

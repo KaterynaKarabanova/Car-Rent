@@ -61,14 +61,7 @@ const CarInsideView = () => {
           </li>
         </StyledList>
 
-        <StyledDiv
-          style={{
-            position: 'relative',
-            height: '300px',
-            width: '600px',
-            overflow: 'hidden',
-          }}
-        >
+        <StyledDiv>
           {actualLandscape === 'NIGHT' && (
             <img
               src={night}

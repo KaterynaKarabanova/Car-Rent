@@ -72,7 +72,6 @@ const Cooperation = () => {
   };
   return (
     <StyledBack>
-      <h1> {t('cooperation')}</h1>
       <StyledTitle>Want to rent </StyledTitle>
       <StyledUnderTitle>your car with us?</StyledUnderTitle>
       <StyledText>
@@ -129,9 +128,6 @@ const Cooperation = () => {
             onSubmit={onSubmit}
           />
 
-          {/* <StyledDiv>
-            <ContactUs />
-          </StyledDiv> */}
           {showModal && (
             <Modal
               showModal={showModal}

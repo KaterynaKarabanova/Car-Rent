@@ -4,6 +4,7 @@ import styled from 'styled-components';
 export const StyledMain = styled.main`
   background-color: white;
   height: 70px;
+  padding: 20px 40px;
 `;
 
 export const StyledNsvLink = styled(NavLink)`
@@ -12,10 +13,8 @@ export const StyledNsvLink = styled(NavLink)`
   margin-right: 15px;
   font-size: 15px;
   font-weight: 600;
-
-  text-decoration: none;
   color: black;
-
+  text-decoration: none;
   &.active {
     border-bottom: 2px solid black;
     /* color: white; */
@@ -39,10 +38,11 @@ export const StyledMenu = styled.button`
   padding: 0;
   border: none;
   background-color: transparent;
-  margin-left: 250px;
-  @media (min-width: 768px) {
-    margin-left: 740px;
-  }
+  position: absolute;
+  right: 10px;
+  /* @media (min-width: 768px) {
+    margin-left: 730px;
+  } */
   @media (min-width: 1280px) {
     display: none;
   }
@@ -57,5 +57,6 @@ export const StyledNavLinkDiv = styled.div`
   display: none;
   @media (min-width: 1280px) {
     display: block;
+    color: black;
   }
 `;

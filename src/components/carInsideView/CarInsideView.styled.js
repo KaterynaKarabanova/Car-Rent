@@ -1,65 +1,58 @@
+import { StyledBack } from 'pages/Catalog/Catalog.styled';
 import {
   StyledMainTitle,
   StyledText,
   StyledTitle,
 } from 'pages/Home/Home.styled';
 import styled from 'styled-components';
-export const StyledMain = styled.div`
+export const StyledMain = styled(StyledBack)`
   height: 100vh;
   display: none;
+  border-top: 2px solid white;
   @media (min-width: 1280px) {
     display: flex;
     gap: 55px;
-    width: 1490px;
-    margin: 0 auto;
+    border-top: 2px solid white;
   }
 `;
 export const StyledWrapper = styled.div`
-  display: flex;
-  margin-top: 230px;
+  margin-top: 50px;
   height: 400px;
   padding-top: 40px;
   padding-right: 55px;
   position: relative;
-  &::after {
-    content: '';
-    display: block;
-    height: 100vh;
-    width: 2px;
-    background-color: white;
-    position: absolute;
-    top: -230px;
-    right: 0;
+  margin-left: 50px;
+  @media (min-width: 1480px) {
+    display: flex;
+    margin-top: 230px;
+    margin-left: 0px;
   }
 `;
 export const StyledDesc = styled.div`
   background-color: white;
   position: relative;
   padding: 30px 0 0 30px;
-  &::before {
-    content: '';
-    display: block;
-    height: 2px;
-    width: 1040px;
-    background-color: white;
-    position: absolute;
-    top: 0;
-    left: 450px;
-  }
 `;
 export const StyledDiv = styled.div`
   outline: black 30px solid;
   border-radius: 14px;
   background-color: black;
   margin: 40px 40px;
+  position: relative;
+  height: 300px;
+  width: 600px;
+  overflow: hidden;
 `;
 export const StyledList = styled.ul`
   list-style: none;
   margin: 0;
   padding: 20px 0;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: space-between;
+  @media (min-width: 1480px) {
+    flex-direction: column;
+  }
 `;
 
 export const StyledButton = styled.button`
@@ -153,5 +146,5 @@ export const StyledActiveCar = styled(StyledButton)`
 export const StyledMainTitl = styled(StyledMainTitle)``;
 export const StyledTitl = styled(StyledTitle)``;
 export const StyledCarText = styled(StyledText)`
-  width: 410px;
+  width: 310px;
 `;

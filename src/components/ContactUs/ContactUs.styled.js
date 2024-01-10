@@ -22,8 +22,7 @@ export const StyledFooter = styled.footer`
   width: 100%;
   text-align: center;
   color: white;
-  border-top: 2px solid black;
-  margin-top: 60px;
+  border-top: 2px solid white;
 `;
 export const StyledFooterDiv = styled.div`
   display: flex;

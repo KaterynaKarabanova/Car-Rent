@@ -24,6 +24,7 @@ const ContactUs = () => {
           <li>+380(999)999-99-99</li>
         </StyledList>
       </div>
+
       <StyledFollowDiv>
         <StyledTitle>{t('followUs')}</StyledTitle>
         <StyledLinkDiv>

@@ -23,7 +23,8 @@ export const StyledHomeBack = styled(StyledBack)`
       display: none;
     }
 
-    height: calc(100vh - 61px);
+    height: auto;
+    padding: 0 0 100px 0;
   }
   @media (min-width: 1280px) {
     display: flex;
@@ -38,7 +39,7 @@ export const StyledSwiperDiv = styled.div`
   left: 42px;
   @media (min-width: 768px) {
     top: 120px;
-    left: 300px;
+    left: 310px;
   }
   @media (min-width: 1280px) {
     position: relative;
@@ -218,7 +219,7 @@ export const StyledSwipePrice = styled.p`
   letter-spacing: 1px;
   font-weight: 700;
   @media (min-width: 768px) {
-    right: 170px;
+    right: 30px;
     top: 0px;
     font-size: 20px;
     font-weight: 600;
@@ -242,7 +243,7 @@ export const StyledSwipeModel = styled.p`
   left: 20px;
   top: 110px;
   @media (min-width: 768px) {
-    left: 100px;
+    left: 150px;
     color: white;
     top: 290px;
     font-size: 20px;
