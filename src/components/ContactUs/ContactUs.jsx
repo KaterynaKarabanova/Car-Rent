@@ -1,11 +1,13 @@
 import { useTranslation } from 'react-i18next';
 import {
+  StyledConditions,
   StyledFollowDiv,
   StyledFooterDiv,
   StyledImage,
   StyledLink,
   StyledLinkDiv,
   StyledList,
+  StyledListLink,
   StyledText,
   StyledTitle,
 } from './ContactUs.styled';
@@ -24,7 +26,21 @@ const ContactUs = () => {
           <li>+380(999)999-99-99</li>
         </StyledList>
       </div>
-
+      <StyledConditions>
+        <StyledTitle> {t('conditions')}</StyledTitle>
+        <StyledList>
+          <li>
+            <StyledListLink href="https://www.linkedin.com/in/kateryna-karabanova-8082601bb/">
+              {t('rentConditions')}
+            </StyledListLink>
+          </li>
+          <li>
+            <StyledListLink href="https://www.linkedin.com/in/kateryna-karabanova-8082601bb/">
+              {t('rentContract')}
+            </StyledListLink>
+          </li>
+        </StyledList>
+      </StyledConditions>
       <StyledFollowDiv>
         <StyledTitle>{t('followUs')}</StyledTitle>
         <StyledLinkDiv>

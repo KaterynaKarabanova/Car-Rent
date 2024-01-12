@@ -72,8 +72,8 @@ const Cooperation = () => {
   };
   return (
     <StyledBack>
-      <StyledTitle>Want to rent </StyledTitle>
-      <StyledUnderTitle>your car with us?</StyledUnderTitle>
+      <StyledTitle> {t('wantToRent')} </StyledTitle>
+      <StyledUnderTitle> {t('yourCar')}</StyledUnderTitle>
       <StyledText>
         {t('cooperationText')}
         <a href="https://www.linkedin.com/in/kateryna-karabanova-8082601bb/">

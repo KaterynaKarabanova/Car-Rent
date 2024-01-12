@@ -7,7 +7,7 @@ import { lazy, Suspense } from 'react';
 const Layout = lazy(() => import('./Layout/Layout'));
 const Home = lazy(() => import('pages/Home/Home'));
 const Catalog = lazy(() => import('pages/Catalog/Catalog'));
-const Favorites = lazy(() => import('pages/Favorites'));
+const Favorites = lazy(() => import('pages/Favorite/Favorites'));
 const Cooperation = lazy(() => import('pages/Cooperation/Cooperation'));
 export const App = () => {
   const dispatch = useDispatch();

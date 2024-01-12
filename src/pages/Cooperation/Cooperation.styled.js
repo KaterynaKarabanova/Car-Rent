@@ -16,6 +16,7 @@ export const StyledBtn = styled.button`
   border: none;
   padding: 10px 30px;
   margin-top: 20px;
+  margin-bottom: 30px;
   @media (min-width: 768px) {
     font-size: 20px;
     padding: 10px 50px;

@@ -2,9 +2,11 @@ import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const StyledMain = styled.main`
+  box-sizing: border-box;
   background-color: white;
   height: 70px;
   padding: 20px 40px;
+  border-bottom: 2px solid #ba000d;
 `;
 
 export const StyledNsvLink = styled(NavLink)`
@@ -17,7 +19,6 @@ export const StyledNsvLink = styled(NavLink)`
   text-decoration: none;
   &.active {
     border-bottom: 2px solid black;
-    /* color: white; */
   }
   &:hover:not(.active) {
     border-bottom: 2px solid #7185f65e;
@@ -40,9 +41,6 @@ export const StyledMenu = styled.button`
   background-color: transparent;
   position: absolute;
   right: 10px;
-  /* @media (min-width: 768px) {
-    margin-left: 730px;
-  } */
   @media (min-width: 1280px) {
     display: none;
   }
@@ -51,6 +49,16 @@ export const StyledImg = styled.img`
   object-fit: contain;
   height: 30px;
   width: 30px;
+`;
+export const StyledNavlink = styled(NavLink)`
+  @media (min-width: 1280px) {
+    display: none;
+  }
+`;
+export const StyledNavlinkImg = styled.img`
+  position: absolute;
+  left: 20px;
+  top: -8px;
 `;
 
 export const StyledNavLinkDiv = styled.div`

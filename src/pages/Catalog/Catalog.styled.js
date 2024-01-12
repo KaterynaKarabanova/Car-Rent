@@ -3,14 +3,16 @@ export const StyledBack = styled.div`
   margin: 0 auto;
   width: 280px;
   overflow: hidden;
-  padding: 0 5px;
+  padding: 10px 5px;
+  padding-bottom: 10px;
   @media (min-width: 768px) {
     width: 760px;
-    padding: 0 20px;
+    padding: 30px 20px;
+    /* padding-bottom: 30px; */
   }
   @media (min-width: 1280px) {
     width: 1280px;
-    padding: 0 30px;
+    padding: 60px 30px;
   }
   @media (min-width: 1480px) {
     width: 1480px;

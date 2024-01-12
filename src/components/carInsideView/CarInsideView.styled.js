@@ -1,18 +1,22 @@
 import { StyledBack } from 'pages/Catalog/Catalog.styled';
-import {
-  StyledMainTitle,
-  StyledText,
-  StyledTitle,
-} from 'pages/Home/Home.styled';
+import { StyledText } from 'pages/Home/Home.styled';
 import styled from 'styled-components';
 export const StyledMain = styled(StyledBack)`
   height: 100vh;
   display: none;
   border-top: 2px solid white;
+  padding-bottom: 0;
+  padding-top: 0;
+  @media (min-width: 768px) {
+    padding-bottom: 0;
+    padding-top: 0;
+  }
   @media (min-width: 1280px) {
     display: flex;
     gap: 55px;
     border-top: 2px solid white;
+    padding-bottom: 0;
+    padding-top: 0;
   }
 `;
 export const StyledWrapper = styled.div`
@@ -77,15 +81,12 @@ export const StyledButton = styled.button`
     position: absolute;
     background: transparent;
     top: -30px;
-
     left: -5px;
     width: 100%;
     height: 100%;
-
     transform: perspective(2em) rotateX(90deg) scale(0.4, 0.8);
     filter: blur(1.15em);
     opacity: 0.7;
-
     transition: transform 0.15s linear;
   }
   &:hover::before {
@@ -143,8 +144,6 @@ export const StyledActiveCar = styled(StyledButton)`
   background-color: #fefefe;
 `;
 
-export const StyledMainTitl = styled(StyledMainTitle)``;
-export const StyledTitl = styled(StyledTitle)``;
 export const StyledCarText = styled(StyledText)`
   width: 310px;
 `;

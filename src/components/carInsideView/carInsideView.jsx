@@ -13,22 +13,20 @@ import {
   StyledActiveCar,
   StyledWrapper,
   StyledDesc,
-  StyledMainTitl,
-  StyledTitl,
   StyledCarText,
 } from './CarInsideView.styled';
+import { useTranslation } from 'react-i18next';
+import { StyledMainTitle, StyledTitle } from 'pages/Home/Home.styled';
 const CarInsideView = () => {
+  const { t } = useTranslation();
   const [actualCar, setActualCar] = useState('PORSCHE');
   const [actualLandscape, setActualLandscape] = useState('NIGHT');
   return (
     <StyledMain>
       <StyledDesc>
-        <StyledMainTitl>Just</StyledMainTitl>
-        <StyledTitl>Imagine</StyledTitl>
-        <StyledCarText>
-          To choose the most comfortable car to rent it's also important to
-          check a salon. So here you have this oportunity
-        </StyledCarText>
+        <StyledMainTitle>{t('just')}</StyledMainTitle>
+        <StyledTitle>{t('imagine')}</StyledTitle>
+        <StyledCarText>{t('insideText')}</StyledCarText>
       </StyledDesc>
       <StyledWrapper>
         <StyledList>

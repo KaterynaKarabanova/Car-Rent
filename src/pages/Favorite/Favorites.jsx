@@ -17,9 +17,10 @@ import {
   StyledBack,
   StyledFavImg,
   StyledFavDiv,
-} from './Catalog/Catalog.styled';
-import { StyledLink } from './Home/Home.styled';
+} from '../Catalog/Catalog.styled';
+import { StyledLink } from '../Home/Home.styled';
 import { useNavigate } from 'react-router-dom';
+import { StyledMainTitle, StyledTitle } from './Favorite.styled';
 
 const Favorites = () => {
   const cars = useSelector(getCars);
@@ -53,7 +54,7 @@ const Favorites = () => {
   return (
     <StyledBack>
       <div>
-        {!getFavCars().length && (
+        {!getFavCars().length ? (
           <StyledFavDiv>
             <p>{t('noFavCars')}</p>
             <StyledFavImg
@@ -71,7 +72,17 @@ const Favorites = () => {
               {t('toCatalog')}
             </StyledLink>
           </StyledFavDiv>
+        ) : (
+          <>
+            <StyledFavImg
+              src="https://static.vecteezy.com/system/resources/thumbnails/009/379/748/small/racing-flag-clipart-design-illustration-free-png.png"
+              alt="car"
+            />
+            <StyledMainTitle>{t('favTitle')}</StyledMainTitle>
+            <StyledTitle>{t('favPageTitle')}</StyledTitle>
+          </>
         )}
+
         <StyledList>
           {getFavCars().map(
             ({

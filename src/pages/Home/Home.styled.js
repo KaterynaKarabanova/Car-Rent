@@ -29,6 +29,7 @@ export const StyledHomeBack = styled(StyledBack)`
   @media (min-width: 1280px) {
     display: flex;
     height: calc(100vh - 70px);
+    padding: 0;
   }
 `;
 export const StyledSwiperDiv = styled.div`

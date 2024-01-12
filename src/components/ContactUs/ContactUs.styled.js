@@ -36,6 +36,9 @@ export const StyledFooterDiv = styled.div`
     height: 270px;
     padding: 15px 40px;
   }
+  @media (min-width: 1280px) {
+    padding: 15px 80px;
+  }
 `;
 export const StyledLink = styled.a`
   width: 40px;
@@ -123,4 +126,15 @@ export const StyledTitle = styled.h3`
   @media (min-width: 1280px) {
     font-size: 30px;
   }
+`;
+
+export const StyledConditions = styled.div`
+  display: none;
+  @media (min-width: 1280px) {
+    display: block;
+  }
+`;
+export const StyledListLink = styled.a`
+  color: white;
+  text-decoration: none;
 `;
