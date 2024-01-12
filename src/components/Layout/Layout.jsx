@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { NavLink, Outlet } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 import { NavBar } from './NavBar';
 import {
   StyledImg,
@@ -11,10 +11,8 @@ import {
 } from './Layout.styled';
 import { Suspense } from 'react';
 import BurgerMenu from 'components/BurgerMenu/BurgerMenu';
-
 import ContactUs from 'components/ContactUs/ContactUs';
 import { StyledFooter } from 'components/ContactUs/ContactUs.styled';
-import { StyledMenuImg } from 'components/BurgerMenu/BurgerMenu.styled';
 
 const Layout = () => {
   const [openMenu, setOpenMenu] = useState(false);
