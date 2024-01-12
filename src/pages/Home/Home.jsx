@@ -36,10 +36,12 @@ const Home = () => {
       640: {
         width: 440,
         height: 540,
+        spaceBetween: 130,
       },
       // when window width is >= 768px
       1280: {
         width: 580,
+        spaceBetween: 10,
       },
       1480: {
         width: 780,

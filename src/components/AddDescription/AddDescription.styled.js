@@ -22,7 +22,7 @@ export const StyledForm = styled.form`
 export const StyledDescValid = styled(StyledValidation)`
   left: 0;
   top: 15px;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 500;
   color: red;
 `;

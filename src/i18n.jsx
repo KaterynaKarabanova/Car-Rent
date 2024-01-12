@@ -101,6 +101,7 @@ i18n
             "To choose the most comfortable car to rent it's also important to check a salon. So here you have this oportunity",
           favPageTitle: 'You drove cars that you liked here',
           favTitle: 'Page of Favorite cars',
+          reviews: 'Reviews',
         },
       },
       ua: {
@@ -198,8 +199,9 @@ i18n
           imagine: 'Уявіть',
           insideText:
             'Щоб вибрати найбільш комфортний автомобіль для оренди, також важливо перевірити салон. Отже, у вас є така можливість',
-          favPageTitle: 'Ти пригнав сюди авто, які тобі сподобались',
+          favPageTitle: 'Ви пригнали сюди авто, які Вам сподобались',
           favTitle: 'Сторінка улюблених авто',
+          reviews: 'Відгуки',
         },
       },
     },

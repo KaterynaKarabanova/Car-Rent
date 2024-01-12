@@ -14,6 +14,7 @@ import {
 import { useState } from 'react';
 import Modal from 'components/Modal/Modal';
 import { useTranslation } from 'react-i18next';
+import Reviews from 'components/Reviews/Reviews';
 
 const Cooperation = () => {
   const { t } = useTranslation();
@@ -160,6 +161,7 @@ const Cooperation = () => {
           </StyledBtn>
         </>
       )}
+      <Reviews />
     </StyledBack>
   );
 };
