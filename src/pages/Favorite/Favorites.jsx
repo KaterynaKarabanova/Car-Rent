@@ -53,7 +53,11 @@ const Favorites = () => {
 
   return (
     <StyledBack>
-      <div>
+      <div
+        style={{
+          minHeight: '90vh',
+        }}
+      >
         {!getFavCars().length ? (
           <StyledFavDiv>
             <p>{t('noFavCars')}</p>

@@ -391,7 +391,7 @@ export const StyledFavDiv = styled.div`
   display: block;
   width: 230px;
   padding: 10px;
-  margin: 0 auto;
+  margin: auto;
   font-size: 20px;
   letter-spacing: 1.5px;
   font-weight: 600;
