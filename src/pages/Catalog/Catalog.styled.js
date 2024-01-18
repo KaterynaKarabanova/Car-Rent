@@ -107,7 +107,11 @@ export const StyledBtn = styled.button`
   font-weight: 500;
   line-height: 20px;
   transition: 0.3s;
+  cursor: pointer;
   &:hover {
+    background-color: #e74c3c;
+  }
+  &:focus {
     background-color: #e74c3c;
   }
   @media (min-width: 768px) {

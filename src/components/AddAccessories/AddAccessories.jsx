@@ -13,16 +13,7 @@ import {
 } from './AddAccessories.styled';
 import { useTranslation } from 'react-i18next';
 
-const AddAccessories = ({
-  register,
-  control,
-  handleSubmit,
-  setValue,
-  errors,
-  onSubmit,
-  accessories,
-  setAccessories,
-}) => {
+const AddAccessories = ({ control, errors, accessories, setAccessories }) => {
   const [count, setCount] = useState(2);
   const { t } = useTranslation();
   const addInput = e => {
@@ -50,7 +41,7 @@ const AddAccessories = ({
     setAccessories(newNumber);
   };
   return (
-    <StyledForm onSubmit={handleSubmit(onSubmit)}>
+    <StyledForm>
       <div>
         <h2>{t('acesories')}</h2>
         <StyledBtnDiv>

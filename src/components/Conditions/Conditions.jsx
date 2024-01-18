@@ -8,14 +8,7 @@ import {
 } from './Conditions.styled';
 import { useTranslation } from 'react-i18next';
 
-const Conditions = ({
-  register,
-  control,
-  handleSubmit,
-  setValue,
-  errors,
-  onSubmit,
-}) => {
+const Conditions = ({ register }) => {
   const { t } = useTranslation();
   const [selectedOption, setSelectedOption] = useState('18');
   const [driverLicense, setDriverLicense] = useState(true);

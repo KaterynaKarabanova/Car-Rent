@@ -102,7 +102,11 @@ i18n
           favPageTitle: 'You drove cars that you liked here',
           favTitle: 'Page of Favorite cars',
           reviews: 'Reviews',
+          checkInfo: 'Check personal information',
+          checkAgain:
+            'Please check again your personal and car information. If everything is correct - send data. Our manager will call you in three days after receiving your appointment to discuss further cooperation',
         },
+        sendData: 'Send Data',
       },
       ua: {
         translation: {
@@ -202,7 +206,11 @@ i18n
           favPageTitle: 'Ви пригнали сюди авто, які Вам сподобались',
           favTitle: 'Сторінка улюблених авто',
           reviews: 'Відгуки',
+          checkInfo: 'Перевірте особисті дані',
+          checkAgain:
+            'Будь ласка, перевірте ще раз Ваші особисті дані і опис авто. Якщо все вказано вірно натисніть кнопку Надіслати. Наш менеджер звяжеться з Вами протягом 3 днів після отримання заявки для оговорення подальшої співпраці',
         },
+        sendData: 'Надіслати',
       },
     },
     lng: 'en', // if you're using a language detector, do not define the lng option

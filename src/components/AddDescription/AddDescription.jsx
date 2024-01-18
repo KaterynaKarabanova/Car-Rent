@@ -5,14 +5,7 @@ import {
   StyledTextarea,
 } from './AddDescription.styled';
 
-const AddDescription = ({
-  register,
-  control,
-  handleSubmit,
-  setValue,
-  errors,
-  onSubmit,
-}) => {
+const AddDescription = ({ register, errors }) => {
   const { t } = useTranslation();
   return (
     <StyledForm>

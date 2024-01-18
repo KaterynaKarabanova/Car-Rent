@@ -12,13 +12,7 @@ const LoadMore = ({ setCurrentPage, currentPage, currentCars }) => {
   };
 
   return (
-    <StyledBtn
-      type="button"
-      style={{
-        background: '#e74c3c',
-      }}
-      onClick={() => onClick()}
-    >
+    <StyledBtn type="button" onClick={() => onClick()}>
       {t('loadMore')}
     </StyledBtn>
   );

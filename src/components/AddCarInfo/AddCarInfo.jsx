@@ -21,10 +21,8 @@ import {
 const AddCarInfo = ({
   register,
   control,
-  handleSubmit,
   setValue,
   errors,
-  onSubmit,
   imagePreview,
   setImagePreview,
 }) => {
@@ -183,7 +181,7 @@ const AddCarInfo = ({
               rules={{ required: '!' }}
             />
             {errors.year && (
-              <StyledValidation>{errors.address.message}</StyledValidation>
+              <StyledValidation>{errors.year.message}</StyledValidation>
             )}
           </StyledLabel>
           <StyledLabel>
@@ -197,7 +195,7 @@ const AddCarInfo = ({
               rules={{ required: '!' }}
             />
             {errors.type && (
-              <StyledValidation>{errors.address.message}</StyledValidation>
+              <StyledValidation>{errors.type.message}</StyledValidation>
             )}
           </StyledLabel>
         </div>

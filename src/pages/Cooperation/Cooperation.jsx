@@ -23,7 +23,6 @@ const Cooperation = () => {
     control,
     handleSubmit,
     setValue,
-    reset,
     formState: { errors },
   } = useForm();
   const [showModal, setShowModal] = useState(false);
@@ -69,7 +68,6 @@ const Cooperation = () => {
       phone: data.phone,
     });
     setShowModal(true);
-    reset();
   };
   return (
     <StyledBack>
@@ -96,38 +94,18 @@ const Cooperation = () => {
             register={register}
             control={control}
             setValue={setValue}
-            handleSubmit={handleSubmit}
             errors={errors}
-            onSubmit={onSubmit}
             imagePreview={imagePreview}
             setImagePreview={setImagePreview}
           />
           <AddAccessories
-            register={register}
             control={control}
-            setValue={setValue}
-            handleSubmit={handleSubmit}
             errors={errors}
-            onSubmit={onSubmit}
             accessories={accessories}
             setAccessories={setAccessories}
           />
-          <AddDescription
-            register={register}
-            control={control}
-            setValue={setValue}
-            handleSubmit={handleSubmit}
-            errors={errors}
-            onSubmit={onSubmit}
-          />
-          <Conditions
-            register={register}
-            control={control}
-            setValue={setValue}
-            handleSubmit={handleSubmit}
-            errors={errors}
-            onSubmit={onSubmit}
-          />
+          <AddDescription register={register} errors={errors} />
+          <Conditions register={register} />
 
           {showModal && (
             <Modal
@@ -136,23 +114,18 @@ const Cooperation = () => {
               element={data}
             >
               <div>
-                <h3>Check personal information</h3>
+                <h3>{t('checkInfo')}</h3>
                 <h5>
-                  Name: <StyledSpan>{data.userName}</StyledSpan>
+                  {t('name')}: <StyledSpan>{data.userName}</StyledSpan>
                 </h5>
                 <h5>
-                  Surname: <StyledSpan>{data.userSurname}</StyledSpan>
+                  {t('surname')}: <StyledSpan>{data.userSurname}</StyledSpan>
                 </h5>
                 <h5>
-                  Phone: <StyledSpan>{data.phone}</StyledSpan>
+                  {t('phone')}: <StyledSpan>{data.phone}</StyledSpan>
                 </h5>
-                <p>
-                  Please check again your personal and car information. If
-                  everything is correct - send data. Our manager will call you
-                  in three days after receiving your appointment to discuss
-                  further cooperation
-                </p>
-                <StyledBtn onClick={onModalClose}>Send Data</StyledBtn>
+                <p>{t('checkAgain')}</p>
+                <StyledBtn onClick={onModalClose}>{t('sendData')}</StyledBtn>
               </div>
             </Modal>
           )}
